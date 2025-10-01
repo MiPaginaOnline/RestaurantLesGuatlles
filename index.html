@@ -1,247 +1,6 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Restaurant Les Guatlles — Roda de Berà</title>
-<meta name="description" content="Restaurant Les Guatlles: cocina casera y catalana en Roda de Berà (Tarragona). Menús, reservas, eventos y contacto." />
-<meta name="author" content="Restaurant Les Guatlles" />
-<link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.1/simple-lightbox.min.css" integrity="sha512-Zl3/+/k6G1nmM3+8gSm0gQ8MlFs2nJ5heRyvrcEymgq6D8N5ZK5A8PBcHPt9ZcwwhYNS0kt4V8XIlFSSUQKZHw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<style>
-:root{
-  --accent:#8b2e2e;
-  --muted:#6b6b6b;
-  --bg:#d2b48c;
-  --card:#f1e0c6;
-  --sticky-bg: rgba(139, 46, 46, 0.95);
-}
-*{box-sizing:border-box;scroll-behavior:smooth}
-html,body{height:100%;margin:0;font-family:Georgia, serif;color:#222;background:var(--bg);scroll-padding-top:120px;}
-a{color:var(--accent);text-decoration:none}
-.container{max-width:1100px;margin:0 auto;padding:28px}
-
-/* Sticky header */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: var(--sticky-bg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding:10px 20px;
-  z-index: 1200;
-  color:#fff;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  box-shadow:0 5px 15px rgba(0,0,0,.2);
-}
-
-.brand h1{margin:0;font-size:1.2rem;}
-.nav-menu{display:flex;align-items:center;gap:12px}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
-.hamburger span{width:24px;height:3px;background:#fff;border-radius:3px;display:block}
-.lang-switch button{background:none;border:none;cursor:pointer;padding:0}
-.lang-switch img{width:28px;height:20px;border-radius:3px;box-shadow:0 0 2px rgba(0,0,0,.15)}
-
-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:12px}
-nav li{padding:6px 10px;border-radius:8px}
-nav a{font-weight:600;color:#fff;}
-
-.hero-banner{position:relative;height:60vh;min-height:400px;display:flex;align-items:center;justify-content:center;background-image:url('https://tse2.mm.bing.net/th/id/OIP.O7ewhGLgfSO-NGCan1UeLAHaFj?pid=Api');background-size:cover;background-position:center;color:#fff;text-align:center;margin-top:60px}
-.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45)}
-.hero-content{position:relative;z-index:1;max-width:800px;padding:20px}
-.hero-content h1{font-size:2.5rem;margin-bottom:12px}
-.hero-content p{font-size:1.2rem;line-height:1.4}
-
-main{margin-top:24px;padding-bottom:80px}
-.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(12,12,12,0.1);margin-bottom:20px}
-.contact-list{display:flex;flex-direction:column;gap:8px}
-.contact-item{display:flex;gap:10px;align-items:center}
-.muted{color:var(--muted)}
-.menu-list{display:flex;flex-direction:column;gap:12px}
-.menu-item{display:flex;justify-content:space-between;border-bottom:1px dashed #aaa;padding-bottom:8px}
-.menu-item:last-child{border-bottom:0}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.gallery button{border:0;padding:0;background:none}
-.gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px;display:block}
-footer{margin-top:28px;padding:20px 0;color:var(--muted);font-size:0.9rem;text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
-footer .social-icons img{width:24px;height:24px;margin:0 6px;}
-
-.btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700}
-.label{font-weight:700;color:#333}
-
-/* WhatsApp */
-.whatsapp-btn{position:fixed;bottom:20px;right:20px;background:#25d366;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:1300}
-.whatsapp-btn img{width:35px;height:35px}
-
-/* Lightbox */
-.gl-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);display:none;align-items:center;justify-content:center;z-index:1400;padding:20px}
-.gl-overlay.active{display:flex}
-.gl-content{max-width:1100px;max-height:90vh;width:100%;display:flex;align-items:center;justify-content:center;position:relative}
-.gl-content img{max-width:100%;max-height:90vh;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
-.gl-close{position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.9);border-radius:8px;padding:6px;cursor:pointer}
-.gl-nav{position:absolute;left:12px;right:12px;top:50%;transform:translateY(-50%);display:flex;justify-content:space-between;pointer-events:none}
-.gl-nav button{pointer-events:auto;background:rgba(255,255,255,0.85);border:0;padding:12px;border-radius:8px;cursor:pointer;font-size:1.5rem;}
-
-/* Responsive */
-@media (max-width:768px){
-  .hamburger{display:flex}
-  nav ul{position:absolute;top:100%;left:0;right:0;background:var(--sticky-bg);flex-direction:column;padding:10px 0;display:none;z-index:1201;}
-  nav ul.active{display:flex;}
-  nav a{padding:10px 20px;display:block;}
-  .lang-switch{margin-top:10px}
-  .brand h1{width:100%;text-align:left;margin-bottom:5px;}
-}
-</style>
-</head>
-<body>
-
-<header>
-  <div class="brand">
-    <h1 data-i18n="title">Restaurant Les Guatlles</h1>
-  </div>
-  <div class="nav-menu">
-    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-    <nav>
-      <ul id="nav-links">
-        <li><a href="#sobre" data-i18n="menu_about">Sobre</a></li>
-        <li><a href="#menu" data-i18n="menu_menu">Carta</a></li>
-        <li><a href="#eventos" data-i18n="menu_events">Eventos</a></li>
-        <li><a href="#galeria" data-i18n="menu_gallery">Galería</a></li>
-        <li><a href="#contacto" data-i18n="menu_contact">Contacto</a></li>
-      </ul>
-    </nav>
-    <div class="lang-switch">
-      <button data-lang="es"><img src="https://flagcdn.com/es.svg" alt="Español"></button>
-      <button data-lang="ca"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Catalonia.svg" alt="Català"></button>
-      <button data-lang="en"><img src="https://flagcdn.com/gb.svg" alt="English"></button>
-    </div>
-  </div>
-</header>
-
-<section class="hero-banner">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1 data-i18n="hero_title">Restaurant Les Guatlles</h1>
-    <p data-i18n="hero_sub">Cocina catalana y casera en un entorno rústico y familiar.</p>
-  </div>
-</section>
-
-<main class="container">
-  <!-- Secciones: Sobre, Carta, Eventos, Galería, Contacto -->
-  <section id="sobre" class="card" tabindex="-1">
-    <h2 data-i18n="menu_about">Sobre</h2>
-    <p data-i18n="about_text">En Les Guatlles ofrecemos cocina catalana auténtica...</p>
-  </section>
-
-  <section id="menu" class="card">
-    <h2 data-i18n="menu_menu">Carta</h2>
-    <div class="menu-list">
-      <div class="menu-item"><span data-i18n="dish1">Guatlles a la brasa</span><span>12 €</span></div>
-      <div class="menu-item"><span data-i18n="dish2">Calçots con salsa romesco</span><span>10 €</span></div>
-      <div class="menu-item"><span data-i18n="dish3">Carn a la brasa</span><span>15 €</span></div>
-    </div>
-  </section>
-
-  <section id="eventos" class="card">
-    <h2 data-i18n="menu_events">Eventos</h2>
-    <p data-i18n="events_text">Organizamos calçotades, cenas de grupo y celebraciones familiares...</p>
-  </section>
-
-  <section id="galeria" class="card">
-    <h2 data-i18n="menu_gallery">Galería</h2>
-    <div class="gallery">
-      <button data-src="https://tse3.mm.bing.net/th/id/OIP.s-KWYiFmA7SI1_nkqOTiSAHaFj?pid=Api"><img src="https://tse3.mm.bing.net/th/id/OIP.s-KWYiFmA7SI1_nkqOTiSAHaFj?pid=Api" alt="Plato típico"></button>
-      <button data-src="https://tse2.mm.bing.net/th/id/OIP.NeFWFeG1jl9k7wvETfMcuwHaIW?pid=Api"><img src="https://tse2.mm.bing.net/th/id/OIP.NeFWFeG1jl9k7wvETfMcuwHaIW?pid=Api" alt="Interior restaurante"></button>
-      <button data-src="https://tse2.mm.bing.net/th/id/OIP.O7ewhGLgfSO-NGCan1UeLAHaFj?pid=Api"><img src="https://tse2.mm.bing.net/th/id/OIP.O7ewhGLgfSO-NGCan1UeLAHaFj?pid=Api" alt="Exterior masía"></button>
-    </div>
-  </section>
-
-  <section id="contacto" class="card">
-    <h2 data-i18n="menu_contact">Contacto</h2>
-    <div class="contact-list">
-      <div class="contact-item"><span class="label">Tel:</span> +34 977 80 90 22</div>
-      <div class="contact-item"><span class="label" data-i18n="address_label">Dirección:</span> <span data-i18n="address">Disseminat, 8, 43883 Roda de Berà, Tarragona</span></div>
-    </div>
-
-    <h3 data-i18n="reserve">Reservas</h3>
-    <form id="reservationForm" method="POST" action="https://formspree.io/f/xvgwkjdb">
-      <label><span class="i18" data-i18n="form_name">Nombre</span><input type="text" name="name" required></label><br>
-      <label><span class="i18" data-i18n="form_email">Email</span><input type="email" name="email" required></label><br>
-      <label><span class="i18" data-i18n="form_phone">Teléfono</span><input type="tel" name="phone" required></label><br>
-      <label><span class="i18" data-i18n="form_date">Fecha</span><input type="date" name="date" required></label><br>
-      <label><span class="i18" data-i18n="form_time">Hora</span><input type="time" name="time" required></label><br>
-      <label><span class="i18" data-i18n="form_people">Número de personas</span><input type="number" name="people" min="1" required></label><br>
-      <label><span class="i18" data-i18n="form_message">Mensaje</span><textarea name="message"></textarea></label><br>
-      <button type="submit" class="btn" data-i18n="form_send">Enviar</button>
-    </form>
-  </section>
-</main>
-
-<footer>
-  <span>© <span id="year"></span> Restaurant Les Guatlles</span>
-  <span class="social-icons">
-    <a href="https://www.instagram.com/restaurantlesguatlles/?hl=es" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
-    <a href="https://www.facebook.com/Restaurantlesguatlles/?locale=es_ES" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook"></a>
-  </span>
-</footer>
-
-<a href="https://wa.me/34977809022" class="whatsapp-btn" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.1/simple-lightbox.min.js"></script>
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// Hamburger menu
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
-hamburger.addEventListener("click", ()=>navLinks.classList.toggle("active"));
-
-// Scroll offset to avoid sticky covering sections
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-  anchor.addEventListener('click', function(e){
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if(target){
-      const offsetTop = target.offsetTop - 100;
-      window.scroll({top: offsetTop, behavior:'smooth'});
-      navLinks.classList.remove("active");
-    }
-  });
-});
-
-// Language switch
-const translations = { /* your translations object here */ };
-document.querySelectorAll('.lang-switch button').forEach(btn=>{
-  btn.addEventListener('click',()=>{ 
-    const lang = btn.getAttribute('data-lang');
-    localStorage.setItem('lang',lang);
-    document.querySelectorAll('[data-i18n]').forEach(el=>{
-      const key = el.getAttribute('data-i18n');
-      if(translations[lang] && translations[lang][key]) el.textContent = translations[lang][key];
-    });
-    document.querySelectorAll('span.i18').forEach(span=>{
-      const key = span.getAttribute('data-i18n');
-      if(translations[lang] && translations[lang][key]) span.textContent = translations[lang][key];
-    });
-  });
-});
-const savedLang = localStorage.getItem('lang') || 'es';
-document.querySelectorAll('.lang-switch button[data-lang="'+savedLang+'"]').forEach(btn=>btn.click());
-
-// Lightbox
-new SimpleLightbox('.gallery button', {sourceAttr:'data-src', captions:false});
-</script>
-</body>
-</html>
-<!doctype html>
-<html lang="es">
-<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Restaurant Les Guatlles — Roda de Berà</title>
@@ -256,8 +15,11 @@ new SimpleLightbox('.gallery button', {sourceAttr:'data-src', captions:false});
       --muted:#6b6b6b;
       --bg:#d2b48c;
       --card:#f1e0c6;
-      --glass-bg: rgba(255,255,255,0.45);
+      --glass-bg: rgba(255,255,255,0.45); /* desktop sticky (original) */
+      --sticky-mobile: rgba(139,46,46,0.92); /* marrón para móvil */
+      --header-offset: 120px; /* offset para scroll (ajústalo si quieres) */
     }
+
     *{box-sizing:border-box;scroll-behavior:smooth}
     html,body{height:100%;margin:0;font-family:Georgia, serif;color:#222;background:var(--bg)}
     a{color:var(--accent);text-decoration:none}
@@ -307,6 +69,9 @@ new SimpleLightbox('.gallery button', {sourceAttr:'data-src', captions:false});
     .hero-content p{font-size:1.2rem;line-height:1.4}
 
     main{margin-top:24px;padding-bottom:80px}
+    /* evita que el sticky tape la sección cuando se hace scroll por anclas */
+    section{ scroll-margin-top: var(--header-offset); }
+
     .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(12,12,12,0.1);margin-bottom:20px}
     .contact-list{display:flex;flex-direction:column;gap:8px}
     .contact-item{display:flex;gap:10px;align-items:center}
@@ -319,15 +84,76 @@ new SimpleLightbox('.gallery button', {sourceAttr:'data-src', captions:false});
     .gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px;display:block}
     footer{margin-top:28px;padding:20px 0;color:var(--muted);font-size:0.9rem;text-align:center;display:flex;justify-content:space-between;align-items:center}
 
-    @media (max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}.hero-banner{height:50vh}}
-    @media (max-width:768px){
-      .hamburger{display:flex}
-      nav ul{position:fixed;right:18px;bottom:96px;left:18px;background:var(--glass-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:12px;padding:16px;flex-direction:column;display:none;gap:12px;box-shadow:0 8px 30px rgba(0,0,0,.14)}
-      nav ul.active{display:flex}
-      .nav-menu{gap:8px}
+    @media (max-width:900px){
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .hero-banner{height:50vh}
     }
-    @media (max-width:520px){.gallery img{height:90px}.logo{display:none}.brand h1{font-size:1rem}.hero-content h1{font-size:1.7rem}}
 
+    /* ---------- MÓVIL: cambios solicitados ---------- */
+    @media (max-width:768px){
+      /* sticky marrón en móvil */
+      header{
+        background: var(--sticky-mobile);
+        color: #fff;
+      }
+
+      /* hacer que el header sea columna: nombre arriba, menu & flags debajo */
+      header { flex-direction: column; align-items: stretch; padding:12px; }
+      .brand{display:flex;align-items:center;justify-content:center;padding:0;margin:0}
+      .brand > div { display:flex; flex-direction:column; align-items:center; }
+
+      /* ocultar logo en móvil para que el nombre ocupe una línea */
+      .logo{display:none}
+
+      /* nombre en una sola línea, centrado */
+      .brand h1, .brand [data-i18n="title"] { 
+        font-size:1rem; 
+        margin:0;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        text-align:center;
+        color:#fff;
+        width:100%;
+      }
+
+      /* nav-menu debajo del título */
+      .nav-menu{display:flex;align-items:center;justify-content:space-between;margin-top:8px;padding:0 8px}
+
+      /* muestra la hamburguesa */
+      .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:6px;align-self:flex-start}
+      .hamburger span{background:#fff}
+
+      /* menú se abre hacia abajo (absolute respecto al header) */
+      nav ul{
+        position: absolute;
+        top: 100%;
+        left: 18px;
+        right: 18px;
+        margin-top: 8px;
+        background: var(--glass-bg);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 12px;
+        padding: 16px;
+        flex-direction: column;
+        display: none;
+        gap: 12px;
+        box-shadow: 0 8px 30px rgba(0,0,0,.18);
+        z-index: 1250;
+      }
+      nav ul.active{ display:flex; }
+
+      .lang-switch{margin-left:8px}
+    }
+
+    @media (max-width:520px){
+      .gallery img{height:90px}
+      .brand h1{font-size:0.98rem}
+      .hero-content h1{font-size:1.7rem}
+    }
+
+    /* resto original */
     .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700}
     .label{font-weight:700;color:#333}
 
@@ -460,10 +286,10 @@ new SimpleLightbox('.gallery button', {sourceAttr:'data-src', captions:false});
     <span>© <span id="year"></span> <span data-i18n="title">Restaurant Les Guatlles</span></span>
     <span class="social-icons" aria-label="Redes sociales">
       <a href="https://www.instagram.com/restaurantlesguatlles/?hl=es" target="_blank" rel="noopener">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="20" height="20">
       </a>
       <a href="https://www.facebook.com/Restaurantlesguatlles/?locale=es_ES" target="_blank" rel="noopener">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook" width="20" height="20">
       </a>
     </span>
   </footer>
@@ -616,11 +442,23 @@ new SimpleLightbox('.gallery button', {sourceAttr:'data-src', captions:false});
       navLinks.classList.toggle('active');
     }
     hamburger && hamburger.addEventListener('click', toggleMenu);
-    // Close menu when clicking a link and smooth scroll (native due to CSS)
-    navLinks.querySelectorAll('a').forEach(a=>{
-      a.addEventListener('click', (e)=>{
-        // close mobile menu if open
-        navLinks.classList.remove('active');
+
+    // Modificado: manejo de anclas con offset para que la sección quede debajo del sticky
+    document.querySelectorAll('a[href^="#"]').forEach(link=>{
+      link.addEventListener('click', (e)=>{
+        const href = link.getAttribute('href');
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          // cerrar menú móvil si está abierto
+          navLinks.classList.remove('active');
+          // calcular offset desde variable CSS --header-offset
+          const rootStyles = getComputedStyle(document.documentElement);
+          const headerOffsetStr = rootStyles.getPropertyValue('--header-offset') || '120px';
+          const offset = parseInt(headerOffsetStr, 10) || 120;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
       });
     });
 
@@ -629,43 +467,50 @@ new SimpleLightbox('.gallery button', {sourceAttr:'data-src', captions:false});
       if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
     });
 
+    // Close menu when clicking a link (older behavior preserved as fallback)
+    navLinks.querySelectorAll('a').forEach(a=>{
+      a.addEventListener('click', ()=> navLinks.classList.remove('active'));
+    });
+
     /**********************
      * Reserva: envío via Fetch a Formspree (AJAX)
      **********************/
     const reservationForm = document.getElementById('reservationForm');
     const formStatus = document.getElementById('formStatus');
 
-    reservationForm.addEventListener('submit', async function(e){
-      e.preventDefault();
-      formStatus.textContent = '';
-      const submitBtn = reservationForm.querySelector('button[type="submit"]');
-      submitBtn.disabled = true;
-      const url = reservationForm.getAttribute('action') || 'https://formspree.io/f/xvgwkjdb';
-      const formData = new FormData(reservationForm);
-      try {
-        const resp = await fetch(url, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: formData
-        });
-        if (resp.ok) {
-          // success message
-          formStatus.style.color = 'green';
-          formStatus.textContent = translations[localStorage.getItem('lang') || 'es'].form_send + ' — ' + (localStorage.getItem('lang') === 'en' ? 'Reservation sent! We will contact you soon.' : (localStorage.getItem('lang') === 'ca' ? 'Reserva enviada! Et contactarem aviat.' : 'Reserva enviada! Te contactaremos pronto.'));
-          reservationForm.reset();
-        } else {
-          const data = await resp.json();
+    if (reservationForm) {
+      reservationForm.addEventListener('submit', async function(e){
+        e.preventDefault();
+        formStatus.textContent = '';
+        const submitBtn = reservationForm.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        const url = reservationForm.getAttribute('action') || 'https://formspree.io/f/xvgwkjdb';
+        const formData = new FormData(reservationForm);
+        try {
+          const resp = await fetch(url, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: formData
+          });
+          if (resp.ok) {
+            // success message
+            formStatus.style.color = 'green';
+            formStatus.textContent = translations[localStorage.getItem('lang') || 'es'].form_send + ' — ' + (localStorage.getItem('lang') === 'en' ? 'Reservation sent! We will contact you soon.' : (localStorage.getItem('lang') === 'ca' ? 'Reserva enviada! Et contactarem aviat.' : 'Reserva enviada! Te contactaremos pronto.'));
+            reservationForm.reset();
+          } else {
+            const data = await resp.json();
+            formStatus.style.color = 'crimson';
+            if (data && data.errors) formStatus.textContent = data.errors.map(err=>err.message).join(', ');
+            else formStatus.textContent = 'Error al enviar. Inténtalo de nuevo.';
+          }
+        } catch (err) {
           formStatus.style.color = 'crimson';
-          if (data && data.errors) formStatus.textContent = data.errors.map(err=>err.message).join(', ');
-          else formStatus.textContent = 'Error al enviar. Inténtalo de nuevo.';
+          formStatus.textContent = 'Error de red. Inténtalo de nuevo.';
+        } finally {
+          submitBtn.disabled = false;
         }
-      } catch (err) {
-        formStatus.style.color = 'crimson';
-        formStatus.textContent = 'Error de red. Inténtalo de nuevo.';
-      } finally {
-        submitBtn.disabled = false;
-      }
-    });
+      });
+    }
 
     /**********************
      * Galería: modal interno con navegación
@@ -705,17 +550,17 @@ new SimpleLightbox('.gallery button', {sourceAttr:'data-src', captions:false});
     galleryButtons.forEach((btn, idx) => {
       btn.addEventListener('click', ()=> openOverlay(idx));
     });
-    glClose.addEventListener('click', closeOverlay);
-    glPrev.addEventListener('click', showPrev);
-    glNext.addEventListener('click', showNext);
+    if (glClose) glClose.addEventListener('click', closeOverlay);
+    if (glPrev) glPrev.addEventListener('click', showPrev);
+    if (glNext) glNext.addEventListener('click', showNext);
 
     // close on background click
-    overlay.addEventListener('click', (e)=>{
+    overlay && overlay.addEventListener('click', (e)=>{
       if (e.target === overlay) closeOverlay();
     });
     // keyboard navigation
     document.addEventListener('keydown', (e)=>{
-      if (overlay.classList.contains('active')) {
+      if (overlay && overlay.classList.contains('active')) {
         if (e.key === 'Escape') closeOverlay();
         if (e.key === 'ArrowLeft') showPrev();
         if (e.key === 'ArrowRight') showNext();
