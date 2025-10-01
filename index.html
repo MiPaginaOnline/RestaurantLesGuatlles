@@ -4,9 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Restaurant Les Guatlles — Roda de Berà</title>
-  <meta name="description" content="Restaurant Les Guatlles: cocina casera y catalana en Roda de Berà (Tarragona). Menús, reservas, eventos y contacto." />
+  <meta name="description" content="Restaurant Les Guatlles: cocina casera y catalana en Roda de Berà (Tarragona). Menús, reservas, eventos y ubicación." />
   <meta name="author" content="Restaurant Les Guatlles" />
   <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+
+  <!-- SimpleLightbox stylesheet (progressive enhancement) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.1/simple-lightbox.min.css" integrity="sha512-Zl3/+/k6G1nmM3+8gSm0gQ8MlFs2nJ5heRyvrcEymgq6D8N5ZK5A8PBcHPt9ZcwwhYNS0kt4V8XIlFSSUQKZHw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
@@ -15,17 +17,17 @@
       --muted:#6b6b6b;
       --bg:#d2b48c;
       --card:#f1e0c6;
-      --glass-bg: rgba(255,255,255,0.45); /* desktop sticky (original) */
-      --sticky-mobile: rgba(139,46,46,0.92); /* marrón para móvil */
-      --header-offset: 120px; /* offset para scroll (ajústalo si quieres) */
+      --glass-bg: rgba(255,255,255,0.45); /* sticky glass (same for desktop & mobile) */
+      --header-offset: 96px; /* offset used for anchor scrolling */
     }
 
+    /* Reset & base */
     *{box-sizing:border-box;scroll-behavior:smooth}
     html,body{height:100%;margin:0;font-family:Georgia, serif;color:#222;background:var(--bg)}
     a{color:var(--accent);text-decoration:none}
     .container{max-width:1100px;margin:0 auto;padding:28px}
 
-    /* STICKY FLOTANTE (header) */
+    /* ---------- STICKY HEADER ---------- */
     header {
       position: fixed;
       top: 18px;
@@ -53,7 +55,7 @@
     nav li{padding:6px 10px;border-radius:8px}
     nav a{font-weight:600;cursor:pointer}
 
-    /* Hamburguesa móvil */
+    /* hamburger + menu */
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
     .hamburger span{width:24px;height:3px;background:#222;border-radius:3px;display:block}
     .nav-menu{display:flex;gap:12px;align-items:center}
@@ -62,6 +64,7 @@
     .lang-switch button{background:none;border:none;cursor:pointer;padding:0}
     .lang-switch img{width:28px;height:20px;border-radius:3px;box-shadow:0 0 2px rgba(0,0,0,.15)}
 
+    /* Hero */
     .hero-banner{position:relative;height:60vh;min-height:400px;display:flex;align-items:center;justify-content:center;background-image:url('https://tse2.mm.bing.net/th/id/OIP.O7ewhGLgfSO-NGCan1UeLAHaFj?pid=Api');background-size:cover;background-position:center;color:#fff;text-align:center;margin-top:84px}
     .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45)}
     .hero-content{position:relative;z-index:1;max-width:800px;padding:20px}
@@ -72,6 +75,7 @@
     /* evita que el sticky tape la sección cuando se hace scroll por anclas */
     section{ scroll-margin-top: var(--header-offset); }
 
+    /* cards, menu, gallery */
     .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(12,12,12,0.1);margin-bottom:20px}
     .contact-list{display:flex;flex-direction:column;gap:8px}
     .contact-item{display:flex;gap:10px;align-items:center}
@@ -84,87 +88,12 @@
     .gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px;display:block}
     footer{margin-top:28px;padding:20px 0;color:var(--muted);font-size:0.9rem;text-align:center;display:flex;justify-content:space-between;align-items:center}
 
-    @media (max-width:900px){
-      .gallery{grid-template-columns:repeat(2,1fr)}
-      .hero-banner{height:50vh}
-    }
+    /* schedule table */
+    .schedule{width:100%;border-collapse:collapse;margin-top:10px}
+    .schedule th,.schedule td{padding:8px;border-bottom:1px solid #999;text-align:left}
+    .schedule th{background:#e2cda0}
 
-    /* ---------- MÓVIL: cambios solicitados ---------- */
-    @media (max-width:768px){
-      /* sticky marrón en móvil */
-      header{
-        background: var(--sticky-mobile);
-        color: #fff;
-      }
-
-      /* hacer que el header sea columna: nombre arriba, menu & flags debajo */
-      header { flex-direction: column; align-items: stretch; padding:12px; }
-      .brand{display:flex;align-items:center;justify-content:center;padding:0;margin:0}
-      .brand > div { display:flex; flex-direction:column; align-items:center; }
-
-      /* ocultar logo en móvil para que el nombre ocupe una línea */
-      .logo{display:none}
-
-      /* nombre en una sola línea, centrado */
-      .brand h1, .brand [data-i18n="title"] { 
-        font-size:1rem; 
-        margin:0;
-        white-space:nowrap;
-        overflow:hidden;
-        text-overflow:ellipsis;
-        text-align:center;
-        color:#fff;
-        width:100%;
-      }
-
-      /* nav-menu debajo del título */
-      .nav-menu{display:flex;align-items:center;justify-content:space-between;margin-top:8px;padding:0 8px}
-
-      /* muestra la hamburguesa */
-      .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:6px;align-self:flex-start}
-      .hamburger span{background:#fff}
-
-      /* menú se abre hacia abajo (absolute respecto al header) */
-      nav ul{
-        position: absolute;
-        top: 100%;
-        left: 18px;
-        right: 18px;
-        margin-top: 8px;
-        background: var(--glass-bg);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border-radius: 12px;
-        padding: 16px;
-        flex-direction: column;
-        display: none;
-        gap: 12px;
-        box-shadow: 0 8px 30px rgba(0,0,0,.18);
-        z-index: 1250;
-      }
-      nav ul.active{ display:flex; }
-
-      .lang-switch{margin-left:8px}
-    }
-
-    @media (max-width:520px){
-      .gallery img{height:90px}
-      .brand h1{font-size:0.98rem}
-      .hero-content h1{font-size:1.7rem}
-    }
-
-    /* resto original */
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700}
-    .label{font-weight:700;color:#333}
-
-    /* Botón WhatsApp */
-    .whatsapp-btn{position:fixed;bottom:20px;right:20px;background:#25d366;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:1300}
-    .whatsapp-btn img{width:35px;height:35px}
-    @media (max-width:768px){
-      .whatsapp-btn{left:50%;right:auto;transform:translateX(-50%);}
-    }
-
-    /* Modal lightbox */
+    /* lightbox modal custom */
     .gl-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);display:none;align-items:center;justify-content:center;z-index:1400;padding:20px}
     .gl-overlay.active{display:flex}
     .gl-content{max-width:1100px;max-height:90vh;width:100%;display:flex;align-items:center;justify-content:center;position:relative}
@@ -173,23 +102,95 @@
     .gl-nav{position:absolute;left:12px;right:12px;top:50%;transform:translateY(-50%);display:flex;justify-content:space-between;pointer-events:none}
     .gl-nav button{pointer-events:auto;background:rgba(255,255,255,0.85);border:0;padding:8px;border-radius:8px;cursor:pointer}
 
+    /* WhatsApp button */
+    .whatsapp-btn{position:fixed;bottom:20px;right:20px;background:#25d366;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:1300}
+    .whatsapp-btn img{width:35px;height:35px}
+
     /* small improvements */
     label > span.i18 {display:inline-block;margin-right:8px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* ---------- RESPONSIVE: MOBIL (sticky smaller + stacked) ---------- */
+    @media (max-width:900px){
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .hero-banner{height:50vh}
+    }
+
+    @media (max-width:768px){
+      /* header: apilar verticalmente: nombre arriba, debajo fila con hamburguesa + banderas */
+      header{
+        flex-direction: column;
+        align-items:stretch;
+        padding:10px;
+      }
+      /* brand: centrado, nombre en una línea si cabe */
+      .brand{display:flex;justify-content:center;padding:0;margin:0}
+      .brand .logo{display:none}
+      .brand h1{
+        font-size:1rem;
+        margin:0;
+        text-align:center;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        color:#222;
+      }
+
+      /* nav row (hamburger + flags) debajo del título */
+      .nav-menu{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:8px 6px 0 6px;
+      }
+      .hamburger{display:flex;align-self:center}
+      .hamburger span{background:#222}
+
+      /* dropdown menu absolute under the sticky */
+      nav ul{
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 12px;
+        right: 12px;
+        margin-top:0;
+        background: var(--glass-bg);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 12px;
+        padding: 12px;
+        flex-direction: column;
+        display: none;
+        gap: 12px;
+        box-shadow: 0 8px 30px rgba(0,0,0,.18);
+        z-index: 1250;
+      }
+      nav ul.active{ display:flex; }
+      .lang-switch{gap:6px}
+      /* slightly smaller hero on very small screens */
+      .hero-content h1{font-size:1.8rem}
+    }
+
+    @media (max-width:520px){
+      .gallery img{height:90px}
+      .hero-content h1{font-size:1.6rem}
+    }
   </style>
 </head>
 <body>
+  <!-- HEADER / STICKY -->
   <header class="container" role="banner" aria-label="Barra principal">
     <div class="brand" aria-hidden="false">
       <div class="logo" aria-hidden="true"></div>
       <div>
         <h1 data-i18n="title">Restaurant Les Guatlles</h1>
-        <div class="muted" data-i18n="location">Roda de Berà — Tarragona</div>
+        <!-- se oculta en móvil para dejar solo el nombre (se controla por CSS) -->
+        <div class="muted" data-i18n="location" style="font-size:0.85rem;color:var(--muted)">Roda de Berà — Tarragona</div>
       </div>
     </div>
 
     <div class="nav-menu" aria-hidden="false">
-      <div class="hamburger" id="hamburger" aria-label="Abrir menú" role="button" tabindex="0">
+      <!-- hamburguesa (visible en móvil) -->
+      <div class="hamburger" id="hamburger" aria-label="Abrir menú" role="button" tabindex="0" aria-expanded="false">
         <span></span><span></span><span></span>
       </div>
 
@@ -198,8 +199,10 @@
           <li role="none"><a role="menuitem" href="#sobre" data-i18n="menu_about">Sobre</a></li>
           <li role="none"><a role="menuitem" href="#menu" data-i18n="menu_menu">Carta</a></li>
           <li role="none"><a role="menuitem" href="#eventos" data-i18n="menu_events">Eventos</a></li>
+          <li role="none"><a role="menuitem" href="#reservas" data-i18n="menu_reserve">Reservas</a></li>
+          <li role="none"><a role="menuitem" href="#horario" data-i18n="menu_hours">Horario</a></li>
+          <li role="none"><a role="menuitem" href="#ubicacion" data-i18n="menu_location">Ubicación</a></li>
           <li role="none"><a role="menuitem" href="#galeria" data-i18n="menu_gallery">Galería</a></li>
-          <li role="none"><a role="menuitem" href="#contacto" data-i18n="menu_contact">Contacto</a></li>
         </ul>
       </nav>
 
@@ -211,6 +214,7 @@
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero-banner" aria-hidden="false">
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -219,6 +223,7 @@
     </div>
   </section>
 
+  <!-- MAIN -->
   <main class="container" id="maincontent" role="main">
     <section id="sobre" class="card" tabindex="-1">
       <h2 data-i18n="menu_about">Sobre</h2>
@@ -227,7 +232,7 @@
 
     <section id="menu" class="card">
       <h2 data-i18n="menu_menu">Carta</h2>
-      <div class="menu-list">
+      <div class="menu-list" aria-label="Carta">
         <div class="menu-item"><span data-i18n="dish1">Guatlles a la brasa</span><span>12 €</span></div>
         <div class="menu-item"><span data-i18n="dish2">Calçots con salsa romesco</span><span>10 €</span></div>
         <div class="menu-item"><span data-i18n="dish3">Carn a la brasa</span><span>15 €</span></div>
@@ -239,42 +244,45 @@
       <p data-i18n="events_text">Organizamos calçotades, cenas de grupo y celebraciones familiares en nuestro espacio rústico. Consulta disponibilidad para tu evento especial.</p>
     </section>
 
-    <section id="contacto" class="card">
-      <h2 data-i18n="menu_contact">Contacto</h2>
-      <div class="contact-list">
-        <div class="contact-item"><span class="label">Tel:</span> +34 977 80 90 22</div>
-        <div class="contact-item"><span class="label" data-i18n="address_label">Dirección:</span> <span data-i18n="address">Disseminat, 8, 43883 Roda de Berà, Tarragona</span></div>
-      </div>
-
-      <h3 data-i18n="reserve">Reservas</h3>
-
-      <!-- FORMULARIO (labels con span para no romper inputs al traducir) -->
-      <form id="reservationForm" method="POST" action="https://formspree.io/f/xvgwkjdb">
-        <label><span class="i18" data-i18n="form_name">Nombre</span><input type="text" name="name" required></label><br>
-        <label><span class="i18" data-i18n="form_email">Email</span><input type="email" name="email" required></label><br>
-        <label><span class="i18" data-i18n="form_phone">Teléfono</span><input type="tel" name="phone" required></label><br>
-        <label><span class="i18" data-i18n="form_date">Fecha</span><input type="date" name="date" required></label><br>
-        <label><span class="i18" data-i18n="form_time">Hora</span><input type="time" name="time" required></label><br>
-        <label><span class="i18" data-i18n="form_people">Número de personas</span><input type="number" name="people" min="1" required></label><br>
-        <label><span class="i18" data-i18n="form_message">Mensaje</span><textarea name="message"></textarea></label><br>
-
-        <!-- hidden para Formspree (opcional) -->
-        <input type="hidden" name="_language" value="auto">
-        <input type="hidden" name="_subject" value="Reserva web - Les Guatlles">
-
-        <button type="submit" class="btn" data-i18n="form_send">Enviar</button>
-      </form>
-
-      <div id="formStatus" aria-live="polite" style="margin-top:12px"></div>
-
-      <h3 data-i18n="location_map">Ubicación</h3>
-      <iframe src="https://www.google.com/maps?q=Restaurant+Les+Guatlles+Roda+de+Berà&output=embed" width="100%" height="250" style="border:0;border-radius:12px" allowfullscreen="" loading="lazy"></iframe>
+    <!-- RESERVAS (sustituye al formulario anterior) -->
+    <section id="reservas" class="card">
+      <h2 data-i18n="menu_reserve">Reservas</h2>
+      <p data-i18n="reserve_text">Para reservar, por favor llámanos al <strong>+34 977 80 90 22</strong>.</p>
     </section>
 
+    <!-- HORARIO: tabla lista para rellenar (días traducibles) -->
+    <section id="horario" class="card">
+      <h2 data-i18n="menu_hours">Horario</h2>
+      <table class="schedule" aria-label="Horario">
+        <thead>
+          <tr>
+            <th data-i18n="day">Día</th>
+            <th data-i18n="hours">Horario</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr><td data-i18n="monday">Lunes</td><td class="closed">CERRADO</td></tr>
+        <tr><td data-i18n="tuesday">Martes</td><td class="closed">CERRADO</td></tr>
+        <tr><td data-i18n="wednesday">Miércoles</td><td class="closed">CERRADO</td></tr>
+        <tr><td data-i18n="thursday">Jueves</td><td class="closed">CERRADO</td></tr>
+        <tr><td data-i18n="friday">Viernes</td><td class="closed">CERRADO</td></tr>
+        <tr><td data-i18n="saturday">Sábado</td><td>13:00 - 15:30</td></tr>
+        <tr><td data-i18n="sunday">Domingo</td><td>13:00 - 15:30</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- UBICACIÓN -->
+    <section id="ubicacion" class="card">
+      <h2 data-i18n="menu_location">Ubicación</h2>
+      <p data-i18n="address">Disseminat, 8, 43883 Roda de Berà, Tarragona</p>
+      <iframe title="Mapa Restaurant Les Guatlles" src="https://www.google.com/maps?q=Restaurant+Les+Guatlles+Roda+de+Berà&output=embed" width="100%" height="250" style="border:0;border-radius:12px" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <!-- GALERÍA -->
     <section id="galeria" class="card">
       <h2 data-i18n="menu_gallery">Galería</h2>
       <div class="gallery" role="list">
-        <!-- botones para evitar que cambie de página -->
         <button data-src="https://tse3.mm.bing.net/th/id/OIP.s-KWYiFmA7SI1_nkqOTiSAHaFj?pid=Api" aria-label="Ver imagen 1"><img src="https://tse3.mm.bing.net/th/id/OIP.s-KWYiFmA7SI1_nkqOTiSAHaFj?pid=Api" alt="Plato típico"></button>
         <button data-src="https://tse2.mm.bing.net/th/id/OIP.NeFWFeG1jl9k7wvETfMcuwHaIW?pid=Api" aria-label="Ver imagen 2"><img src="https://tse2.mm.bing.net/th/id/OIP.NeFWFeG1jl9k7wvETfMcuwHaIW?pid=Api" alt="Interior restaurante"></button>
         <button data-src="https://tse2.mm.bing.net/th/id/OIP.O7ewhGLgfSO-NGCan1UeLAHaFj?pid=Api" aria-label="Ver imagen 3"><img src="https://tse2.mm.bing.net/th/id/OIP.O7ewhGLgfSO-NGCan1UeLAHaFj?pid=Api" alt="Exterior masía"></button>
@@ -282,6 +290,7 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="container" role="contentinfo">
     <span>© <span id="year"></span> <span data-i18n="title">Restaurant Les Guatlles</span></span>
     <span class="social-icons" aria-label="Redes sociales">
@@ -294,12 +303,34 @@
     </span>
   </footer>
 
-  <!-- Botón flotante de WhatsApp -->
-  <a href="https://wa.me/34977809022" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-  </a>
+  <!-- WhatsApp flotante -->
+<a href="https://wa.me/34977809022" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
 
-  <!-- Lightbox modal personalizado -->
+<style>
+  .whatsapp-btn{
+    position: fixed;
+    bottom: 20px;            /* distancia desde el borde inferior */
+    left: 50%;               /* centro horizontal */
+    transform: translateX(-50%); /* centra exactamente */
+    background:#25d366;
+    border-radius:50%;
+    width:60px;
+    height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 12px rgba(0,0,0,.3);
+    z-index:1300;
+  }
+  .whatsapp-btn img{
+    width:35px;
+    height:35px;
+  }
+</style>
+
+  <!-- Modal lightbox personalizado -->
   <div id="glOverlay" class="gl-overlay" aria-hidden="true" role="dialog" aria-label="Galería imagen">
     <div class="gl-content" role="document">
       <button class="gl-close" id="glClose" aria-label="Cerrar">✕</button>
@@ -311,11 +342,16 @@
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.1/simple-lightbox.min.js"></script>
+  <!-- SimpleLightbox script (progressive enhancement) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.1/simple-lightbox.min.js" integrity="sha512-0G2rF0t1QY3rXdp9r1JqjB3mB6g2T2t7y1dV6k2N9XGZ8V1bE3QeG9S+5X9h1vVz6p0QxwZ4rD1U1uV0G0GRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <script>
-    /**********************
-     * Traducciones completas
-     **********************/
+    /***********************
+     * Variables & helper
+     ***********************/
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Translations object (ES / CA / EN)
     const translations = {
       es: {
         title: 'Restaurant Les Guatlles',
@@ -323,27 +359,23 @@
         menu_about: 'Sobre',
         menu_menu: 'Carta',
         menu_events: 'Eventos',
+        menu_reserve: 'Reservas',
+        reserve_text: 'Para reservar, por favor llámanos al <strong>+34 977 80 90 22</strong>.',
+        menu_hours: 'Horario',
+        menu_location: 'Ubicación',
         menu_gallery: 'Galería',
-        menu_contact: 'Contacto',
         hero_title: 'Restaurant Les Guatlles',
         hero_sub: 'Cocina catalana y casera en un entorno rústico y familiar.',
-        reserve: 'Reservas',
         about_text: 'En Les Guatlles ofrecemos cocina catalana auténtica en un ambiente rústico y moderno. Nuestro espacio está rodeado de naturaleza y pensado para disfrutar en familia.',
         dish1: 'Guatlles a la brasa',
         dish2: 'Calçots con salsa romesco',
         dish3: 'Carn a la brasa',
         events_text: 'Organizamos calçotades, cenas de grupo y celebraciones familiares en nuestro espacio rústico. Consulta disponibilidad para tu evento especial.',
-        address_label: 'Dirección:',
         address: 'Disseminat, 8, 43883 Roda de Berà, Tarragona',
-        form_name: 'Nombre',
-        form_email: 'Email',
-        form_phone: 'Teléfono',
-        form_date: 'Fecha',
-        form_time: 'Hora',
-        form_people: 'Número de personas',
-        form_message: 'Mensaje',
-        form_send: 'Enviar',
-        location_map: 'Ubicación'
+        day: 'Día',
+        hours: 'Horario',
+        monday: 'Lunes', tuesday: 'Martes', wednesday: 'Miércoles',
+        thursday: 'Jueves', friday: 'Viernes', saturday: 'Sábado', sunday: 'Domingo'
       },
       ca: {
         title: 'Restaurant Les Guatlles',
@@ -351,27 +383,23 @@
         menu_about: 'Sobre',
         menu_menu: 'Carta',
         menu_events: 'Esdeveniments',
+        menu_reserve: 'Reserves',
+        reserve_text: 'Per reservar, si us plau truca al <strong>+34 977 80 90 22</strong>.',
+        menu_hours: 'Horari',
+        menu_location: 'Ubicació',
         menu_gallery: 'Galeria',
-        menu_contact: 'Contacte',
         hero_title: 'Restaurant Les Guatlles',
         hero_sub: 'Cuina catalana i casolana en un entorn rústic i familiar.',
-        reserve: 'Reserves',
         about_text: 'A Les Guatlles oferim cuina catalana autèntica en un ambient rústic i modern. El nostre espai està envoltat de natura i pensat per gaudir en família.',
         dish1: 'Guatlles a la brasa',
         dish2: 'Calçots amb salsa romesco',
         dish3: 'Carn a la brasa',
         events_text: 'Organitzem calçotades, sopars de grup i celebracions familiars al nostre espai rústic. Consulta disponibilitat per al teu esdeveniment especial.',
-        address_label: 'Adreça:',
         address: 'Disseminat, 8, 43883 Roda de Berà, Tarragona',
-        form_name: 'Nom',
-        form_email: 'Correu electrònic',
-        form_phone: 'Telèfon',
-        form_date: 'Data',
-        form_time: 'Hora',
-        form_people: 'Nombre de persones',
-        form_message: 'Missatge',
-        form_send: 'Enviar',
-        location_map: 'Ubicació'
+        day: 'Dia',
+        hours: 'Horari',
+        monday: 'Dilluns', tuesday: 'Dimarts', wednesday: 'Dimecres',
+        thursday: 'Dijous', friday: 'Divendres', saturday: 'Dissabte', sunday: 'Diumenge'
       },
       en: {
         title: 'Restaurant Les Guatlles',
@@ -379,142 +407,103 @@
         menu_about: 'About',
         menu_menu: 'Menu',
         menu_events: 'Events',
+        menu_reserve: 'Reservations',
+        reserve_text: 'To reserve, please call us at <strong>+34 977 80 90 22</strong>.',
+        menu_hours: 'Opening hours',
+        menu_location: 'Location',
         menu_gallery: 'Gallery',
-        menu_contact: 'Contact',
         hero_title: 'Restaurant Les Guatlles',
         hero_sub: 'Catalan homemade cuisine in a rustic and family-friendly environment.',
-        reserve: 'Reservations',
-        about_text: 'At Les Guatlles we offer authentic Catalan cuisine in a rustic yet modern atmosphere. Our space is surrounded by nature and designed to enjoy with family.',
-        dish1: 'Grilled quail',
+        about_text: 'At Les Guatlles we offer authentic Catalan cuisine in a rustic yet modern atmosphere. Surrounded by nature, our restaurant is perfect for families.',
+        dish1: 'Grilled quails',
         dish2: 'Calçots with romesco sauce',
         dish3: 'Grilled meat',
         events_text: 'We organize calçotades, group dinners and family celebrations in our rustic venue. Check availability for your special event.',
-        address_label: 'Address:',
         address: 'Disseminat, 8, 43883 Roda de Berà, Tarragona',
-        form_name: 'Name',
-        form_email: 'Email',
-        form_phone: 'Phone',
-        form_date: 'Date',
-        form_time: 'Time',
-        form_people: 'Number of people',
-        form_message: 'Message',
-        form_send: 'Send',
-        location_map: 'Location'
+        day: 'Day',
+        hours: 'Opening hours',
+        monday: 'Monday', tuesday: 'Tuesday', wednesday: 'Wednesday',
+        thursday: 'Thursday', friday: 'Friday', saturday: 'Saturday', sunday: 'Sunday'
       }
     };
 
-    function setLanguage(lang){
-      localStorage.setItem('lang', lang);
-      // translate text-only elements
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const key = el.getAttribute('data-i18n');
-        // avoid overwriting label inputs: only change elements that are not parent of input
-        if(!el.querySelector('input') && !el.querySelector('textarea') && !el.querySelector('select')) {
-          if(translations[lang] && translations[lang][key]) el.textContent = translations[lang][key];
-        }
-      });
-      // translate label spans inside labels (those span.i18)
-      document.querySelectorAll('span.i18').forEach(span=>{
-        const key = span.getAttribute('data-i18n');
-        if(translations[lang] && translations[lang][key]) span.textContent = translations[lang][key];
-      });
-    }
-
-    // Inicializar idioma
+    // Initialize language from localStorage or default 'es'
     const savedLang = localStorage.getItem('lang') || 'es';
-    // set span.i18 attributes for form labels (they already exist in markup)
     setLanguage(savedLang);
 
-    // Botones de idioma
+    // Language buttons
     document.querySelectorAll('.lang-switch button').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        setLanguage(btn.getAttribute('data-lang'));
+      btn.addEventListener('click', ()=> {
+        const lang = btn.getAttribute('data-lang');
+        setLanguage(lang);
       });
     });
 
-    /**********************
-     * Menú hamburguesa comportamiento
-     **********************/
+    // Apply translations to elements with data-i18n
+    function setLanguage(lang){
+      try { localStorage.setItem('lang', lang); } catch(e) {}
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          // For safety: some fields want HTML (reserve_text)
+          if (key === 'reserve_text') {
+            el.innerHTML = translations[lang][key];
+          } else {
+            el.textContent = translations[lang][key];
+          }
+        }
+      });
+    }
+
+    /***********************
+     * Hamburger & anchor scrolling (offset)
+     ***********************/
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
 
     function toggleMenu() {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
       navLinks.classList.toggle('active');
     }
-    hamburger && hamburger.addEventListener('click', toggleMenu);
+    if (hamburger) {
+      hamburger.addEventListener('click', toggleMenu);
+      hamburger.addEventListener('keydown', (e)=> {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
+      });
+    }
 
-    // Modificado: manejo de anclas con offset para que la sección quede debajo del sticky
+    // Smooth anchor scroll with header offset
     document.querySelectorAll('a[href^="#"]').forEach(link=>{
       link.addEventListener('click', (e)=>{
         const href = link.getAttribute('href');
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          // cerrar menú móvil si está abierto
+          // close mobile menu if open
           navLinks.classList.remove('active');
-          // calcular offset desde variable CSS --header-offset
+          hamburger.setAttribute('aria-expanded','false');
+          // compute offset from CSS variable
           const rootStyles = getComputedStyle(document.documentElement);
-          const headerOffsetStr = rootStyles.getPropertyValue('--header-offset') || '120px';
-          const offset = parseInt(headerOffsetStr, 10) || 120;
+          const headerOffsetStr = rootStyles.getPropertyValue('--header-offset') || '96px';
+          const offset = parseInt(headerOffsetStr, 10) || 96;
           const top = target.getBoundingClientRect().top + window.scrollY - offset;
           window.scrollTo({ top, behavior: 'smooth' });
         }
       });
     });
 
-    // Accessibility: allow Enter key to open the hamburger
-    hamburger && hamburger.addEventListener('keydown', (e)=>{
-      if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
+    // Close menu when click outside (optional)
+    document.addEventListener('click', (e)=>{
+      if (!e.target.closest('header')) {
+        navLinks.classList.remove('active');
+        hamburger.setAttribute('aria-expanded','false');
+      }
     });
 
-    // Close menu when clicking a link (older behavior preserved as fallback)
-    navLinks.querySelectorAll('a').forEach(a=>{
-      a.addEventListener('click', ()=> navLinks.classList.remove('active'));
-    });
-
-    /**********************
-     * Reserva: envío via Fetch a Formspree (AJAX)
-     **********************/
-    const reservationForm = document.getElementById('reservationForm');
-    const formStatus = document.getElementById('formStatus');
-
-    if (reservationForm) {
-      reservationForm.addEventListener('submit', async function(e){
-        e.preventDefault();
-        formStatus.textContent = '';
-        const submitBtn = reservationForm.querySelector('button[type="submit"]');
-        submitBtn.disabled = true;
-        const url = reservationForm.getAttribute('action') || 'https://formspree.io/f/xvgwkjdb';
-        const formData = new FormData(reservationForm);
-        try {
-          const resp = await fetch(url, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: formData
-          });
-          if (resp.ok) {
-            // success message
-            formStatus.style.color = 'green';
-            formStatus.textContent = translations[localStorage.getItem('lang') || 'es'].form_send + ' — ' + (localStorage.getItem('lang') === 'en' ? 'Reservation sent! We will contact you soon.' : (localStorage.getItem('lang') === 'ca' ? 'Reserva enviada! Et contactarem aviat.' : 'Reserva enviada! Te contactaremos pronto.'));
-            reservationForm.reset();
-          } else {
-            const data = await resp.json();
-            formStatus.style.color = 'crimson';
-            if (data && data.errors) formStatus.textContent = data.errors.map(err=>err.message).join(', ');
-            else formStatus.textContent = 'Error al enviar. Inténtalo de nuevo.';
-          }
-        } catch (err) {
-          formStatus.style.color = 'crimson';
-          formStatus.textContent = 'Error de red. Inténtalo de nuevo.';
-        } finally {
-          submitBtn.disabled = false;
-        }
-      });
-    }
-
-    /**********************
-     * Galería: modal interno con navegación
-     **********************/
+    /***********************
+     * Gallery modal (custom)
+     ***********************/
     const galleryButtons = document.querySelectorAll('.gallery button');
     const overlay = document.getElementById('glOverlay');
     const glImage = document.getElementById('glImage');
@@ -531,12 +520,14 @@
       overlay.classList.add('active');
       overlay.setAttribute('aria-hidden','false');
       document.body.style.overflow = 'hidden';
-      glImage.focus && glImage.focus();
+      // focus for accessibility
+      glClose && glClose.focus();
     }
     function closeOverlay() {
       overlay.classList.remove('active');
       overlay.setAttribute('aria-hidden','true');
       document.body.style.overflow = '';
+      glImage.src = '';
     }
     function showPrev() {
       currentIndex = (currentIndex - 1 + galleryList.length) % galleryList.length;
@@ -547,18 +538,17 @@
       glImage.src = galleryList[currentIndex];
     }
 
-    galleryButtons.forEach((btn, idx) => {
-      btn.addEventListener('click', ()=> openOverlay(idx));
-    });
-    if (glClose) glClose.addEventListener('click', closeOverlay);
-    if (glPrev) glPrev.addEventListener('click', showPrev);
-    if (glNext) glNext.addEventListener('click', showNext);
+    galleryButtons.forEach((btn, idx) => btn.addEventListener('click', ()=> openOverlay(idx)));
+    glClose && glClose.addEventListener('click', closeOverlay);
+    glPrev && glPrev.addEventListener('click', showPrev);
+    glNext && glNext.addEventListener('click', showNext);
 
-    // close on background click
+    // close on overlay click
     overlay && overlay.addEventListener('click', (e)=>{
       if (e.target === overlay) closeOverlay();
     });
-    // keyboard navigation
+
+    // keyboard nav
     document.addEventListener('keydown', (e)=>{
       if (overlay && overlay.classList.contains('active')) {
         if (e.key === 'Escape') closeOverlay();
@@ -567,15 +557,23 @@
       }
     });
 
-    /**********************
-     * Misc: year, localStorage language already set
-     **********************/
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Initialize SimpleLightbox (kept for progressive enhancement but not necessary)
+    // Initialize SimpleLightbox (progressive enhancement, targets anchors)
     try {
       var lightbox = new SimpleLightbox('.gallery a', {});
-    } catch (err) { /* ignore if not used */ }
+    } catch(err) { /* ignore if not present */ }
+
+    /***********************
+     * Accessibility helpers (optional)
+     ***********************/
+    // trap focus inside overlay when open (basic)
+    document.addEventListener('focus', function(event) {
+      if (overlay && overlay.classList.contains('active')) {
+        if (!overlay.contains(event.target)) {
+          event.stopPropagation();
+          glClose && glClose.focus();
+        }
+      }
+    }, true);
   </script>
 </body>
 </html>
