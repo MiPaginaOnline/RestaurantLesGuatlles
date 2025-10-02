@@ -196,8 +196,9 @@
 
       <nav aria-label="Navegación principal">
         <ul id="nav-links" class="nav-links" role="menu">
-          <li role="none"><a role="menuitem" href="#sobre" data-i18n="menu_about">Sobre</a></li>
-          <li role="none"><a role="menuitem" href="#menu" data-i18n="menu_menu">Carta</a></li>
+          <li role="none"><a role="menuitem" href="#sobre" data-i18n="menu_about">Inicio</a></li>
+          <li role="none"><a role="menuitem" href="#lacarta" data-i18n="menu_menu">La Carta</a></li>
+          <li role="none"><a role="menuitem" href="#grupos" data-i18n="menu_groups">Menú Grupos</a></li>
           <li role="none"><a role="menuitem" href="#eventos" data-i18n="menu_events">Eventos</a></li>
           <li role="none"><a role="menuitem" href="#reservas" data-i18n="menu_reserve">Reservas</a></li>
           <li role="none"><a role="menuitem" href="#horario" data-i18n="menu_hours">Horario</a></li>
@@ -230,15 +231,146 @@
       <p data-i18n="about_text">En Les Guatlles ofrecemos cocina catalana auténtica en un ambiente rústico y moderno. Nuestro espacio está rodeado de naturaleza y pensado para disfrutar en familia.</p>
     </section>
 
-    <section id="menu" class="card">
-      <h2 data-i18n="menu_menu">Carta</h2>
-      <div class="menu-list" aria-label="Carta">
-        <div class="menu-item"><span data-i18n="dish1">Guatlles a la brasa</span><span>12 €</span></div>
-        <div class="menu-item"><span data-i18n="dish2">Calçots con salsa romesco</span><span>10 €</span></div>
-        <div class="menu-item"><span data-i18n="dish3">Carn a la brasa</span><span>15 €</span></div>
+    <!-- ========== NUEVA SECCIÓN: LA CARTA ========== -->
+    <section id="lacarta" class="card">
+      <h2 data-i18n="lacarta_title">La Carta</h2>
+
+      <h3 data-i18n="lacarta_starters">PRIMEROS PLATOS</h3>
+      <div class="menu-list" aria-label="Primeros platos">
+        <div class="menu-item"><span data-i18n="p_en_salad_house">Ensalada Les Guatlles (lechuga variada, huevos de codorniz, paté, tomates cherry, cebolla frita, frutos secos y vinagre de módena)</span><span>13,90€</span></div>
+        <div class="menu-item"><span data-i18n="p_en_salad_green">Ensalada verde (Lechuga, tomate, pimiento, cebolla, atún, huevo, remolacha, zanahoria y aceitunas)</span><span>11,90€</span></div>
+        <div class="menu-item"><span data-i18n="p_xato">Xató (escarola, bacalao, atún, anchoas, aceitunas y salsa de romesco)</span><span>14,90€</span></div>
+        <div class="menu-item"><span data-i18n="p_escalivada">Escalivada (pimiento y berenjena)</span><span>14,90€</span></div>
+        <div class="menu-item"><span data-i18n="p_snails">Caracoles a la llauna</span><span>16,80€</span></div>
+        <div class="menu-item"><span data-i18n="p_canelones">Canelones de la abuela</span><span>11,20€</span></div>
+        <div class="menu-item"><span data-i18n="p_calçots">Calçots con salsa</span><span>15,00€</span></div>
+        <div class="menu-item"><span data-i18n="p_jamon">Jamón del país</span><span>11,00€</span></div>
+        <div class="menu-item"><span data-i18n="p_coca">Coca de cebolla</span><span>9,50€</span></div>
+        <div class="menu-item"><span data-i18n="p_anchovies">Anchoas de L'Escala (anchoas, zanahoria, remolacha y aceitunas)</span><span>13,80€</span></div>
+        <div class="menu-item"><span data-i18n="p_toast_house">Tostada de la casa (Pan tostado con "all i oli", escalivada, anchoas y olivas)</span><span>13,90€</span></div>
+      </div>
+
+      <h3 data-i18n="lacarta_mains">SEGUNDOS PLATOS</h3>
+      <div class="menu-list" aria-label="Segundos platos">
+        <div class="menu-item"><span data-i18n="s_panceta">Panceta con guarnición</span><span>11,50€</span></div>
+        <div class="menu-item"><span data-i18n="s_butifarra">Butifarra con guarnición</span><span>11,50€</span></div>
+        <div class="menu-item"><span data-i18n="s_morcilla">Morcilla con guarnición</span><span>12,50€</span></div>
+        <div class="menu-item"><span data-i18n="s_cordero">Cordero a la brasa con guarnición</span><span>16,60€</span></div>
+        <div class="menu-item"><span data-i18n="s_lomo">Lomo a la brasa con guarnición</span><span>10,50€</span></div>
+        <div class="menu-item"><span data-i18n="s_codornices">Codornices al ron (una pieza)</span><span>4,45€</span></div>
+        <div class="menu-item"><span data-i18n="s_conejo">Conejo a la brasa con guarnición</span><span>14,50€</span></div>
+        <div class="menu-item"><span data-i18n="s_picanton">Picantón a la brasa con guarnición</span><span>14,50€</span></div>
+        <div class="menu-item"><span data-i18n="s_entrecot">Entrecot a la brasa con guarnición</span><span>21,00€</span></div>
+        <div class="menu-item"><span data-i18n="s_churrasco">Churrasco de ternera a la brasa</span><span>14,00€</span></div>
+        <div class="menu-item"><span data-i18n="s_pies">Pies de cerdo a la brasa con guarnición</span><span>13,00€</span></div>
+        <div class="menu-item"><span data-i18n="s_carrillada">Carrillada de cerdo a la brasa con guarnición</span><span>14,00€</span></div>
+        <div class="menu-item"><span data-i18n="s_bacalao">Bacalao al pisto (samfaina)</span><span>17,00€</span></div>
+      </div>
+
+      <h3 data-i18n="lacarta_raciones">RACIONES Y EXTRAS</h3>
+      <div class="menu-list" aria-label="Raciones y extras">
+        <div class="menu-item"><span data-i18n="r_judias">Judías secas</span><span>4,70€</span></div>
+        <div class="menu-item"><span data-i18n="r_patatas_fritas">Patatas fritas</span><span>4,50€</span></div>
+        <div class="menu-item"><span data-i18n="r_patatas_horno">Patatas al horno</span><span>3,90€</span></div>
+        <div class="menu-item"><span data-i18n="r_romesco">Salsa romesco</span><span>3,50€</span></div>
+        <div class="menu-item"><span data-i18n="r_alioli">Alioli</span><span>2,50€</span></div>
+        <div class="menu-item"><span data-i18n="r_alcachofa">Alcachofa a la brasa, unidad s/t</span><span>2,80€/u</span></div>
+        <div class="menu-item"><span data-i18n="r_pan_tostado">Pan tostado (rebanada)</span><span>1,00€/u</span></div>
+        <div class="menu-item"><span data-i18n="r_babero">Babero</span><span>0,50€</span></div>
+        <div class="menu-item"><span data-i18n="r_taper">Táper</span><span>1,00€</span></div>
+      </div>
+
+      <h3 data-i18n="lacarta_kids">MENÚ INFANTIL</h3>
+      <div class="menu-list" aria-label="Menú infantil">
+        <div class="menu-item"><span data-i18n="kids_combo">Plato combinado: macarrones con tomate, Nuggets de pollo, patatas fritas, refresco y helado (o postre)</span><span>15,00€</span></div>
       </div>
     </section>
 
+    <!-- ========== MENÚ PARA GRUPOS (mínimo 12 personas) ========== -->
+    <section id="grupos" class="card">
+      <h2 data-i18n="groups_title">Menú para Grupos (mínimo 12 personas)</h2>
+
+      <h3>MENÚ 1</h3>
+      <p data-i18n="groups_pica1_title">Pica-pica:</p>
+      <ul>
+        <li data-i18n="g1_en_salad">Ensalada verde</li>
+        <li data-i18n="g1_embutidos">Embutidos variados</li>
+        <li data-i18n="g1_coca">Coca de cebolla</li>
+        <li data-i18n="g1_croquetas">Croquetas</li>
+        <li data-i18n="g1_pan_tostado">Pan tostado con ajo y tomate</li>
+      </ul>
+      <p data-i18n="groups_second">Segundo a elegir:</p>
+      <ul>
+        <li data-i18n="g1_butifarra">Butifarra con guarnición</li>
+        <li data-i18n="g1_lomo">Lomo con guarnición</li>
+        <li data-i18n="g1_pollo">Pollo con guarnición</li>
+        <li data-i18n="g1_canelones">Canelones de la abuela</li>
+      </ul>
+      <p data-i18n="groups_postre">Postre: <span data-i18n="g1_postre">Pastel de la casa</span></p>
+      <p data-i18n="groups_bebidas">Bebidas: <span data-i18n="g1_bebidas">Vinos – aguas (refrescos aparte)</span></p>
+      <p data-i18n="groups_cafes">Cafés</p>
+      <p><strong>Menu 1: 29€</strong></p>
+
+      <hr>
+
+      <h3>MENÚ 2</h3>
+      <p data-i18n="groups_pica2_title">Pica-pica:</p>
+      <ul>
+        <li data-i18n="g2_ensalada">Ensalada Les Guatlles</li>
+        <li data-i18n="g2_coca">Coca de cebolla</li>
+        <li data-i18n="g2_escalivada">Escalivada</li>
+        <li data-i18n="g2_embutidos">Embutidos variados</li>
+        <li data-i18n="g2_croquetas">Croquetas</li>
+        <li data-i18n="g2_pan_tostado">Pan tostado con ajo y tomate</li>
+      </ul>
+      <p data-i18n="groups_second">Segundo a elegir:</p>
+      <ul>
+        <li data-i18n="g2_butifarra">Butifarra con guarnición</li>
+        <li data-i18n="g2_carrillada">Carrillada con guarnición</li>
+        <li data-i18n="g2_churrasco">Churrasco con guarnición</li>
+        <li data-i18n="g2_pollo">Pollo con guarnición</li>
+        <li data-i18n="g2_canelones">Canelones de la abuela</li>
+      </ul>
+      <p data-i18n="groups_postre">Postre: <span data-i18n="g2_postre">Pastel de la casa</span></p>
+      <p data-i18n="groups_bebidas">Bebidas: <span data-i18n="g2_bebidas">Vinos – aguas – refrescos</span></p>
+      <p data-i18n="groups_cafes">Cafés</p>
+      <p><strong>Menu 2: 32€</strong></p>
+
+      <hr>
+
+      <h3>MENÚ 3</h3>
+      <p data-i18n="groups_pica3_title">Pica-pica:</p>
+      <ul>
+        <li data-i18n="g3_ensalada">Ensalada Les Guatlles</li>
+        <li data-i18n="g3_embutidos">Embutidos variados</li>
+        <li data-i18n="g3_snails">Caracoles a la llauna</li>
+        <li data-i18n="g3_coca">Coca de cebolla</li>
+        <li data-i18n="g3_escalivada">Escalivada</li>
+        <li data-i18n="g3_pan_tostado">Pan tostado con ajo y tomate</li>
+      </ul>
+      <p data-i18n="groups_second">Segundo a elegir:</p>
+      <ul>
+        <li data-i18n="g3_butifarra">Butifarra con guarnición</li>
+        <li data-i18n="g3_picanton">Picantón con guarnición</li>
+        <li data-i18n="g3_entrecot">Entrecot con guarnición</li>
+        <li data-i18n="g3_conejo">Conejo con guarnición</li>
+        <li data-i18n="g3_bacalao">Bacalao con pisto (samfaina)</li>
+      </ul>
+      <p data-i18n="groups_postre">Postre: <span data-i18n="g3_postre">Pastel de la casa</span></p>
+      <p data-i18n="groups_bebidas">Bebidas: <span data-i18n="g3_bebidas">Vinos – aguas – refrescos</span></p>
+      <p data-i18n="groups_cafes">Cafés</p>
+      <p><strong>Menu 3: 39€</strong></p>
+
+      <hr>
+
+      <h3 data-i18n="groups_kids_title">MENÚ INFANTIL</h3>
+      <div class="menu-list">
+        <div class="menu-item"><span data-i18n="kids_combo_short">Plato combinado: macarrones con tomate, Nuggets de pollo, patatas fritas, refresco y helado (o postre)</span><span>17€</span></div>
+      </div>
+
+    </section>
+
+    <!-- EVENTOS -->
     <section id="eventos" class="card">
       <h2 data-i18n="menu_events">Eventos</h2>
       <p data-i18n="events_text">Organizamos calçotades, cenas de grupo y celebraciones familiares en nuestro espacio rústico. Consulta disponibilidad para tu evento especial.</p>
@@ -261,11 +393,11 @@
           </tr>
         </thead>
         <tbody>
-        <tr><td data-i18n="monday">Lunes</td><td class="closed">Cerrado</td></tr>
-        <tr><td data-i18n="tuesday">Martes</td><td class="closed">Cerrado</td></tr>
-        <tr><td data-i18n="wednesday">Miércoles</td><td class="closed">Cerrado</td></tr>
-        <tr><td data-i18n="thursday">Jueves</td><td class="closed">Cerrado</td></tr>
-        <tr><td data-i18n="friday">Viernes</td><td class="closed">Cerrado</td></tr>
+        <tr><td data-i18n="monday">Lunes</td><td class="closed" data-i18n="closed">Cerrado</td></tr>
+        <tr><td data-i18n="tuesday">Martes</td><td class="closed" data-i18n="closed">Cerrado</td></tr>
+        <tr><td data-i18n="wednesday">Miércoles</td><td class="closed" data-i18n="closed">Cerrado</td></tr>
+        <tr><td data-i18n="thursday">Jueves</td><td class="closed" data-i18n="closed">Cerrado</td></tr>
+        <tr><td data-i18n="friday">Viernes</td><td>13:00 - 15:30</td></tr>
         <tr><td data-i18n="saturday">Sábado</td><td>13:00 - 15:30</td></tr>
         <tr><td data-i18n="sunday">Domingo</td><td>13:00 - 15:30</td></tr>
         </tbody>
@@ -286,6 +418,16 @@
         <button data-src="https://tse3.mm.bing.net/th/id/OIP.s-KWYiFmA7SI1_nkqOTiSAHaFj?pid=Api" aria-label="Ver imagen 1"><img src="https://tse3.mm.bing.net/th/id/OIP.s-KWYiFmA7SI1_nkqOTiSAHaFj?pid=Api" alt="Plato típico"></button>
         <button data-src="https://tse2.mm.bing.net/th/id/OIP.NeFWFeG1jl9k7wvETfMcuwHaIW?pid=Api" aria-label="Ver imagen 2"><img src="https://tse2.mm.bing.net/th/id/OIP.NeFWFeG1jl9k7wvETfMcuwHaIW?pid=Api" alt="Interior restaurante"></button>
         <button data-src="https://tse2.mm.bing.net/th/id/OIP.O7ewhGLgfSO-NGCan1UeLAHaFj?pid=Api" aria-label="Ver imagen 3"><img src="https://tse2.mm.bing.net/th/id/OIP.O7ewhGLgfSO-NGCan1UeLAHaFj?pid=Api" alt="Exterior masía"></button>
+        <button data-src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/b5/61/2f/restaurant-les-guatlles.jpg?w=2000&h=-1&s=1" aria-label="Ver imagen 3"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/b5/61/2f/restaurant-les-guatlles.jpg?w=2000&h=-1&s=1" alt="Exterior masía"></button>
+        <button data-src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/b5/61/30/restaurant-les-guatlles.jpg?w=2000&h=-1&s=1" aria-label="Ver imagen 3"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/b5/61/30/restaurant-les-guatlles.jpg?w=2000&h=-1&s=1" alt="Exterior masía"></button>
+        <button data-src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/e3/67/98/amanda-de-la-casa.jpg?w=2000&h=-1&s=1" aria-label="Ver imagen 3"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/e3/67/98/amanda-de-la-casa.jpg?w=2000&h=-1&s=1" alt="Exterior masía"></button>
+        <button data-src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/e3/68/3b/potes-de-porc-a-la-brasa.jpg?w=2000&h=-1&s=1" aria-label="Ver imagen 3"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/e3/68/3b/potes-de-porc-a-la-brasa.jpg?w=2000&h=-1&s=1" alt="Exterior masía"></button>
+        <button data-src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/16/c6/cf/comida-con-amigos-cocina.jpg?w=800&h=-1&s=1" aria-label="Ver imagen 3"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/16/c6/cf/comida-con-amigos-cocina.jpg?w=800&h=-1&s=1" alt="Exterior masía"></button>
+        <button data-src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/9f/41/85/photo0jpg.jpg?w=1600&h=-1&s=1" aria-label="Ver imagen 3"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/9f/41/85/photo0jpg.jpg?w=1600&h=-1&s=1" alt="Exterior masía"></button>
+        <button data-src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/48/25/17/cartel-restaurante.jpg?w=700&h=-1&s=1" aria-label="Ver imagen 3"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/48/25/17/cartel-restaurante.jpg?w=700&h=-1&s=1" alt="Exterior masía"></button>
+        <button data-src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/1c/60/a5/20191123-140343-largejpg.jpg?w=800&h=-1&s=1" aria-label="Ver imagen 3"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/1c/60/a5/20191123-140343-largejpg.jpg?w=800&h=-1&s=1" alt="Exterior masía"></button>
+        <button data-src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/60/46/c1/the-restaurant.jpg?w=1400&h=-1&s=1" aria-label="Ver imagen 3"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/60/46/c1/the-restaurant.jpg?w=1400&h=-1&s=1" alt="Exterior masía"></button>
+        <button data-src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/60/46/7d/outside-the-restaurant.jpg?w=1400&h=-1&s=1" aria-label="Ver imagen 3"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/60/46/7d/outside-the-restaurant.jpg?w=1400&h=-1&s=1" alt="Exterior masía"></button>
       </div>
     </section>
   </main>
@@ -351,13 +493,12 @@
      ***********************/
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Translations object (ES / CA / EN)
+    // Translations object (ES / CA / EN) - ampliado con todas las nuevas claves
     const translations = {
       es: {
         title: 'Restaurant Les Guatlles',
         location: 'Roda de Berà — Tarragona',
-        menu_about: 'Sobre',
-        menu_menu: 'Carta',
+        menu_about: 'Inicio',
         menu_events: 'Eventos',
         menu_reserve: 'Reservas',
         reserve_text: 'Para reservar, por favor llámanos al <strong>+34 977 80 90 22</strong>.',
@@ -367,21 +508,113 @@
         hero_title: 'Restaurant Les Guatlles',
         hero_sub: 'Cocina catalana y casera en un entorno rústico y familiar.',
         about_text: 'En Les Guatlles ofrecemos cocina catalana auténtica en un ambiente rústico y moderno. Nuestro espacio está rodeado de naturaleza y pensado para disfrutar en familia.',
-        dish1: 'Guatlles a la brasa',
-        dish2: 'Calçots con salsa romesco',
-        dish3: 'Carn a la brasa',
         events_text: 'Organizamos calçotades, cenas de grupo y celebraciones familiares en nuestro espacio rústico. Consulta disponibilidad para tu evento especial.',
         address: 'Disseminat, 8, 43883 Roda de Berà, Tarragona',
         day: 'Día',
         hours: 'Horario',
         monday: 'Lunes', tuesday: 'Martes', wednesday: 'Miércoles',
-        thursday: 'Jueves', friday: 'Viernes', saturday: 'Sábado', sunday: 'Domingo'
+        thursday: 'Jueves', friday: 'Viernes', saturday: 'Sábado', sunday: 'Domingo',
+        closed: 'Cerrado',
+
+        /* --- La Carta (ES) --- */
+        lacarta_title: 'La Carta',
+        lacarta_starters: 'PRIMEROS PLATOS',
+        lacarta_mains: 'SEGUNDOS PLATOS',
+        lacarta_raciones: 'RACIONES Y EXTRAS',
+        lacarta_kids: 'MENÚ INFANTIL',
+
+        p_en_salad_house: 'Ensalada Les Guatlles (lechuga variada, huevos de codorniz, paté, tomates cherry, cebolla frita, frutos secos y vinagre de módena)',
+        p_en_salad_green: 'Ensalada verde (Lechuga, tomate, pimiento, cebolla, atún, huevo, remolacha, zanahoria y aceitunas)',
+        p_xato: 'Xató (escarola, bacalao, atún, anchoas, aceitunas y salsa de romesco)',
+        p_escalivada: 'Escalivada (pimiento y berenjena)',
+        p_snails: 'Caracoles a la llauna',
+        p_canelones: 'Canelones de la abuela',
+        p_calçots: 'Calçots con salsa',
+        p_jamon: 'Jamón del país',
+        p_coca: 'Coca de cebolla',
+        p_anchovies: "Anchoas de L'Escala (anchoas, zanahoria, remolacha y aceitunas)",
+        p_toast_house: 'Tostada de la casa (Pan tostado con "all i oli", escalivada, anchoas y olivas)',
+
+        s_panceta: 'Panceta con guarnición',
+        s_butifarra: 'Butifarra con guarnición',
+        s_morcilla: 'Morcilla con guarnición',
+        s_cordero: 'Cordero a la brasa con guarnición',
+        s_lomo: 'Lomo a la brasa con guarnición',
+        s_codornices: 'Codornices al ron (una pieza)',
+        s_conejo: 'Conejo a la brasa con guarnición',
+        s_picanton: 'Picantón a la brasa con guarnición',
+        s_entrecot: 'Entrecot a la brasa con guarnición',
+        s_churrasco: 'Churrasco de ternera a la brasa',
+        s_pies: 'Pies de cerdo a la brasa con guarnición',
+        s_carrillada: 'Carrillada de cerdo a la brasa con guarnición',
+        s_bacalao: 'Bacalao al pisto (samfaina)',
+
+        r_judias: 'Judías secas',
+        r_patatas_fritas: 'Patatas fritas',
+        r_patatas_horno: 'Patatas al horno',
+        r_romesco: 'Salsa romesco',
+        r_alioli: 'Alioli',
+        r_alcachofa: 'Alcachofa a la brasa, unidad s/t',
+        r_pan_tostado: 'Pan tostado (rebanada)',
+        r_babero: 'Babero',
+        r_taper: 'Táper',
+
+        kids_combo: 'Plato combinado: macarrones con tomate, Nuggets de pollo, patatas fritas, refresco y helado (o postre)',
+
+        /* --- Menús para grupos (ES) --- */
+        groups_title: 'Menú para Grupos (mínimo 12 personas)',
+        groups_text: 'Disponemos de menús especiales para celebraciones y grupos a partir de 12 personas.',
+        groups_pica1_title: 'Pica-pica:',
+        g1_en_salad: 'Ensalada verde',
+        g1_embutidos: 'Embutidos variados',
+        g1_coca: 'Coca de cebolla',
+        g1_croquetas: 'Croquetas',
+        g1_pan_tostado: 'Pan tostado con ajo y tomate',
+        groups_second: 'Segundo a elegir:',
+        g1_butifarra: 'Butifarra con guarnición',
+        g1_lomo: 'Lomo con guarnición',
+        g1_pollo: 'Pollo con guarnición',
+        g1_canelones: 'Canelones de la abuela',
+        g1_postre: 'Pastel de la casa',
+        g1_bebidas: 'Vinos – aguas (refrescos aparte)',
+
+        groups_pica2_title: 'Pica-pica:',
+        g2_ensalada: 'Ensalada Les Guatlles',
+        g2_coca: 'Coca de cebolla',
+        g2_escalivada: 'Escalivada',
+        g2_embutidos: 'Embutidos variados',
+        g2_croquetas: 'Croquetas',
+        g2_pan_tostado: 'Pan tostado con ajo y tomate',
+        g2_butifarra: 'Butifarra con guarnición',
+        g2_carrillada: 'Carrillada con guarnición',
+        g2_churrasco: 'Churrasco con guarnición',
+        g2_pollo: 'Pollo con guarnición',
+        g2_canelones: 'Canelones de la abuela',
+        g2_postre: 'Pastel de la casa',
+        g2_bebidas: 'Vinos – aguas – refrescos',
+
+        groups_pica3_title: 'Pica-pica:',
+        g3_ensalada: 'Ensalada Les Guatlles',
+        g3_embutidos: 'Embutidos variados',
+        g3_snails: 'Caracoles a la llauna',
+        g3_coca: 'Coca de cebolla',
+        g3_escalivada: 'Escalivada',
+        g3_pan_tostado: 'Pan tostado con ajo y tomate',
+        g3_butifarra: 'Butifarra con guarnición',
+        g3_picanton: 'Picantón con guarnición',
+        g3_entrecot: 'Entrecot con guarnición',
+        g3_conejo: 'Conejo con guarnición',
+        g3_bacalao: 'Bacalao con pisto (samfaina)',
+        g3_postre: 'Pastel de la casa',
+        g3_bebidas: 'Vinos – aguas – refrescos',
+
+        groups_kids_title: 'MENÚ INFANTIL',
+        kids_combo_short: 'Plato combinado: macarrones con tomate, Nuggets de pollo, patatas fritas, refresco y helado (o postre)'
       },
       ca: {
         title: 'Restaurant Les Guatlles',
         location: 'Roda de Berà — Tarragona',
-        menu_about: 'Sobre',
-        menu_menu: 'Carta',
+        menu_about: 'Inici',
         menu_events: 'Esdeveniments',
         menu_reserve: 'Reserves',
         reserve_text: 'Per reservar, si us plau truca al <strong>+34 977 80 90 22</strong>.',
@@ -391,20 +624,113 @@
         hero_title: 'Restaurant Les Guatlles',
         hero_sub: 'Cuina catalana i casolana en un entorn rústic i familiar.',
         about_text: 'A Les Guatlles oferim cuina catalana autèntica en un ambient rústic i modern. El nostre espai està envoltat de natura i pensat per gaudir en família.',
-        dish1: 'Guatlles a la brasa',
-        dish2: 'Calçots amb salsa romesco',
-        dish3: 'Carn a la brasa',
         events_text: 'Organitzem calçotades, sopars de grup i celebracions familiars al nostre espai rústic. Consulta disponibilitat per al teu esdeveniment especial.',
         address: 'Disseminat, 8, 43883 Roda de Berà, Tarragona',
         day: 'Dia',
         hours: 'Horari',
         monday: 'Dilluns', tuesday: 'Dimarts', wednesday: 'Dimecres',
-        thursday: 'Dijous', friday: 'Divendres', saturday: 'Dissabte', sunday: 'Diumenge'
+        thursday: 'Dijous', friday: 'Divendres', saturday: 'Dissabte', sunday: 'Diumenge',
+        closed: 'Tancat',
+
+        /* --- La Carta (CA) --- */
+        lacarta_title: 'La Carta',
+        lacarta_starters: 'PRIMERS PLATS',
+        lacarta_mains: 'SEGONS PLATS',
+        lacarta_raciones: 'RACIONS I EXTRAS',
+        lacarta_kids: "MENÚ INFANTIL",
+
+        p_en_salad_house: "Amanida Les Guatlles (enciam variat, ous de guatlla, paté, tomàquets cherry, ceba fregida, fruits secs i vinagre de Mòdena)",
+        p_en_salad_green: "Amanida verda (Enciam, tomàquet, pebrot, ceba, tonyina, ou, remolatxa, pastanaga i olives)",
+        p_xato: "Xató (escarola, bacallà, tonyina, anxoves, olives i salsa de romesco)",
+        p_escalivada: "Escalivada (pebrot i albergínia)",
+        p_snails: "Cargols a la llauna",
+        p_canelones: "Canelons de l'àvia",
+        p_calçots: "Calçots amb salsa",
+        p_jamon: "Pernil del país",
+        p_coca: "Coca d'ceba",
+        p_anchovies: "Anxoves de L'Escala (anxoves, pastanaga, remolatxa i olives)",
+        p_toast_house: 'Torrada de la casa (Pa torrat amb "all i oli", escalivada, anxoves i olivetes)',
+
+        s_panceta: 'Panceta amb guarnició',
+        s_butifarra: 'Botifarra amb guarnició',
+        s_morcilla: 'Botifarra negra amb guarnició',
+        s_cordero: 'Xai a la brasa amb guarnició',
+        s_lomo: 'Llomo a la brasa amb guarnició',
+        s_codornices: 'Guatlles al rom (una peça)',
+        s_conejo: 'Conill a la brasa amb guarnició',
+        s_picanton: 'Picantó a la brasa amb guarnició',
+        s_entrecot: 'Entrecot a la brasa amb guarnició',
+        s_churrasco: 'Churrasco de vedella a la brasa',
+        s_pies: 'Peus de porc a la brasa amb guarnició',
+        s_carrillada: 'Galtes de porc a la brasa amb guarnició',
+        s_bacalao: 'Bacallà al pisto (samfaina)',
+
+        r_judias: 'Mongetes seques',
+        r_patatas_fritas: 'Patates fregides',
+        r_patatas_horno: "Patates al forn",
+        r_romesco: 'Salsa romesco',
+        r_alioli: 'Allioli',
+        r_alcachofa: "Carxofa a la brasa, unitat s/t",
+        r_pan_tostado: 'Pa torrat (llesca)',
+        r_babero: 'Pitet',
+        r_taper: 'Táper',
+
+        kids_combo: "Plat combinat: macarrons amb tomàquet, Nuggets de pollastre, patates fregides, refresc i gelat (o postre)",
+
+        /* --- Menús per a grups (CA) --- */
+        groups_title: "Menú per a Grups (mínim 12 persones)",
+        groups_text: "Disposem de menús especials per a celebracions i grups a partir de 12 persones.",
+        groups_pica1_title: 'Pica-pica:',
+        g1_en_salad: 'Amanida verda',
+        g1_embutidos: 'Embotits variats',
+        g1_coca: 'Coca d\'ceba',
+        g1_croquetas: 'Croquetes',
+        g1_pan_tostado: 'Pa torrat amb all i tomàquet',
+        groups_second: 'Segon a triar:',
+        g1_butifarra: 'Botifarra amb guarnició',
+        g1_lomo: 'Llom amb guarnició',
+        g1_pollo: 'Pollastre amb guarnició',
+        g1_canelones: "Canelons de l'àvia",
+        g1_postre: 'Pastís de la casa',
+        g1_bebidas: 'Vins – aigües (refrescs a part)',
+
+        groups_pica2_title: 'Pica-pica:',
+        g2_ensalada: 'Amanida Les Guatlles',
+        g2_coca: 'Coca d\'ceba',
+        g2_escalivada: 'Escalivada',
+        g2_embutidos: 'Embotits variats',
+        g2_croquetas: 'Croquetes',
+        g2_pan_tostado: 'Pa torrat amb all i tomàquet',
+        g2_butifarra: 'Botifarra amb guarnició',
+        g2_carrillada: 'Galtes amb guarnició',
+        g2_churrasco: 'Churrasco amb guarnició',
+        g2_pollo: 'Pollastre amb guarnició',
+        g2_canelones: "Canelons de l'àvia",
+        g2_postre: 'Pastís de la casa',
+        g2_bebidas: 'Vins – aigües – refrescos',
+
+        groups_pica3_title: 'Pica-pica:',
+        g3_ensalada: 'Amanida Les Guatlles',
+        g3_embutidos: 'Embotits variats',
+        g3_snails: 'Cargols a la llauna',
+        g3_coca: 'Coca d\'ceba',
+        g3_escalivada: 'Escalivada',
+        g3_pan_tostado: 'Pa torrat amb all i tomàquet',
+        g3_butifarra: 'Botifarra amb guarnició',
+        g3_picanton: 'Picantó amb guarnició',
+        g3_entrecot: 'Entrecot amb guarnició',
+        g3_conejo: 'Conill amb guarnició',
+        g3_bacalao: 'Bacallà amb samfaina',
+        g3_postre: 'Pastís de la casa',
+        g3_bebidas: 'Vins – aigües – refrescos',
+
+        groups_kids_title: "MENÚ INFANTIL",
+        kids_combo_short: "Plat combinat: macarrons amb tomàquet, Nuggets de pollastre, patates fregides, refresc i gelat (o postre)"
       },
       en: {
         title: 'Restaurant Les Guatlles',
         location: 'Roda de Berà — Tarragona',
-        menu_about: 'About',
+        menu_about: 'Startup',
         menu_menu: 'Menu',
         menu_events: 'Events',
         menu_reserve: 'Reservations',
@@ -415,15 +741,108 @@
         hero_title: 'Restaurant Les Guatlles',
         hero_sub: 'Catalan homemade cuisine in a rustic and family-friendly environment.',
         about_text: 'At Les Guatlles we offer authentic Catalan cuisine in a rustic yet modern atmosphere. Surrounded by nature, our restaurant is perfect for families.',
-        dish1: 'Grilled quails',
-        dish2: 'Calçots with romesco sauce',
-        dish3: 'Grilled meat',
         events_text: 'We organize calçotades, group dinners and family celebrations in our rustic venue. Check availability for your special event.',
         address: 'Disseminat, 8, 43883 Roda de Berà, Tarragona',
         day: 'Day',
         hours: 'Opening hours',
         monday: 'Monday', tuesday: 'Tuesday', wednesday: 'Wednesday',
-        thursday: 'Thursday', friday: 'Friday', saturday: 'Saturday', sunday: 'Sunday'
+        thursday: 'Thursday', friday: 'Friday', saturday: 'Saturday', sunday: 'Sunday',
+        closed: 'Closed',
+
+        /* --- La Carta (EN) --- */
+        lacarta_title: 'La Carta / Menu',
+        lacarta_starters: 'FIRST COURSES',
+        lacarta_mains: 'MAINS',
+        lacarta_raciones: 'PORTIONS & EXTRAS',
+        lacarta_kids: 'CHILDREN´S MENU',
+
+        p_en_salad_house: 'Ensalada Les Guatlles (mixed lettuce, quail eggs, pâté, cherry tomatoes, fried onion, nuts and balsamic vinegar)',
+        p_en_salad_green: 'Green salad (lettuce, tomato, pepper, onion, tuna, egg, beetroot, carrot and olives)',
+        p_xato: "Xató (escarole, cod, tuna, anchovies, olives and romesco sauce)",
+        p_escalivada: 'Escalivada (roasted pepper and aubergine)',
+        p_snails: "Snails 'a la llauna'",
+        p_canelones: "Grandma's cannelloni",
+        p_calçots: 'Calçots with sauce',
+        p_jamon: 'Country ham',
+        p_coca: 'Onion coca',
+        p_anchovies: "Anchovies from L'Escala (anchovies, carrot, beetroot and olives)",
+        p_toast_house: 'House toast (toasted bread with allioli, escalivada, anchovies and olives)',
+
+        s_panceta: 'Pork belly with garnish',
+        s_butifarra: 'Butifarra with garnish',
+        s_morcilla: 'Black pudding with garnish',
+        s_cordero: 'Grilled lamb with garnish',
+        s_lomo: 'Grilled loin with garnish',
+        s_codornices: 'Quail with rum (one piece)',
+        s_conejo: 'Grilled rabbit with garnish',
+        s_picanton: 'Grilled poussin with garnish',
+        s_entrecot: 'Grilled entrecôte with garnish',
+        s_churrasco: 'Grilled beef churrasco',
+        s_pies: 'Grilled pig feet with garnish',
+        s_carrillada: 'Pork cheek with garnish',
+        s_bacalao: 'Cod with pisto (samfaina)',
+
+        r_judias: 'Dried beans',
+        r_patatas_fritas: 'French fries',
+        r_patatas_horno: 'Baked potatoes',
+        r_romesco: 'Romesco sauce',
+        r_alioli: 'Allioli',
+        r_alcachofa: 'Grilled artichoke, unit',
+        r_pan_tostado: 'Toasted bread (slice)',
+        r_babero: 'Bib',
+        r_taper: 'Tupper',
+
+        kids_combo: 'Children menu: pasta with tomato, chicken nuggets, fries, soft drink and ice-cream (or dessert)',
+
+        /* --- Group menus (EN) --- */
+        groups_title: 'Group Menus (min. 12 people)',
+        groups_text: 'We offer special menus for celebrations and groups (minimum 12 people).',
+        groups_pica1_title: 'Starter selection:',
+        g1_en_salad: 'Green salad',
+        g1_embutidos: 'Mixed cold cuts',
+        g1_coca: 'Onion coca',
+        g1_croquetas: 'Croquettes',
+        g1_pan_tostado: 'Toasted bread with garlic and tomato',
+        groups_second: 'Main to choose:',
+        g1_butifarra: 'Butifarra with garnish',
+        g1_lomo: 'Loin with garnish',
+        g1_pollo: 'Chicken with garnish',
+        g1_canelones: "Grandma's cannelloni",
+        g1_postre: 'House cake',
+        g1_bebidas: 'Wines – waters (soft drinks extra)',
+
+        groups_pica2_title: 'Starter selection:',
+        g2_ensalada: 'Les Guatlles salad',
+        g2_coca: 'Onion coca',
+        g2_escalivada: 'Escalivada',
+        g2_embutidos: 'Mixed cold cuts',
+        g2_croquetas: 'Croquettes',
+        g2_pan_tostado: 'Toasted bread with garlic and tomato',
+        g2_butifarra: 'Butifarra with garnish',
+        g2_carrillada: 'Pork cheek with garnish',
+        g2_churrasco: 'Churrasco with garnish',
+        g2_pollo: 'Chicken with garnish',
+        g2_canelones: "Grandma's cannelloni",
+        g2_postre: 'House cake',
+        g2_bebidas: 'Wines – waters – soft drinks',
+
+        groups_pica3_title: 'Starter selection:',
+        g3_ensalada: 'Les Guatlles salad',
+        g3_embutidos: 'Mixed cold cuts',
+        g3_snails: "Snails 'a la llauna'",
+        g3_coca: 'Onion coca',
+        g3_escalivada: 'Escalivada',
+        g3_pan_tostado: 'Toasted bread with garlic and tomato',
+        g3_butifarra: 'Butifarra with garnish',
+        g3_picanton: 'Poussin with garnish',
+        g3_entrecot: 'Entrecôte with garnish',
+        g3_conejo: 'Rabbit with garnish',
+        g3_bacalao: 'Cod with pisto (samfaina)',
+        g3_postre: 'House cake',
+        g3_bebidas: 'Wines – waters – soft drinks',
+
+        groups_kids_title: 'CHILDREN´S MENU',
+        kids_combo_short: 'Children menu: pasta with tomato, chicken nuggets, fries, soft drink and ice-cream (or dessert)'
       }
     };
 
