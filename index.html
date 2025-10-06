@@ -92,6 +92,7 @@
     .schedule{width:100%;border-collapse:collapse;margin-top:10px}
     .schedule th,.schedule td{padding:8px;border-bottom:1px solid #999;text-align:left}
     .schedule th{background:#e2cda0}
+    .closed{color:#8b2e2e;font-weight:bold}
 
     /* lightbox modal custom */
     .gl-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);display:none;align-items:center;justify-content:center;z-index:1400;padding:20px}
@@ -110,70 +111,175 @@
     label > span.i18 {display:inline-block;margin-right:8px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-    /* ---------- RESPONSIVE: MOBIL (sticky smaller + stacked) ---------- */
-    @media (max-width:900px){
-      .gallery{grid-template-columns:repeat(2,1fr)}
-      .hero-banner{height:50vh}
+    /* ========== ESTILOS PARA SECCIONES DESPLEGABLES ========== */
+    .toggle-section.card {
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(12,12,12,0.1);
+      margin-bottom: 20px;
+      background: var(--card);
+      position: relative;
+    }
+    
+    .toggle-section summary {
+      cursor: pointer;
+      font-weight: bold;
+      display: block;
+      font-size: 1.1rem;
+      padding: 12px 0;
+      list-style: none;
     }
 
-    @media (max-width:768px){
-      /* header: apilar verticalmente: nombre arriba, debajo fila con hamburguesa + banderas */
-      header{
-        flex-direction: column;
-        align-items:stretch;
-        padding:10px;
-      }
-      /* brand: centrado, nombre en una línea si cabe */
-      .brand{display:flex;justify-content:center;padding:0;margin:0}
-      .brand .logo{display:none}
-      .brand h1{
-        font-size:1rem;
-        margin:0;
-        text-align:center;
-        white-space:nowrap;
-        overflow:hidden;
-        text-overflow:ellipsis;
-        color:#222;
-      }
-
-      /* nav row (hamburger + flags) debajo del título */
-      .nav-menu{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        padding:8px 6px 0 6px;
-      }
-      .hamburger{display:flex;align-self:center}
-      .hamburger span{background:#222}
-
-      /* dropdown menu absolute under the sticky */
-      nav ul{
-        position: absolute;
-        top: calc(100% + 6px);
-        left: 12px;
-        right: 12px;
-        margin-top:0;
-        background: var(--glass-bg);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border-radius: 12px;
-        padding: 12px;
-        flex-direction: column;
-        display: none;
-        gap: 12px;
-        box-shadow: 0 8px 30px rgba(0,0,0,.18);
-        z-index: 1250;
-      }
-      nav ul.active{ display:flex; }
-      .lang-switch{gap:6px}
-      /* slightly smaller hero on very small screens */
-      .hero-content h1{font-size:1.8rem}
+    .toggle-section summary::-webkit-details-marker {
+      display: none;
     }
 
-    @media (max-width:520px){
-      .gallery img{height:90px}
-      .hero-content h1{font-size:1.6rem}
+    .toggle-section summary .arrow {
+      float: right;
+      transition: transform 0.3s ease;
     }
+
+    .toggle-section[open] summary .arrow {
+      transform: rotate(180deg);
+    }
+
+    /* Contenido con transición */
+    .toggle-section .contenido {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+    }
+
+    .toggle-section[open] .contenido {
+      max-height: 5000px;
+    }
+
+    /* Flecha para cerrar */
+    .close-arrow {
+      text-align: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--accent);
+      margin-top: 20px;
+      padding: 10px;
+      display: block;
+    }
+
+    .close-arrow:hover {
+      color: var(--muted);
+    }
+
+    /* Evitar que el título sticky tape contenido */
+    .toggle-section[open] summary {
+      position: static;
+    }
+
+/* ---------- RESPONSIVE: MOBIL (sticky smaller + stacked) ---------- */
+@media (max-width:900px){
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .hero-banner{height:50vh}
+}
+
+@media (max-width:768px){
+  /* header: mínimo espacio posible */
+  header{
+    flex-direction: column;
+    align-items:stretch;
+    padding: 2px 8px; /* Mínimo padding */
+    min-height: auto;
+  }
+  
+  /* brand: sin márgenes ni padding */
+  .brand{
+    display:flex;
+    justify-content:center;
+    padding: 0;
+    margin: 0;
+  }
+  .brand .logo{display:none}
+  .brand h1{
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    text-align:center;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color:#222;
+    line-height: 1;
+  }
+
+  /* nav row: espacio mínimo */
+  .nav-menu{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 0px 4px; /* Cero padding superior */
+    min-height: 24px; /* Mínima altura */
+    gap: 0;
+  }
+  
+  /* Hamburguesa normal */
+  .hamburger{
+    display:flex;
+    align-self:center;
+    margin: 0;
+    padding: 0;
+  }
+  .hamburger span{
+    background:#222;
+  }
+
+  /* Banderas normales */
+  .lang-switch{
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ajustar dropdown para header ultra compacto */
+  nav ul{
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 8px;
+    right: 8px;
+    margin-top:0;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 12px;
+    flex-direction: column;
+    display: none;
+    gap: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,.18);
+    z-index: 1250;
+  }
+  nav ul.active{ display:flex; }
+  
+  .hero-content h1{font-size:1.8rem}
+
+  /* WhatsApp centrado en móvil */
+  .whatsapp-btn {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width:520px){
+  .gallery img{height:90px}
+  .hero-content h1{font-size:1.6rem}
+  
+  /* Aún más compacto si es posible */
+  header{
+    padding: 1px 6px; /* Casi cero padding vertical */
+  }
+  .nav-menu{
+    padding: 0px 3px;
+    min-height: 22px;
+  }
+}
   </style>
 </head>
 <body>
@@ -232,9 +338,10 @@
     </section>
 
     <!-- ========== NUEVA SECCIÓN: LA CARTA ========== -->
-    <section id="lacarta" class="card">
-      <h2 data-i18n="lacarta_title">La Carta</h2>
-
+<details class="toggle-section card" id="La Carta-section">
+  <summary>La Carta <span class="arrow">▼</span></summary>
+  <div class="contenido">
+ 
       <h3 data-i18n="lacarta_starters">PRIMEROS PLATOS</h3>
       <div class="menu-list" aria-label="Primeros platos">
         <div class="menu-item"><span data-i18n="p_en_salad_house">Ensalada Les Guatlles (lechuga variada, huevos de codorniz, paté, tomates cherry, cebolla frita, frutos secos y vinagre de módena)</span><span>13,90€</span></div>
@@ -283,12 +390,15 @@
       <h3 data-i18n="lacarta_kids">MENÚ INFANTIL</h3>
       <div class="menu-list" aria-label="Menú infantil">
         <div class="menu-item"><span data-i18n="kids_combo">Plato combinado: macarrones con tomate, Nuggets de pollo, patatas fritas, refresco y helado (o postre)</span><span>15,00€</span></div>
-      </div>
-    </section>
+    <!-- Flecha para cerrar, siempre visible -->
+    <div class="close-arrow">▲</div>
+  </div>
+</details>
 
     <!-- ========== MENÚ PARA GRUPOS (mínimo 12 personas) ========== -->
-    <section id="grupos" class="card">
-      <h2 data-i18n="groups_title">Menú para Grupos (mínimo 12 personas)</h2>
+<details class="toggle-section card" id="Menú para grupos (MíNimo 12 personas)-section">
+  <summary>Menú para grupos (MíNimo 12 personas) <span class="arrow">▼</span></summary>
+  <div class="contenido">
 
       <h3>MENÚ 1</h3>
       <p data-i18n="groups_pica1_title">Pica-pica:</p>
@@ -366,9 +476,9 @@
       <h3 data-i18n="groups_kids_title">MENÚ INFANTIL</h3>
       <div class="menu-list">
         <div class="menu-item"><span data-i18n="kids_combo_short">Plato combinado: macarrones con tomate, Nuggets de pollo, patatas fritas, refresco y helado (o postre)</span><span>17€</span></div>
-      </div>
-
-    </section>
+    <div class="close-arrow">▲</div>
+  </div>
+</details>
 
     <!-- EVENTOS -->
     <section id="eventos" class="card">
@@ -397,7 +507,7 @@
         <tr><td data-i18n="tuesday">Martes</td><td class="closed" data-i18n="closed">Cerrado</td></tr>
         <tr><td data-i18n="wednesday">Miércoles</td><td class="closed" data-i18n="closed">Cerrado</td></tr>
         <tr><td data-i18n="thursday">Jueves</td><td class="closed" data-i18n="closed">Cerrado</td></tr>
-        <tr><td data-i18n="friday">Viernes</td><td>Cerrado</td></tr>
+        <tr><td data-i18n="friday">Viernes</td><td class="closed">Cerrado</td></tr>
         <tr><td data-i18n="saturday">Sábado</td><td>13:00 - 15:30</td></tr>
         <tr><td data-i18n="sunday">Domingo</td><td>13:00 - 15:30</td></tr>
         </tbody>
@@ -446,28 +556,6 @@
 <a href="https://wa.me/34977809022" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
-
-<style>
-  .whatsapp-btn{
-    position: fixed;
-    bottom: 20px;            /* distancia desde el borde inferior */
-    left: 50%;               /* centro horizontal */
-    transform: translateX(-50%); /* centra exactamente */
-    background:#25d366;
-    border-radius:50%;
-    width:60px;
-    height:60px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 4px 12px rgba(0,0,0,.3);
-    z-index:1300;
-  }
-  .whatsapp-btn img{
-    width:35px;
-    height:35px;
-  }
-</style>
 
   <!-- Modal lightbox personalizado -->
   <div id="glOverlay" class="gl-overlay" aria-hidden="true" role="dialog" aria-label="Galería imagen">
@@ -828,7 +916,7 @@
         g2_pollo: 'Chicken with garnish',
         g2_canelones: "Grandma's cannelloni",
         g2_postre: 'Desserts: House cake',
-        g2_bebidas: 'Drinks: Wines – waters – soft drinks',
+        g2_bebidas: 'Drinks: Vins – waters – soft drinks',
         g2_cafés: 'Coffees',
 
         groups_pica3_title: 'Starter selection:',
@@ -844,7 +932,7 @@
         g3_conejo: 'Rabbit with garnish',
         g3_bacalao: 'Cod with pisto (samfaina)',
         g3_postre: 'Desserts: House cake',
-        g3_bebidas: 'Drinks: Wines – waters – soft drinks',
+        g3_bebidas: 'Drinks: Vins – waters – soft drinks',
         g3_cafés: 'Coffees',
 
         groups_kids_title: 'CHILDREN´S MENU',
@@ -881,7 +969,7 @@
     }
 
     /***********************
-     * Hamburger & anchor scrolling (offset)
+     * Hamburger & anchor scrolling (offset) - CORREGIDO
      ***********************/
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
@@ -891,6 +979,7 @@
       hamburger.setAttribute('aria-expanded', String(!expanded));
       navLinks.classList.toggle('active');
     }
+    
     if (hamburger) {
       hamburger.addEventListener('click', toggleMenu);
       hamburger.addEventListener('keydown', (e)=> {
@@ -898,22 +987,51 @@
       });
     }
 
-    // Smooth anchor scroll with header offset
-    document.querySelectorAll('a[href^="#"]').forEach(link=>{
-      link.addEventListener('click', (e)=>{
+    // Smooth anchor scroll with header offset - FUNCIÓN MEJORADA
+    function smoothScrollToTarget(href) {
+      const target = document.querySelector(href);
+      if (target) {
+        // Cerrar menú móvil si está abierto
+        navLinks.classList.remove('active');
+        hamburger.setAttribute('aria-expanded','false');
+        
+        // Calcular posición con offset
+        const rootStyles = getComputedStyle(document.documentElement);
+        const headerOffsetStr = rootStyles.getPropertyValue('--header-offset') || '96px';
+        const offset = parseInt(headerOffsetStr, 10) || 96;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        
+        // Scroll suave
+        window.scrollTo({ top, behavior: 'smooth' });
+        return true;
+      }
+      return false;
+    }
+
+    // Event listeners para enlaces de navegación - CORREGIDO
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
-        const target = document.querySelector(href);
-        if (target) {
+        if (href && href !== '#') {
           e.preventDefault();
-          // close mobile menu if open
+          smoothScrollToTarget(href);
+        }
+      });
+    });
+
+    // Event listeners específicos para el menú móvil - NUEVO
+    document.querySelectorAll('#nav-links a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href !== '#') {
+          e.preventDefault();
+          // Cerrar menú móvil primero
           navLinks.classList.remove('active');
           hamburger.setAttribute('aria-expanded','false');
-          // compute offset from CSS variable
-          const rootStyles = getComputedStyle(document.documentElement);
-          const headerOffsetStr = rootStyles.getPropertyValue('--header-offset') || '96px';
-          const offset = parseInt(headerOffsetStr, 10) || 96;
-          const top = target.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top, behavior: 'smooth' });
+          // Luego hacer scroll después de un pequeño delay para que el menú se cierre
+          setTimeout(() => {
+            smoothScrollToTarget(href);
+          }, 300);
         }
       });
     });
@@ -981,24 +1099,34 @@
         if (e.key === 'ArrowRight') showNext();
       }
     });
-
+    
     // Initialize SimpleLightbox (progressive enhancement, targets anchors)
     try {
       var lightbox = new SimpleLightbox('.gallery a', {});
     } catch(err) { /* ignore if not present */ }
 
     /***********************
-     * Accessibility helpers (optional)
+     * Funcionalidad para flechas de cierre en secciones desplegables
      ***********************/
-    // trap focus inside overlay when open (basic)
-    document.addEventListener('focus', function(event) {
-      if (overlay && overlay.classList.contains('active')) {
-        if (!overlay.contains(event.target)) {
-          event.stopPropagation();
-          glClose && glClose.focus();
-        }
-      }
-    }, true);
+    document.querySelectorAll('.toggle-section').forEach(section => {
+      const closeArrow = section.querySelector('.close-arrow');
+      
+      // Cerrar sección al hacer clic en la flecha y hacer scroll al inicio de la sección
+      closeArrow.addEventListener('click', (e) => {
+        e.preventDefault();
+        section.open = false;
+        
+        // Hacer scroll suave al inicio de la sección después de un pequeño delay
+        setTimeout(() => {
+          const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+          const headerOffset = 96; // Mismo offset que usas para el header
+          window.scrollTo({
+            top: sectionTop - headerOffset,
+            behavior: 'smooth'
+          });
+        }, 100);
+      });
+    });
   </script>
 </body>
 </html>
