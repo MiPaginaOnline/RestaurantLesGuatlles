@@ -8,6 +8,9 @@
   <meta name="author" content="Restaurant Les Guatlles" />
   <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
 
+  <!-- Font Awesome para el icono del robot -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- SimpleLightbox stylesheet (progressive enhancement) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.1/simple-lightbox.min.css" integrity="sha512-Zl3/+/k6G1nmM3+8gSm0gQ8MlFs2nJ5heRyvrcEymgq6D8N5ZK5A8PBcHPt9ZcwwhYNS0kt4V8XIlFSSUQKZHw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -174,112 +177,428 @@
       position: static;
     }
 
-/* ---------- RESPONSIVE: MOBIL (sticky smaller + stacked) ---------- */
-@media (max-width:900px){
-  .gallery{grid-template-columns:repeat(2,1fr)}
-  .hero-banner{height:50vh}
-}
+    /* ========== ESTILOS PARA EL ASISTENTE VIRTUAL ========== */
+    .assistant-container {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      z-index: 1400;
+      font-family: Arial, sans-serif;
+    }
 
-@media (max-width:768px){
-  /* header: mínimo espacio posible */
-  header{
-    flex-direction: column;
-    align-items:stretch;
-    padding: 2px 8px; /* Mínimo padding */
-    min-height: auto;
-  }
-  
-  /* brand: sin márgenes ni padding */
-  .brand{
-    display:flex;
-    justify-content:center;
-    padding: 0;
-    margin: 0;
-  }
-  .brand .logo{display:none}
-  .brand h1{
-    font-size: 1rem;
-    margin: 0;
-    padding: 0;
-    text-align:center;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    color:#222;
-    line-height: 1;
-  }
+    /* Botón del asistente con nuevo diseño */
+    .assistant-button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00aaff 0%, #0088cc 100%);
+      border: none;
+      box-shadow: 0 4px 15px rgba(0, 170, 255, 0.5);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: visible;
+      /* Animación de flotación */
+      animation: float 3s ease-in-out infinite;
+    }
 
-  /* nav row: espacio mínimo */
-  .nav-menu{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding: 0px 4px; /* Cero padding superior */
-    min-height: 24px; /* Mínima altura */
-    gap: 0;
-  }
-  
-  /* Hamburguesa normal */
-  .hamburger{
-    display:flex;
-    align-self:center;
-    margin: 0;
-    padding: 0;
-  }
-  .hamburger span{
-    background:#222;
-  }
+    /* Animación de flotación */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
 
-  /* Banderas normales */
-  .lang-switch{
-    gap: 6px;
-    margin: 0;
-    padding: 0;
-  }
+    /* Efecto de escala al hacer hover */
+    .assistant-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 170, 255, 0.7);
+    }
 
-  /* Ajustar dropdown para header ultra compacto */
-  nav ul{
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 8px;
-    right: 8px;
-    margin-top:0;
-    background: var(--glass-bg);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 12px;
-    padding: 12px;
-    flex-direction: column;
-    display: none;
-    gap: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,.18);
-    z-index: 1250;
-  }
-  nav ul.active{ display:flex; }
-  
-  .hero-content h1{font-size:1.8rem}
+    /* Tooltip elegante */
+    .assistant-button::after {
+      content: "Asistente de IA";
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      z-index: 1500;
+    }
 
-  /* WhatsApp centrado en móvil */
-  .whatsapp-btn {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-  }
-}
+    .assistant-button:hover::after {
+      opacity: 1;
+      visibility: visible;
+    }
 
-@media (max-width:520px){
-  .gallery img{height:90px}
-  .hero-content h1{font-size:1.6rem}
-  
-  /* Aún más compacto si es posible */
-  header{
-    padding: 1px 6px; /* Casi cero padding vertical */
-  }
-  .nav-menu{
-    padding: 0px 3px;
-    min-height: 22px;
-  }
-}
+    /* Icono del robot */
+    .assistant-button i {
+      color: white;
+      font-size: 24px;
+    }
+
+    .assistant-chat {
+      position: absolute;
+      bottom: 70px;
+      right: 0;
+      width: 320px;
+      max-width: 85vw;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      max-height: 450px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .assistant-chat.active {
+      display: flex;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .assistant-header {
+      background: linear-gradient(135deg, #00aaff 0%, #0088cc 100%);
+      color: white;
+      padding: 12px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .assistant-header h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .assistant-header h3::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .assistant-close {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .assistant-close:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .assistant-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      max-height: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #f8fafc;
+    }
+
+    .message {
+      padding: 10px 14px;
+      border-radius: 18px;
+      max-width: 85%;
+      word-wrap: break-word;
+      line-height: 1.4;
+      font-size: 0.9rem;
+      position: relative;
+    }
+
+    .message.bot {
+      background: white;
+      align-self: flex-start;
+      border-bottom-left-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border: 1px solid #e2e8f0;
+    }
+
+    .message.user {
+      background: linear-gradient(135deg, #00aaff 0%, #0088cc 100%);
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 170, 255, 0.3);
+    }
+
+    .assistant-input-container {
+      padding: 12px 15px;
+      border-top: 1px solid #e2e8f0;
+      background: white;
+    }
+
+    .assistant-input {
+      display: flex;
+      gap: 8px;
+      align-items: flex-end;
+    }
+
+    .assistant-input input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      outline: none;
+      font-size: 0.9rem;
+      background: #f8fafc;
+      transition: all 0.2s;
+      font-family: Arial, sans-serif;
+    }
+
+    .assistant-input input:focus {
+      border-color: #00aaff;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(0, 170, 255, 0.1);
+    }
+
+    .assistant-input button {
+      background: linear-gradient(135deg, #00aaff 0%, #0088cc 100%);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      min-width: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .assistant-input button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 170, 255, 0.3);
+    }
+
+    .assistant-greeting {
+      position: absolute;
+      bottom: 70px;
+      right: 0;
+      background: #2d3748;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      max-width: 180px;
+      display: none;
+      animation: slideUp 0.3s ease;
+      border: 1px solid #4a5568;
+      font-size: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .assistant-greeting.active {
+      display: block;
+    }
+
+    .assistant-greeting p {
+      margin: 0 0 8px 0;
+    }
+
+    .assistant-greeting button {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 4px 10px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      float: right;
+      transition: all 0.2s;
+    }
+
+    .assistant-greeting button:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* ---------- RESPONSIVE: MOBIL (sticky smaller + stacked) ---------- */
+    @media (max-width:900px){
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .hero-banner{height:50vh}
+    }
+
+    @media (max-width:768px){
+      /* header: mínimo espacio posible */
+      header{
+        flex-direction: column;
+        align-items:stretch;
+        padding: 2px 8px; /* Mínimo padding */
+        min-height: auto;
+      }
+      
+      /* brand: sin márgenes ni padding */
+      .brand{
+        display:flex;
+        justify-content:center;
+        padding: 0;
+        margin: 0;
+      }
+      .brand .logo{display:none}
+      .brand h1{
+        font-size: 1rem;
+        margin: 0;
+        padding: 0;
+        text-align:center;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        color:#222;
+        line-height: 1;
+      }
+
+      /* nav row: espacio mínimo */
+      .nav-menu{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding: 0px 4px; /* Cero padding superior */
+        min-height: 24px; /* Mínima altura */
+        gap: 0;
+      }
+      
+      /* Hamburguesa normal */
+      .hamburger{
+        display:flex;
+        align-self:center;
+        margin: 0;
+        padding: 0;
+      }
+      .hamburger span{
+        background:#222;
+      }
+
+      /* Banderas normales */
+      .lang-switch{
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Ajustar dropdown para header ultra compacto */
+      nav ul{
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 8px;
+        right: 8px;
+        margin-top:0;
+        background: var(--glass-bg);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 12px;
+        padding: 12px;
+        flex-direction: column;
+        display: none;
+        gap: 12px;
+        box-shadow: 0 8px 30px rgba(0,0,0,.18);
+        z-index: 1250;
+      }
+      nav ul.active{ display:flex; }
+      
+      .hero-content h1{font-size:1.8rem}
+
+      /* Asistente en móvil */
+      .assistant-container {
+        bottom: 90px;
+        right: 15px;
+      }
+      
+      /* Botón del asistente más pequeño en móvil */
+      .assistant-button {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .assistant-button i {
+        font-size: 20px;
+      }
+      
+      .assistant-chat {
+        width: calc(100vw - 30px);
+        max-width: calc(100vw - 30px);
+        right: 0;
+        bottom: 70px;
+        max-height: 60vh;
+      }
+      
+      .assistant-greeting {
+        width: calc(100vw - 60px);
+        max-width: calc(100vw - 60px);
+        right: 0;
+      }
+      
+      /* Prevenir zoom en inputs en iOS */
+      .assistant-input input {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width:520px){
+      .gallery img{height:90px}
+      .hero-content h1{font-size:1.6rem}
+      
+      /* Aún más compacto si es posible */
+      header{
+        padding: 1px 6px; /* Casi cero padding vertical */
+      }
+      .nav-menu{
+        padding: 0px 3px;
+        min-height: 22px;
+      }
+      
+      .assistant-chat {
+        max-height: 55vh;
+      }
+    }
+
+    /* Footer redes sociales a la izquierda */
+    footer .social-icons {
+      order: -1;
+      margin-right: auto;
+    }
   </style>
 </head>
 <body>
@@ -339,7 +658,7 @@
 
     <!-- ========== NUEVA SECCIÓN: LA CARTA ========== -->
 <details class="toggle-section card" id="La Carta-section">
-  <summary>La Carta <span class="arrow">▼</span></summary>
+  <summary><span data-i18n="lacarta_title">La Carta</span> <span class="arrow">▼</span></summary>
   <div class="contenido">
  
       <h3 data-i18n="lacarta_starters">PRIMEROS PLATOS</h3>
@@ -397,7 +716,7 @@
 
     <!-- ========== MENÚ PARA GRUPOS (mínimo 12 personas) ========== -->
 <details class="toggle-section card" id="Menú para grupos (MíNimo 12 personas)-section">
-  <summary>Menú para grupos (MíNimo 12 personas) <span class="arrow">▼</span></summary>
+  <summary><span data-i18n="groups_title">Menú para grupos (Mínimo 12 personas)</span> <span class="arrow">▼</span></summary>
   <div class="contenido">
 
       <h3>MENÚ 1</h3>
@@ -541,7 +860,6 @@
 
   <!-- FOOTER -->
   <footer class="container" role="contentinfo">
-    <span>© <span id="year"></span> <span data-i18n="title">Restaurant Les Guatlles</span></span>
     <span class="social-icons" aria-label="Redes sociales">
       <a href="https://www.instagram.com/restaurantlesguatlles/?hl=es" target="_blank" rel="noopener">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="20" height="20">
@@ -550,6 +868,7 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook" width="20" height="20">
       </a>
     </span>
+    <span>© <span id="year"></span> <span data-i18n="title">Restaurant Les Guatlles</span></span>
   </footer>
 
   <!-- WhatsApp flotante -->
@@ -567,6 +886,37 @@
       </div>
       <img id="glImage" src="" alt="Imagen ampliada">
     </div>
+  </div>
+
+  <!-- ========== ASISTENTE VIRTUAL ========== -->
+  <div class="assistant-container">
+    <div class="assistant-greeting" id="assistantGreeting">
+      <p>Hola, ¿tienes alguna duda? ¡Pregúntame!</p>
+      <button id="closeGreeting">Entendido</button>
+    </div>
+    
+    <div class="assistant-chat" id="assistantChat">
+      <div class="assistant-header">
+        <h3>Asistente Virtual</h3>
+        <button class="assistant-close" id="closeChat">✕</button>
+      </div>
+      <div class="assistant-messages" id="assistantMessages">
+        <div class="message bot">
+          ¡Hola! Soy el asistente virtual de Restaurant Les Guatlles. ¿En qué puedo ayudarte?
+        </div>
+      </div>
+      <div class="assistant-input-container">
+        <div class="assistant-input">
+          <input type="text" id="assistantInput" placeholder="Escribe tu pregunta..." />
+          <button id="sendMessage">Enviar</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Botón del asistente con nuevo diseño -->
+    <button class="assistant-button" id="assistantButton" aria-label="Abrir asistente virtual">
+      <i class="fas fa-robot"></i>
+    </button>
   </div>
 
   <!-- SimpleLightbox script (progressive enhancement) -->
@@ -694,7 +1044,7 @@
         g3_bacalao: 'Bacalao con pisto (samfaina)',
         g3_postre: 'Postres: Pastel de la casa',
         g3_bebidas: 'Bebidas: Vinos – aguas – refrescos',
-        g3_cafés: 'Cafés',
+        g3_cafés: 'Cafès',
 
         groups_kids_title: 'MENÚ INFANTIL',
         kids_combo_short: 'Plato combinado: macarrones con tomate, Nuggets de pollo, patatas fritas, refresco y helado (o postre)'
@@ -1126,6 +1476,162 @@
           });
         }, 100);
       });
+    });
+
+    /***********************
+     * ASISTENTE VIRTUAL
+     ***********************/
+    const assistantButton = document.getElementById('assistantButton');
+    const assistantChat = document.getElementById('assistantChat');
+    const assistantMessages = document.getElementById('assistantMessages');
+    const assistantInput = document.getElementById('assistantInput');
+    const sendMessage = document.getElementById('sendMessage');
+    const closeChat = document.getElementById('closeChat');
+    const assistantGreeting = document.getElementById('assistantGreeting');
+    const closeGreeting = document.getElementById('closeGreeting');
+
+    // Mostrar saludo después de 2 segundos
+    setTimeout(() => {
+      assistantGreeting.classList.add('active');
+    }, 2000);
+
+    // Cerrar saludo
+    closeGreeting.addEventListener('click', () => {
+      assistantGreeting.classList.remove('active');
+    });
+
+    // Abrir/cerrar chat
+    assistantButton.addEventListener('click', () => {
+      assistantChat.classList.toggle('active');
+      assistantGreeting.classList.remove('active');
+      if (assistantChat.classList.contains('active')) {
+        assistantInput.focus();
+      }
+    });
+
+    // Cerrar chat
+    closeChat.addEventListener('click', () => {
+      assistantChat.classList.remove('active');
+    });
+
+    // Enviar mensaje
+    function sendUserMessage() {
+      const message = assistantInput.value.trim();
+      if (message === '') return;
+      
+      // Añadir mensaje del usuario
+      addMessage(message, 'user');
+      assistantInput.value = '';
+      
+      // Ocultar teclado en móvil
+      assistantInput.blur();
+      
+      // Procesar mensaje y obtener respuesta
+      setTimeout(() => {
+        const response = getAssistantResponse(message);
+        addMessage(response, 'bot');
+        
+        // Hacer scroll al último mensaje
+        assistantMessages.scrollTop = assistantMessages.scrollHeight;
+      }, 500);
+    }
+
+    // Enviar mensaje al pulsar Enter
+    assistantInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendUserMessage();
+      }
+    });
+
+    // Enviar mensaje al hacer clic en el botón
+    sendMessage.addEventListener('click', sendUserMessage);
+
+    // Añadir mensaje al chat
+    function addMessage(text, sender) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${sender}`;
+      messageDiv.textContent = text;
+      assistantMessages.appendChild(messageDiv);
+      
+      // Hacer scroll al último mensaje
+      assistantMessages.scrollTop = assistantMessages.scrollHeight;
+    }
+
+    // Obtener respuesta del asistente - MEJORADO PARA DETECTAR CON Y SIN ACENTOS
+    function getAssistantResponse(message) {
+      // Normalizar el mensaje (eliminar acentos y convertir a minúsculas)
+      const normalizedMessage = message
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+      
+      // Respuestas basadas en el contenido de la página
+      if (normalizedMessage.includes('hola') || normalizedMessage.includes('buenas')) {
+        return '¡Hola! Bienvenido al Restaurant Les Guatlles. ¿En qué puedo ayudarte?';
+      }
+      
+      if (normalizedMessage.includes('reserva') || normalizedMessage.includes('reservar')) {
+        return 'Para hacer una reserva, puedes llamarnos al +34 977 80 90 22. Estaremos encantados de atenderte.';
+      }
+      
+      if (normalizedMessage.includes('horario') || normalizedMessage.includes('abierto')) {
+        return 'Estamos abiertos los sábados y domingos de 13:00 a 15:30. De lunes a viernes permanecemos cerrados.';
+      }
+      
+      if (normalizedMessage.includes('menu') || normalizedMessage.includes('carta')) {
+        return 'Tenemos una amplia carta con platos tradicionales catalanes. Puedes consultar nuestra carta completa en la sección "La Carta" de nuestra página.';
+      }
+      
+      if (normalizedMessage.includes('grupo') || normalizedMessage.includes('grupos')) {
+        return 'Ofrecemos menús especiales para grupos a partir de 12 personas. Tenemos tres opciones de menú con precios desde 29€. Consulta la sección "Menú Grupos" para más detalles.';
+      }
+      
+      if (normalizedMessage.includes('evento') || normalizedMessage.includes('celebracion')) {
+        return 'Organizamos eventos especiales como calçotades, cenas de grupo y celebraciones familiares. Contáctanos para consultar disponibilidad.';
+      }
+      
+      if (normalizedMessage.includes('ubicacion') || normalizedMessage.includes('direccion') || normalizedMessage.includes('donde')) {
+        return 'Nos encontramos en Disseminat, 8, 43883 Roda de Berà, Tarragona. Puedes ver nuestra ubicación exacta en la sección "Ubicación" de la página.';
+      }
+      
+      if (normalizedMessage.includes('precio') || normalizedMessage.includes('cuanto')) {
+        return 'Los precios varían según el plato. Puedes consultar todos los precios en nuestra carta en la sección "La Carta". Los menús para grupos empiezan desde 29€ por persona.';
+      }
+      
+      if (normalizedMessage.includes('vegetariano') || normalizedMessage.includes('vegano')) {
+        return 'Ofrecemos algunas opciones vegetarianas como la ensalada verde y la escalivada. Para opciones veganas, te recomendamos consultar directamente con nosotros.';
+      }
+      
+      if (normalizedMessage.includes('telefono') || normalizedMessage.includes('llamar')) {
+        return 'Puedes contactarnos al teléfono +34 977 80 90 22.';
+      }
+      
+      if (normalizedMessage.includes('gracias')) {
+        return '¡De nada! Estoy aquí para ayudarte. ¿Tienes alguna otra pregunta?';
+      }
+      
+      // Respuesta por defecto para preguntas no reconocidas
+      return 'No tengo información específica sobre eso. Para más información, puedes contactarnos directamente al teléfono +34 977 80 90 22. ¿Puedo ayudarte con algo más?';
+    }
+
+    // Prevenir zoom en iOS al enfocar inputs
+    document.addEventListener('touchstart', function() {}, {passive: true});
+    
+    // Ajustar posición del chat cuando aparece el teclado en móvil
+    let originalChatBottom = null;
+    
+    assistantInput.addEventListener('focus', function() {
+      if (window.innerWidth <= 768) {
+        originalChatBottom = assistantChat.style.bottom;
+        assistantChat.style.bottom = '250px';
+      }
+    });
+    
+    assistantInput.addEventListener('blur', function() {
+      if (window.innerWidth <= 768 && originalChatBottom !== null) {
+        assistantChat.style.bottom = originalChatBottom;
+        originalChatBottom = null;
+      }
     });
   </script>
 </body>
