@@ -1,0 +1,1309 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>La Carta — Restaurant Les Guatlles</title>
+  <meta name="description" content="Carta completa del Restaurant Les Guatlles: cocina catalana tradicional en Roda de Berà." />
+  <meta name="author" content="Restaurant Les Guatlles" />
+  <link rel="icon" type="image/x-icon" href="Gemini_Generated_Image_eu8xwceu8xwceu8x-modified.png">
+
+  <!-- Fuentes profesionales de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* === VARIABLES Y ESTILOS BASE === */
+    :root {
+      --accent: #8b2e2e;
+      --muted: #6b6b6b;
+      --bg: #d2b48c;
+      --card: #f1e0c6;
+      --glass-bg: rgba(255,255,255,0.45);
+      --header-offset: 96px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      color: #222;
+      background: var(--bg);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    /* === ANIMACIONES DE ENTRADA === */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* === HEADER STICKY === */
+    header {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 40px);
+      max-width: 1100px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 18px;
+      z-index: 1200;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex: 0 0 64px;
+      background-image: url('https://tse1.mm.bing.net/th/id/OIP.Gi4hYsIc4B3YbKDPpV0b8wAAAA?pid=Api');
+      background-size: cover;
+      background-position: center;
+    }
+
+    h1 {
+      font-size: 1.25rem;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    nav li {
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    nav li:hover {
+      background: rgba(139, 46, 46, 0.1);
+    }
+
+    nav a {
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 3px;
+      background: #222;
+      border-radius: 3px;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .lang-switch button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .lang-switch button:hover {
+      transform: scale(1.1);
+    }
+
+    .lang-switch img {
+      width: 28px;
+      height: 20px;
+      border-radius: 3px;
+      box-shadow: 0 0 2px rgba(0,0,0,.15);
+    }
+
+    /* === HERO SECTION === */
+    .hero-banner {
+      position: relative;
+      height: 40vh;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('https://tse2.mm.bing.net/th/id/OIP.NeFWFeG1jl9k7wvETfMcuwHaIW?pid=Api');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      margin-top: 84px;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 12px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+
+    /* === MAIN CONTENT === */
+    main {
+      margin-top: 24px;
+      padding-bottom: 80px;
+    }
+
+    section {
+      scroll-margin-top: var(--header-offset);
+    }
+
+    /* === CARDS Y COMPONENTES === */
+    .card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(12,12,12,0.1);
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(12,12,12,0.15);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .menu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed #aaa;
+      padding-bottom: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-item:hover {
+      transform: translateX(5px);
+      border-color: var(--accent);
+    }
+
+    .menu-item:last-child {
+      border-bottom: 0;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding: 20px 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* === BÚSQUEDA EN CARTA === */
+    .search-container {
+      margin-bottom: 20px;
+    }
+    
+    .search-box {
+      width: 100%;
+      padding: 12px 20px;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .search-box:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(139, 46, 46, 0.1);
+    }
+
+    /* === BOTONES === */
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #7a2727;
+      box-shadow: 0 4px 12px rgba(139, 46, 46, 0.3);
+    }
+
+    .btn-secondary {
+      background: #f1e0c6;
+      color: #8b2e2e;
+      border: 2px solid #8b2e2e;
+    }
+    
+    .btn-secondary:hover {
+      background: #e2cda0;
+    }
+
+    /* === SECCIONES DESPLEGABLES === */
+    .toggle-section.card {
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(12,12,12,0.1);
+      margin-bottom: 20px;
+      background: var(--card);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .toggle-section summary {
+      cursor: pointer;
+      font-weight: bold;
+      display: block;
+      font-size: 1.1rem;
+      padding: 12px 0;
+      list-style: none;
+    }
+
+    .toggle-section summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .toggle-section summary .arrow {
+      float: right;
+      transition: transform 0.3s ease;
+    }
+
+    .toggle-section[open] summary .arrow {
+      transform: rotate(180deg);
+    }
+
+    .toggle-section .contenido {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+    }
+
+    .toggle-section[open] .contenido {
+      max-height: 5000px;
+    }
+
+    /* WhatsApp flotante */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,.3);
+      z-index: 1300;
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.8s ease-out 1s both;
+    }
+    
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+    
+    .whatsapp-btn img {
+      width: 35px;
+      height: 35px;
+    }
+
+    /* === NAVEGACIÓN ENTRE PÁGINAS === */
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 40px 0;
+      padding: 20px;
+      background: var(--card);
+      border-radius: 12px;
+      border: 2px solid var(--accent);
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width:768px){
+      header{
+        flex-direction: column;
+        align-items:stretch;
+        padding: 2px 8px;
+        min-height: auto;
+      }
+      
+      .brand{
+        display:flex;
+        justify-content:center;
+        padding: 0;
+        margin: 0;
+      }
+      .brand .logo{display:none}
+      .brand h1{
+        font-size: 1rem;
+        margin: 0;
+        padding: 0;
+        text-align:center;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        color:#222;
+        line-height: 1;
+      }
+
+      .nav-menu{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding: 0px 4px;
+        min-height: 24px;
+        gap: 0;
+      }
+      
+      .hamburger{
+        display:flex;
+        align-self:center;
+        margin: 0;
+        padding: 0;
+      }
+      .hamburger span{
+        background:#222;
+      }
+
+      .lang-switch{
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul{
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 8px;
+        right: 8px;
+        margin-top:0;
+        background: var(--glass-bg);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 12px;
+        padding: 12px;
+        flex-direction: column;
+        display: none;
+        gap: 12px;
+        box-shadow: 0 8px 30px rgba(0,0,0,.18);
+        z-index: 1250;
+      }
+      nav ul.active{ display:flex; }
+      
+      .hero-content h1{font-size:1.8rem}
+      
+      .page-nav {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width:520px){
+      .hero-content h1{font-size:1.6rem}
+      
+      header{
+        padding: 1px 6px;
+      }
+      .nav-menu{
+        padding: 0px 3px;
+        min-height: 22px;
+      }
+    }
+
+    /* Footer redes sociales a la izquierda */
+    footer .social-icons {
+      order: -1;
+      margin-right: auto;
+    }
+    
+    .menu-category {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--accent);
+    }
+    
+    .menu-category h3 {
+      color: var(--accent);
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .price {
+      font-weight: bold;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    
+    .description {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="container" role="banner" aria-label="Barra principal">
+    <div class="brand" aria-hidden="false">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1 data-i18n="title">Restaurant Les Guatlles</h1>
+        <div class="muted" data-i18n="location" style="font-size:0.85rem;color:var(--muted)">Roda de Berà — Tarragona</div>
+      </div>
+    </div>
+
+    <div class="nav-menu" aria-hidden="false">
+      <div class="hamburger" id="hamburger" aria-label="Abrir menú" role="button" tabindex="0" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul id="nav-links" class="nav-links" role="menu">
+          <li role="none"><a role="menuitem" href="index.html#sobre" data-i18n="menu_about">Inicio</a></li>
+          <li role="none"><a role="menuitem" href="#carta" class="active" data-i18n="menu_menu">La Carta</a></li>
+          <li role="none"><a role="menuitem" href="menu-grupos.html" data-i18n="menu_groups">Menú Grupos</a></li>
+          <li role="none"><a role="menuitem" href="index.html#eventos" data-i18n="menu_events">Eventos</a></li>
+          <li role="none"><a role="menuitem" href="index.html#reservas" data-i18n="menu_reserve">Reservas</a></li>
+        </ul>
+      </nav>
+
+      <div class="lang-switch" aria-label="Selector de idioma">
+        <button data-lang="es" aria-label="Español"><img src="https://flagcdn.com/es.svg" alt="Español"></button>
+        <button data-lang="ca" aria-label="Català"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Catalonia.svg" alt="Català"></button>
+        <button data-lang="en" aria-label="English"><img src="https://flagcdn.com/gb.svg" alt="English"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-banner" aria-hidden="false">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 data-i18n="hero_title_carta">La Carta Completa</h1>
+      <p data-i18n="hero_sub_carta">Descubre nuestra cocina catalana tradicional</p>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="container" id="maincontent" role="main">
+    <!-- Barra de búsqueda -->
+    <div class="search-container">
+      <input type="text" class="search-box" id="cartaSearch" placeholder="Buscar en la carta (ej: ensalada, cordero, bacalao)..." aria-label="Buscar en la carta" data-i18n-placeholder="search_placeholder">
+    </div>
+
+    <!-- PRIMEROS PLATOS -->
+    <section id="carta" class="menu-category animate-on-scroll">
+      <h2 data-i18n="primeros_title">PRIMEROS PLATOS</h2>
+      
+      <div class="menu-list">
+        <div class="menu-item" data-i18n-key="ensalada_guatlles">
+          <div>
+            <div data-i18n="ensalada_guatlles_name">Ensalada Les Guatlles</div>
+            <div class="description" data-i18n="ensalada_guatlles_desc">Lechuga variada, huevos de codorniz, paté, tomates cherry, cebolla frita, frutos secos y vinagre de módena</div>
+          </div>
+          <div class="price">13,90€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="ensalada_verde">
+          <div>
+            <div data-i18n="ensalada_verde_name">Ensalada verde</div>
+            <div class="description" data-i18n="ensalada_verde_desc">Lechuga, tomate, pimiento, cebolla, atún, huevo, remolacha, zanahoria y aceitunas</div>
+          </div>
+          <div class="price">11,90€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="xato">
+          <div data-i18n="xato_name">Xató</div>
+          <div class="price">14,90€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="escalivada">
+          <div data-i18n="escalivada_name">Escalivada (pimiento y berenjena)</div>
+          <div class="price">14,90€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="caracoles">
+          <div data-i18n="caracoles_name">Caracoles a la llauna</div>
+          <div class="price">16,80€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="canelones">
+          <div data-i18n="canelones_name">Canelones de la abuela</div>
+          <div class="price">11,20€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="calçots">
+          <div data-i18n="calçots_name">Calçots con salsa</div>
+          <div class="price">15,00€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="jamon">
+          <div data-i18n="jamon_name">Jamón del país</div>
+          <div class="price">11,00€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="coca">
+          <div data-i18n="coca_name">Coca de cebolla</div>
+          <div class="price">9,50€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="anchoas">
+          <div>
+            <div data-i18n="anchoas_name">Anchoas de L'Escala</div>
+            <div class="description" data-i18n="anchoas_desc">Anchoas, zanahoria, remolacha y aceitunas</div>
+          </div>
+          <div class="price">13,80€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="tostada">
+          <div>
+            <div data-i18n="tostada_name">Tostada de la casa</div>
+            <div class="description" data-i18n="tostada_desc">Pan tostado con "all i oli", escalivada, anchoas y olivas</div>
+          </div>
+          <div class="price">13,90€</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEGUNDOS PLATOS -->
+    <section class="menu-category animate-on-scroll">
+      <h2 data-i18n="segundos_title">SEGUNDOS PLATOS</h2>
+      
+      <div class="menu-list">
+        <div class="menu-item" data-i18n-key="panceta">
+          <div data-i18n="panceta_name">Panceta con guarnición</div>
+          <div class="price">11,50€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="butifarra">
+          <div data-i18n="butifarra_name">Butifarra con guarnición</div>
+          <div class="price">11,50€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="morcilla">
+          <div data-i18n="morcilla_name">Morcilla con guarnición</div>
+          <div class="price">12,50€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="cordero">
+          <div data-i18n="cordero_name">Cordero a la brasa con guarnición</div>
+          <div class="price">16,60€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="lomo">
+          <div data-i18n="lomo_name">Lomo a la brasa con guarnición</div>
+          <div class="price">10,50€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="codornices">
+          <div data-i18n="codornices_name">Codornices al ron (una pieza)</div>
+          <div class="price">4,45€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="conejo">
+          <div data-i18n="conejo_name">Conejo a la brasa con guarnición</div>
+          <div class="price">14,50€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="picanton">
+          <div data-i18n="picanton_name">Picantón a la brasa con guarnición</div>
+          <div class="price">14,50€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="entrecot">
+          <div data-i18n="entrecot_name">Entrecot a la brasa con guarnición</div>
+          <div class="price">21,00€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="churrasco">
+          <div data-i18n="churrasco_name">Churrasco de ternera a la brasa</div>
+          <div class="price">14,00€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="pies">
+          <div data-i18n="pies_name">Pies de cerdo a la brasa con guarnición</div>
+          <div class="price">13,00€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="carrillada">
+          <div data-i18n="carrillada_name">Carrillada de cerdo a la brasa con guarnición</div>
+          <div class="price">14,00€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="bacalao">
+          <div data-i18n="bacalao_name">Bacalao al pisto (samfaina)</div>
+          <div class="price">17,00€</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RACIONES Y EXTRAS -->
+    <section class="menu-category animate-on-scroll">
+      <h2 data-i18n="raciones_title">RACIONES Y EXTRAS</h2>
+      
+      <div class="menu-list">
+        <div class="menu-item" data-i18n-key="judias">
+          <div data-i18n="judias_name">Judías secas</div>
+          <div class="price">4,70€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="patatas_fritas">
+          <div data-i18n="patatas_fritas_name">Patatas fritas</div>
+          <div class="price">4,50€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="patatas_horno">
+          <div data-i18n="patatas_horno_name">Patatas al horno</div>
+          <div class="price">3,90€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="romesco">
+          <div data-i18n="romesco_name">Salsa romesco</div>
+          <div class="price">3,50€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="alioli">
+          <div data-i18n="alioli_name">Alioli</div>
+          <div class="price">2,50€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="alcachofa">
+          <div data-i18n="alcachofa_name">Alcachofa a la brasa, unidad s/t</div>
+          <div class="price">2,80€/u</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="pan_tostado">
+          <div data-i18n="pan_tostado_name">Pan tostado (rebanada)</div>
+          <div class="price">1,00€/u</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="babero">
+          <div data-i18n="babero_name">Babero</div>
+          <div class="price">0,50€</div>
+        </div>
+        
+        <div class="menu-item" data-i18n-key="taper">
+          <div data-i18n="taper_name">Táper</div>
+          <div class="price">1,00€</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENÚ INFANTIL -->
+    <section class="menu-category animate-on-scroll">
+      <h2 data-i18n="infantil_title">MENÚ INFANTIL</h2>
+      
+      <div class="menu-list">
+        <div class="menu-item" data-i18n-key="infantil">
+          <div>
+            <div data-i18n="infantil_name">Plato combinado</div>
+            <div class="description" data-i18n="infantil_desc">Macarrones con tomate, Nuggets de pollo, patatas fritas, refresco y helado (o postre)</div>
+          </div>
+          <div class="price">15,00€</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAVEGACIÓN ENTRE PÁGINAS -->
+    <div class="page-nav">
+      <a href="index.html" class="btn btn-secondary">
+        <i class="fas fa-arrow-left" style="margin-right: 8px;"></i><span data-i18n="volver_inicio">Volver al inicio</span>
+      </a>
+      
+      <a href="menu-grupos.html" class="btn btn-primary">
+        <span data-i18n="ver_grupos">Ver Menús de Grupo</span> <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="container" role="contentinfo">
+    <span class="social-icons" aria-label="Redes sociales">
+      <a href="https://www.instagram.com/restaurantlesguatlles/?hl=es" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="20" height="20">
+      </a>
+      <a href="https://www.facebook.com/Restaurantlesguatlles/?locale=es_ES" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook" width="20" height="20">
+      </a>
+    </span>
+    <span>© <span id="year"></span> <span data-i18n="title">Restaurant Les Guatlles</span></span>
+  </footer>
+
+  <!-- BOTÓN WHATSAPP -->
+  <a href="https://wa.me/34977809022" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <script>
+    // === INICIALIZACIÓN ===
+    document.addEventListener('DOMContentLoaded', function() {
+      // Año actual
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Inicializar búsqueda
+      initializeSearch();
+      
+      // Inicializar animaciones al hacer scroll
+      initializeScrollAnimations();
+      
+      // Sistema de navegación
+      initializeNavigation();
+      
+      // Sistema de idiomas COMPLETO
+      initializeLanguage();
+    });
+
+    // === SISTEMA DE BÚSQUEDA ===
+    function initializeSearch() {
+      const cartaSearch = document.getElementById('cartaSearch');
+      if (cartaSearch) {
+        cartaSearch.addEventListener('input', function(e) {
+          filterMenuItems(e.target.value.toLowerCase());
+        });
+      }
+    }
+
+    function filterMenuItems(searchTerm) {
+      const menuItems = document.querySelectorAll('.menu-item');
+      
+      menuItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(searchTerm)) {
+          item.style.display = 'flex';
+          
+          // Animación de aparición
+          item.style.opacity = '0';
+          item.style.transform = 'translateX(-10px)';
+          setTimeout(() => {
+            item.style.transition = 'all 0.3s ease';
+            item.style.opacity = '1';
+            item.style.transform = 'translateX(0)';
+          }, 50);
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      
+      // Mostrar mensaje si no hay resultados
+      const categories = document.querySelectorAll('.menu-category');
+      categories.forEach(category => {
+        const visibleItems = category.querySelectorAll('.menu-item[style*="display: flex"]');
+        if (visibleItems.length === 0) {
+          category.style.opacity = '0.5';
+        } else {
+          category.style.opacity = '1';
+        }
+      });
+    }
+
+    // === ANIMACIONES AL SCROLL ===
+    function initializeScrollAnimations() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+            
+            // Efecto escalonado para los elementos del menú
+            if (entry.target.classList.contains('menu-category')) {
+              const menuItems = entry.target.querySelectorAll('.menu-item');
+              menuItems.forEach((item, index) => {
+                setTimeout(() => {
+                  item.style.opacity = '0';
+                  item.style.transform = 'translateX(-20px)';
+                  item.style.transition = 'all 0.5s ease';
+                  setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                  }, 100);
+                }, index * 100);
+              });
+            }
+          }
+        });
+      }, observerOptions);
+      
+      // Observar todos los elementos con la clase animate-on-scroll
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    // === SISTEMA DE NAVEGACIÓN ===
+    function initializeNavigation() {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+
+      function toggleMenu() {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', String(!expanded));
+        navLinks.classList.toggle('active');
+      }
+      
+      if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
+      }
+
+      // Cerrar menú al hacer clic en un enlace
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          hamburger.setAttribute('aria-expanded','false');
+        });
+      });
+    }
+
+    // === SISTEMA DE IDIOMAS COMPLETO ===
+    function initializeLanguage() {
+      const translations = {
+        es: {
+          // Títulos generales
+          "title": "Restaurant Les Guatlles",
+          "location": "Roda de Berà — Tarragona",
+          
+          // Navegación
+          "menu_about": "Inicio",
+          "menu_menu": "La Carta",
+          "menu_groups": "Menú Grupos",
+          "menu_events": "Eventos",
+          "menu_reserve": "Reservas",
+          
+          // Hero
+          "hero_title_carta": "La Carta Completa",
+          "hero_sub_carta": "Descubre nuestra cocina catalana tradicional",
+          
+          // Búsqueda
+          "search_placeholder": "Buscar en la carta (ej: ensalada, cordero, bacalao)...",
+          
+          // Categorías
+          "primeros_title": "PRIMEROS PLATOS",
+          "segundos_title": "SEGUNDOS PLATOS",
+          "raciones_title": "RACIONES Y EXTRAS",
+          "infantil_title": "MENÚ INFANTIL",
+          
+          // Primeros platos
+          "ensalada_guatlles_name": "Ensalada Les Guatlles",
+          "ensalada_guatlles_desc": "Lechuga variada, huevos de codorniz, paté, tomates cherry, cebolla frita, frutos secos y vinagre de módena",
+          "ensalada_verde_name": "Ensalada verde",
+          "ensalada_verde_desc": "Lechuga, tomate, pimiento, cebolla, atún, huevo, remolacha, zanahoria y aceitunas",
+          "xato_name": "Xató",
+          "escalivada_name": "Escalivada (pimiento y berenjena)",
+          "caracoles_name": "Caracoles a la llauna",
+          "canelones_name": "Canelones de la abuela",
+          "calçots_name": "Calçots con salsa",
+          "jamon_name": "Jamón del país",
+          "coca_name": "Coca de cebolla",
+          "anchoas_name": "Anchoas de L'Escala",
+          "anchoas_desc": "Anchoas, zanahoria, remolacha y aceitunas",
+          "tostada_name": "Tostada de la casa",
+          "tostada_desc": "Pan tostado con \"all i oli\", escalivada, anchoas y olivas",
+          
+          // Segundos platos
+          "panceta_name": "Panceta con guarnición",
+          "butifarra_name": "Butifarra con guarnición",
+          "morcilla_name": "Morcilla con guarnición",
+          "cordero_name": "Cordero a la brasa con guarnición",
+          "lomo_name": "Lomo a la brasa con guarnición",
+          "codornices_name": "Codornices al ron (una pieza)",
+          "conejo_name": "Conejo a la brasa con guarnición",
+          "picanton_name": "Picantón a la brasa con guarnición",
+          "entrecot_name": "Entrecot a la brasa con guarnición",
+          "churrasco_name": "Churrasco de ternera a la brasa",
+          "pies_name": "Pies de cerdo a la brasa con guarnición",
+          "carrillada_name": "Carrillada de cerdo a la brasa con guarnición",
+          "bacalao_name": "Bacalao al pisto (samfaina)",
+          
+          // Raciones y extras
+          "judias_name": "Judías secas",
+          "patatas_fritas_name": "Patatas fritas",
+          "patatas_horno_name": "Patatas al horno",
+          "romesco_name": "Salsa romesco",
+          "alioli_name": "Alioli",
+          "alcachofa_name": "Alcachofa a la brasa, unidad s/t",
+          "pan_tostado_name": "Pan tostado (rebanada)",
+          "babero_name": "Babero",
+          "taper_name": "Táper",
+          
+          // Menú infantil
+          "infantil_name": "Plato combinado",
+          "infantil_desc": "Macarrones con tomate, Nuggets de pollo, patatas fritas, refresco y helado (o postre)",
+          
+          // Navegación entre páginas
+          "volver_inicio": "Volver al inicio",
+          "ver_grupos": "Ver Menús de Grupo"
+        },
+        ca: {
+          // Títulos generales
+          "title": "Restaurant Les Guatlles",
+          "location": "Roda de Berà — Tarragona",
+          
+          // Navegación
+          "menu_about": "Inici",
+          "menu_menu": "La Carta",
+          "menu_groups": "Menú Grups",
+          "menu_events": "Esdeveniments",
+          "menu_reserve": "Reserves",
+          
+          // Hero
+          "hero_title_carta": "La Carta Completa",
+          "hero_sub_carta": "Descobreix la nostra cuina catalana tradicional",
+          
+          // Búsqueda
+          "search_placeholder": "Cercar a la carta (ex: amanida, xai, bacallà)...",
+          
+          // Categorías
+          "primeros_title": "PRIMERS PLATS",
+          "segundos_title": "SEGONS PLATS",
+          "raciones_title": "RACIONS I EXTRES",
+          "infantil_title": "MENÚ INFANTIL",
+          
+          // Primeros platos
+          "ensalada_guatlles_name": "Amanida Les Guatlles",
+          "ensalada_guatlles_desc": "Enciam variat, ous de guatlla, paté, tomàtigs cherry, ceba fregida, fruits secs i vinagre de Módena",
+          "ensalada_verde_name": "Amanida verda",
+          "ensalada_verde_desc": "Enciam, tomàquet, pebrot, ceba, tonyina, ou, remolatxa, pastanaga i olives",
+          "xato_name": "Xató",
+          "escalivada_name": "Escalivada (pebrot i albergínia)",
+          "caracoles_name": "Cargols a la llauna",
+          "canelones_name": "Canalons de l'àvia",
+          "calçots_name": "Calçots amb salsa",
+          "jamon_name": "Pernil del país",
+          "coca_name": "Coca de ceba",
+          "anchoas_name": "Seitons de L'Escala",
+          "anchoas_desc": "Seitons, pastanaga, remolatxa i olives",
+          "tostada_name": "Torrada de la casa",
+          "tostada_desc": "Pa torrat amb \"all i oli\", escalivada, seitons i olives",
+          
+          // Segundos platos
+          "panceta_name": "Panceta amb guarnició",
+          "butifarra_name": "Botifarra amb guarnició",
+          "morcilla_name": "Botifarra negra amb guarnició",
+          "cordero_name": "Xai a la brasa amb guarnició",
+          "lomo_name": "Llom a la brasa amb guarnició",
+          "codornices_name": "Guatlles al rom (una peça)",
+          "conejo_name": "Conill a la brasa amb guarnició",
+          "picanton_name": "Picantó a la brasa amb guarnició",
+          "entrecot_name": "Entrecot a la brasa amb guarnició",
+          "churrasco_name": "Xurrasco de vedella a la brasa",
+          "pies_name": "Potes de porc a la brasa amb guarnició",
+          "carrillada_name": "Galta de porc a la brasa amb guarnició",
+          "bacalao_name": "Bacallà amb samfaina",
+          
+          // Raciones y extras
+          "judias_name": "Fesols secs",
+          "patatas_fritas_name": "Patates fregides",
+          "patatas_horno_name": "Patates al forn",
+          "romesco_name": "Salsa romesco",
+          "alioli_name": "All i oli",
+          "alcachofa_name": "Carxofa a la brasa, unitat s/t",
+          "pan_tostado_name": "Pa torrat (llesca)",
+          "babero_name": "Baver",
+          "taper_name": "Tupper",
+          
+          // Menú infantil
+          "infantil_name": "Plat combinat",
+          "infantil_desc": "Macarrons amb tomàquet, Nuggets de pollastre, patates fregides, refresc i gelat (o postre)",
+          
+          // Navegación entre páginas
+          "volver_inicio": "Tornar a l'inici",
+          "ver_grupos": "Veure Menús de Grup"
+        },
+        en: {
+          // Títulos generales
+          "title": "Restaurant Les Guatlles",
+          "location": "Roda de Berà — Tarragona",
+          
+          // Navegación
+          "menu_about": "Home",
+          "menu_menu": "Menu",
+          "menu_groups": "Group Menus",
+          "menu_events": "Events",
+          "menu_reserve": "Reservations",
+          
+          // Hero
+          "hero_title_carta": "Complete Menu",
+          "hero_sub_carta": "Discover our traditional Catalan cuisine",
+          
+          // Búsqueda
+          "search_placeholder": "Search in the menu (e.g.: salad, lamb, cod)...",
+          
+          // Categorías
+          "primeros_title": "STARTERS",
+          "segundos_title": "MAIN COURSES",
+          "raciones_title": "SIDES AND EXTRAS",
+          "infantil_title": "KIDS MENU",
+          
+          // Primeros platos
+          "ensalada_guatlles_name": "Les Guatlles Salad",
+          "ensalada_guatlles_desc": "Mixed lettuce, quail eggs, pâté, cherry tomatoes, fried onion, nuts and Modena vinegar",
+          "ensalada_verde_name": "Green salad",
+          "ensalada_verde_desc": "Lettuce, tomato, pepper, onion, tuna, egg, beetroot, carrot and olives",
+          "xato_name": "Xató salad",
+          "escalivada_name": "Grilled vegetables (pepper and aubergine)",
+          "caracoles_name": "Snails in a tin",
+          "canelones_name": "Grandma's cannelloni",
+          "calçots_name": "Calçots with sauce",
+          "jamon_name": "Local ham",
+          "coca_name": "Onion flatbread",
+          "anchoas_name": "Anchovies from L'Escala",
+          "anchoas_desc": "Anchovies, carrot, beetroot and olives",
+          "tostada_name": "House toast",
+          "tostada_desc": "Toasted bread with \"aioli\", grilled vegetables, anchovies and olives",
+          
+          // Segundos platos
+          "panceta_name": "Pork belly with garnish",
+          "butifarra_name": "Catalan sausage with garnish",
+          "morcilla_name": "Black pudding with garnish",
+          "cordero_name": "Grilled lamb with garnish",
+          "lomo_name": "Grilled pork loin with garnish",
+          "codornices_name": "Quail with rum (one piece)",
+          "conejo_name": "Grilled rabbit with garnish",
+          "picanton_name": "Grilled poussin with garnish",
+          "entrecot_name": "Grilled entrecôte with garnish",
+          "churrasco_name": "Grilled beef churrasco",
+          "pies_name": "Grilled pig's feet with garnish",
+          "carrillada_name": "Grilled pork cheek with garnish",
+          "bacalao_name": "Cod with ratatouille (samfaina)",
+          
+          // Raciones y extras
+          "judias_name": "Dried beans",
+          "patatas_fritas_name": "French fries",
+          "patatas_horno_name": "Baked potatoes",
+          "romesco_name": "Romesco sauce",
+          "alioli_name": "Aioli",
+          "alcachofa_name": "Grilled artichoke, unit s/t",
+          "pan_tostado_name": "Toasted bread (slice)",
+          "babero_name": "Bib",
+          "taper_name": "Tupper",
+          
+          // Menú infantil
+          "infantil_name": "Combo plate",
+          "infantil_desc": "Macaroni with tomato, Chicken nuggets, French fries, soft drink and ice cream (or dessert)",
+          
+          // Navegación entre páginas
+          "volver_inicio": "Back to home",
+          "ver_grupos": "See Group Menus"
+        }
+      };
+
+      const savedLang = localStorage.getItem('lang') || 'es';
+      setLanguage(savedLang);
+
+      document.querySelectorAll('.lang-switch button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lang = btn.getAttribute('data-lang');
+          setLanguage(lang);
+        });
+      });
+
+      function setLanguage(lang) {
+        try { localStorage.setItem('lang', lang); } catch(e) {}
+        
+        if (translations[lang]) {
+          // Traducir elementos con data-i18n
+          document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+              el.textContent = translations[lang][key];
+            }
+          });
+          
+          // Traducir placeholders
+          document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (translations[lang][key]) {
+              el.placeholder = translations[lang][key];
+            }
+          });
+          
+          // Traducir elementos dentro de los items del menú
+          document.querySelectorAll('.menu-item').forEach(item => {
+            const key = item.getAttribute('data-i18n-key');
+            if (key && translations[lang]) {
+              // Nombre del plato
+              const nameElement = item.querySelector('[data-i18n-name]');
+              if (nameElement) {
+                const nameKey = nameElement.getAttribute('data-i18n-name');
+                if (translations[lang][nameKey]) {
+                  nameElement.textContent = translations[lang][nameKey];
+                }
+              }
+              
+              // Descripción del plato
+              const descElement = item.querySelector('[data-i18n-desc]');
+              if (descElement) {
+                const descKey = descElement.getAttribute('data-i18n-desc');
+                if (translations[lang][descKey]) {
+                  descElement.textContent = translations[lang][descKey];
+                }
+              }
+              
+              // Si no tiene elementos separados, traducir el texto directamente
+              if (!nameElement) {
+                const nameKey = key + '_name';
+                const descKey = key + '_desc';
+                
+                if (translations[lang][nameKey]) {
+                  // Buscar el primer div que no sea precio ni descripción
+                  const textDiv = item.querySelector('div:not(.price):not(.description)');
+                  if (textDiv && !textDiv.querySelector('.description')) {
+                    textDiv.textContent = translations[lang][nameKey];
+                  }
+                }
+                
+                // Actualizar descripción si existe
+                const descElement = item.querySelector('.description');
+                if (descElement && translations[lang][descKey]) {
+                  descElement.textContent = translations[lang][descKey];
+                }
+              }
+            }
+          });
+        }
+      }
+    }
+  </script>
+</body>
+</html>
