@@ -855,6 +855,34 @@
       order: -1;
       margin-right: auto;
     }
+    
+    /* Estilos para las tarjetas de menú */
+    .menu-card {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      margin: 15px 0;
+      border: 2px solid var(--accent);
+      text-align: center;
+    }
+    
+    .menu-card h3 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+    
+    .menu-highlight {
+      background: rgba(139, 46, 46, 0.05);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .menu-highlight ul {
+      margin: 10px 0 0 20px;
+      text-align: left;
+    }
   </style>
 </head>
 <body>
@@ -876,7 +904,7 @@
       <nav aria-label="Navegación principal">
         <ul id="nav-links" class="nav-links" role="menu">
           <li role="none"><a role="menuitem" href="#lacarta" data-i18n="menu_menu">La Carta</a></li>
-          <li role="none"><a role="menuitem" href="#grupos" data-i18n="menu_groups">Menús</a></li>
+          <li role="none"><a role="menuitem" href="#grupos" data-i18n="menu_groups">Menú Grupos</a></li>
           <li role="none"><a role="menuitem" href="#reservas" data-i18n="menu_reserve">Reservas</a></li>
           <li role="none"><a role="menuitem" href="#horario" data-i18n="menu_hours">Horario</a></li>
           <li role="none"><a role="menuitem" href="#ubicacion" data-i18n="menu_location">Ubicación</a></li>
@@ -902,63 +930,66 @@
 
   <!-- MAIN -->
   <main class="container" id="maincontent" role="main">
-    <section id="sobre" class="card animate-on-scroll" tabindex="-1">
+    <!-- SOBRE NOSOTROS -->
+    <section id="sobre" class="card animate-on-scroll">
       <h2 data-i18n="menu_about">Sobre</h2>
       <p data-i18n="about_text">En Les Guatlles ofrecemos cocina catalana auténtica en un ambiente rústico y moderno. Nuestro espacio está rodeado de naturaleza y pensado para disfrutar en familia.</p>
     </section>
 
-    <!-- ========== LA CARTA (BOTÓN A PÁGINA SECUNDARIA) ========== -->
-    <section id="lacarta" class="card animate-on-scroll" tabindex="-1">
+    <!-- LA CARTA -->
+    <section id="lacarta" class="card animate-on-scroll">
       <h2 data-i18n="lacarta_title">La Carta</h2>
       <p data-i18n="carta_intro">Descubre nuestra amplia selección de platos tradicionales catalanes.</p>
       
       <div style="text-align: center; margin: 30px 0;">
-        <a href="carta.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 12px 30px;">
+        <a href="carta.html" class="btn btn-primary btn-large">
           <i class="fas fa-utensils" style="margin-right: 8px;"></i><span data-i18n="ver_carta">Ver La Carta Completa</span>
         </a>
       </div>
     </section>
 
-    <!-- ========== MENÚ PARA GRUPOS (BOTÓN A PÁGINA SECUNDARIA) ========== -->
-    <section id="grupos" class="card animate-on-scroll" tabindex="-1">
+    <!-- MENÚ PARA GRUPOS -->
+    <section id="grupos" class="card animate-on-scroll">
       <h2 data-i18n="grupos_title">Menú para grupos</h2>
       <p data-i18n="grupos_intro">Organizamos comidas para grupos a partir de 12 personas. Ofrecemos diferentes opciones de menú adaptadas a tus necesidades.</p>
       
       <div style="text-align: center; margin: 30px 0;">
-        <a href="menu-grupos.html" class="btn btn-secondary" style="font-size: 1.1rem; padding: 12px 30px;">
+        <a href="menu-grupos.html" class="btn btn-secondary btn-large">
           <i class="fas fa-users" style="margin-right: 8px;"></i><span data-i18n="ver_menu_grupos">Ver Menús de Grupo</span>
         </a>
       </div>
       
       <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 20px;">
-        <div style="flex: 1; min-width: 200px; background: white; padding: 15px; border-radius: 8px; text-align: center; border: 2px solid var(--accent);">
-          <h3 style="margin-top: 0; color: var(--accent);">Menú 1</h3>
+        <div class="menu-card">
+          <h3>Menú 1</h3>
           <p style="font-weight: bold; font-size: 1.2rem;">29€ / <span data-i18n="persona">persona</span></p>
         </div>
         
-        <div style="flex: 1; min-width: 200px; background: white; padding: 15px; border-radius: 8px; text-align: center; border: 2px solid var(--accent);">
-          <h3 style="margin-top: 0; color: var(--accent);">Menú 2</h3>
+        <div class="menu-card">
+          <h3>Menú 2</h3>
           <p style="font-weight: bold; font-size: 1.2rem;">32€ / <span data-i18n="persona">persona</span></p>
         </div>
         
-        <div style="flex: 1; min-width: 200px; background: white; padding: 15px; border-radius: 8px; text-align: center; border: 2px solid var(--accent);">
-          <h3 style="margin-top: 0; color: var(--accent);">Menú 3</h3>
+        <div class="menu-card">
+          <h3>Menú 3</h3>
           <p style="font-weight: bold; font-size: 1.2rem;">39€ / <span data-i18n="persona">persona</span></p>
         </div>
       </div>
     </section>
 
-    <!-- SECCIONES EXISTENTES -->
+    <!-- EVENTOS -->
     <section id="eventos" class="card animate-on-scroll">
       <h2 data-i18n="menu_events">Eventos</h2>
       <p data-i18n="events_text">Organizamos calçotades, cenas de grupo y celebraciones familiares en nuestro espacio rústico. Consulta disponibilidad para tu evento especial.</p>
     </section>
 
+    <!-- RESERVAS -->
     <section id="reservas" class="card animate-on-scroll">
       <h2 data-i18n="menu_reserve">Reservas</h2>
       <p data-i18n="reserve_text">Para reservar, por favor llámanos al <strong>+34 977 80 90 22</strong>.</p>
     </section>
 
+    <!-- HORARIO -->
     <section id="horario" class="card animate-on-scroll">
       <h2 data-i18n="menu_hours">Horario</h2>
       <table class="schedule" aria-label="Horario">
@@ -980,12 +1011,14 @@
       </table>
     </section>
 
+    <!-- UBICACIÓN -->
     <section id="ubicacion" class="card animate-on-scroll">
       <h2 data-i18n="menu_location">Ubicación</h2>
       <p data-i18n="address">Disseminat, 8, 43883 Roda de Berà, Tarragona</p>
       <iframe title="Mapa Restaurant Les Guatlles" src="https://www.google.com/maps?q=Restaurant+Les+Guatlles+Roda+de+Berà&output=embed" width="100%" height="250" style="border:0;border-radius:12px" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
+    <!-- GALERÍA -->
     <section id="galeria" class="card animate-on-scroll">
       <h2 data-i18n="menu_gallery">Galería</h2>
       <div class="gallery" role="list">
@@ -1009,7 +1042,7 @@
     <span>© <span id="year"></span> <span data-i18n="title">Restaurant Les Guatlles</span></span>
   </footer>
 
-  <!-- BOTONES FLOTANTES -->
+  <!-- BOTÓN WHATSAPP -->
   <a href="https://wa.me/34977809022" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
@@ -1080,6 +1113,9 @@
       
       groupSize.addEventListener('input', updateCalculation);
       menuType.addEventListener('change', updateCalculation);
+      
+      // Calcular inicialmente
+      updateCalculation();
     }
 
     function showReservationConfirmation() {
@@ -1087,7 +1123,7 @@
       const menu = document.getElementById('menuType').options[document.getElementById('menuType').selectedIndex].text;
       const total = document.getElementById('totalPrice').textContent;
       
-      alert(`Reserva solicitada para ${people} personas con ${menu} (${total})\n\nTe contactaremos para confirmar los detalles.`);
+      alert(`RESERVA SOLICITADA\n\n• Personas: ${people}\n• Menú: ${menu}\n• ${total}\n\nTe contactaremos para confirmar los detalles.\n\nO llámanos directamente al +34 977 80 90 22`);
     }
 
     // === ANIMACIONES AL SCROLL ===
@@ -1506,6 +1542,7 @@
         try { localStorage.setItem('lang', lang); } catch(e) {}
         
         if (translations[lang]) {
+          // Traducir elementos con data-i18n
           document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang][key]) {
@@ -1517,7 +1554,7 @@
             }
           });
           
-          // Placeholders
+          // Traducir placeholders
           document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
             const key = el.getAttribute('data-i18n-placeholder');
             if (translations[lang][key]) {
@@ -1525,22 +1562,31 @@
             }
           });
           
-          // Atributos data-i18n-prefix
+          // Traducir elementos con data-i18n-prefix
           document.querySelectorAll('[data-i18n-prefix]').forEach(el => {
-            const key = el.getAttribute('data-i18n-prefix');
-            if (translations[lang][key]) {
-              el.setAttribute('data-i18n-prefix', translations[lang][key]);
+            const prefixKey = 'calc_title'; // Usamos calc_title como referencia
+            if (translations[lang][prefixKey]) {
+              const prefix = 'Total: ';
+              el.setAttribute('data-i18n-prefix', prefix);
               // Actualizar el texto si es un cálculo
               if (el.id === 'totalPrice') {
                 const currentText = el.textContent;
                 const number = currentText.replace(/[^0-9]/g, '');
-                el.textContent = translations[lang][key] + number + '€';
+                el.textContent = prefix + number + '€';
               }
             }
           });
           
-          // Opciones del select
+          // Traducir opciones del select
           document.querySelectorAll('option[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+              el.textContent = translations[lang][key];
+            }
+          });
+          
+          // Traducir elementos dentro de listas
+          document.querySelectorAll('li[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang][key]) {
               el.textContent = translations[lang][key];
