@@ -1,0 +1,1355 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Menús para Grupos — Restaurant Les Guatlles</title>
+  <meta name="description" content="Menús especiales para grupos en Restaurant Les Guatlles: opciones desde 29€ por persona (mínimo 12 personas)." />
+  <meta name="author" content="Restaurant Les Guatlles" />
+  <link rel="icon" type="image/x-icon" href="Gemini_Generated_Image_eu8xwceu8xwceu8x-modified.png">
+
+  <!-- Fuentes profesionales de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* === VARIABLES Y ESTILOS BASE === */
+    :root {
+      --accent: #8b2e2e;
+      --muted: #6b6b6b;
+      --bg: #d2b48c;
+      --card: #f1e0c6;
+      --glass-bg: rgba(255,255,255,0.45);
+      --header-offset: 96px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      color: #222;
+      background: var(--bg);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    /* === ANIMACIONES DE ENTRADA === */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* === HEADER STICKY === */
+    header {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 40px);
+      max-width: 1100px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 18px;
+      z-index: 1200;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex: 0 0 64px;
+      background-image: url('https://tse1.mm.bing.net/th/id/OIP.Gi4hYsIc4B3YbKDPpV0b8wAAAA?pid=Api');
+      background-size: cover;
+      background-position: center;
+    }
+
+    h1 {
+      font-size: 1.25rem;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    nav li {
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    nav li:hover {
+      background: rgba(139, 46, 46, 0.1);
+    }
+
+    nav a {
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 3px;
+      background: #222;
+      border-radius: 3px;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .lang-switch button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .lang-switch button:hover {
+      transform: scale(1.1);
+    }
+
+    .lang-switch img {
+      width: 28px;
+      height: 20px;
+      border-radius: 3px;
+      box-shadow: 0 0 2px rgba(0,0,0,.15);
+    }
+
+    /* === HERO SECTION === */
+    .hero-banner {
+      position: relative;
+      height: 40vh;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('https://tse2.mm.bing.net/th/id/OIP.O7ewhGLgfSO-NGCan1UeLAHaFj?pid=Api');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      margin-top: 84px;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 12px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+
+    /* === MAIN CONTENT === */
+    main {
+      margin-top: 24px;
+      padding-bottom: 80px;
+    }
+
+    section {
+      scroll-margin-top: var(--header-offset);
+    }
+
+    /* === CARDS Y COMPONENTES === */
+    .card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(12,12,12,0.1);
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(12,12,12,0.15);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 28px;
+      padding: 20px 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* === BOTONES === */
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #7a2727;
+      box-shadow: 0 4px 12px rgba(139, 46, 46, 0.3);
+    }
+
+    .btn-secondary {
+      background: #f1e0c6;
+      color: #8b2e2e;
+      border: 2px solid #8b2e2e;
+    }
+    
+    .btn-secondary:hover {
+      background: #e2cda0;
+    }
+
+    /* WhatsApp flotante */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,.3);
+      z-index: 1300;
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.8s ease-out 1s both;
+    }
+    
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+    
+    .whatsapp-btn img {
+      width: 35px;
+      height: 35px;
+    }
+
+    /* === CALCULADORA DE GRUPOS === */
+    .group-calculator {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 30px 0;
+      text-align: center;
+      border: 2px solid var(--accent);
+    }
+    
+    .calculator-inputs {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 15px 0;
+    }
+    
+    .calc-input {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      width: 80px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .calc-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    .calc-result {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin: 15px 0;
+    }
+
+    /* === NAVEGACIÓN ENTRE PÁGINAS === */
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 40px 0;
+      padding: 20px;
+      background: var(--card);
+      border-radius: 12px;
+      border: 2px solid var(--accent);
+    }
+
+    /* === ESTILOS PARA MENÚS === */
+    .menu-option {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+      border: 2px solid var(--accent);
+      transition: all 0.3s ease;
+    }
+
+    .menu-option:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(139, 46, 46, 0.15);
+    }
+
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px dashed #ddd;
+    }
+
+    .menu-price {
+      background: var(--accent);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .menu-items {
+      margin-left: 20px;
+    }
+
+    .menu-items li {
+      margin-bottom: 8px;
+      padding-left: 10px;
+    }
+
+    .menu-section {
+      margin-bottom: 25px;
+    }
+
+    .menu-section h4 {
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .highlight {
+      background: rgba(139, 46, 46, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .highlight ul {
+      margin: 10px 0 0 20px;
+    }
+
+    .requirements {
+      background: #f8f8f8;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 30px;
+      font-size: 0.9rem;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width:768px){
+      header{
+        flex-direction: column;
+        align-items:stretch;
+        padding: 2px 8px;
+        min-height: auto;
+      }
+      
+      .brand{
+        display:flex;
+        justify-content:center;
+        padding: 0;
+        margin: 0;
+      }
+      .brand .logo{display:none}
+      .brand h1{
+        font-size: 1rem;
+        margin: 0;
+        padding: 0;
+        text-align:center;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        color:#222;
+        line-height: 1;
+      }
+
+      .nav-menu{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding: 0px 4px;
+        min-height: 24px;
+        gap: 0;
+      }
+      
+      .hamburger{
+        display:flex;
+        align-self:center;
+        margin: 0;
+        padding: 0;
+      }
+      .hamburger span{
+        background:#222;
+      }
+
+      .lang-switch{
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul{
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 8px;
+        right: 8px;
+        margin-top:0;
+        background: var(--glass-bg);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 12px;
+        padding: 12px;
+        flex-direction: column;
+        display: none;
+        gap: 12px;
+        box-shadow: 0 8px 30px rgba(0,0,0,.18);
+        z-index: 1250;
+      }
+      nav ul.active{ display:flex; }
+      
+      .hero-content h1{font-size:1.8rem}
+      
+      .page-nav {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+      
+      .menu-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width:520px){
+      .hero-content h1{font-size:1.6rem}
+      
+      header{
+        padding: 1px 6px;
+      }
+      .nav-menu{
+        padding: 0px 3px;
+        min-height: 22px;
+      }
+      
+      .calculator-inputs {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    /* Footer redes sociales a la izquierda */
+    footer .social-icons {
+      order: -1;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="container" role="banner" aria-label="Barra principal">
+    <div class="brand" aria-hidden="false">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1 data-i18n="title">Restaurant Les Guatlles</h1>
+        <div class="muted" data-i18n="location" style="font-size:0.85rem;color:var(--muted)">Roda de Berà — Tarragona</div>
+      </div>
+    </div>
+
+    <div class="nav-menu" aria-hidden="false">
+      <div class="hamburger" id="hamburger" aria-label="Abrir menú" role="button" tabindex="0" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul id="nav-links" class="nav-links" role="menu">
+          <li role="none"><a role="menuitem" href="index.html#sobre" data-i18n="menu_about">Inicio</a></li>
+          <li role="none"><a role="menuitem" href="carta.html" data-i18n="menu_menu">La Carta</a></li>
+          <li role="none"><a role="menuitem" href="index.html#eventos" data-i18n="menu_events">Eventos</a></li>
+          <li role="none"><a role="menuitem" href="index.html#reservas" data-i18n="menu_reserve">Reservas</a></li>
+        </ul>
+      </nav>
+
+      <div class="lang-switch" aria-label="Selector de idioma">
+        <button data-lang="es" aria-label="Español"><img src="https://flagcdn.com/es.svg" alt="Español"></button>
+        <button data-lang="ca" aria-label="Català"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Catalonia.svg" alt="Català"></button>
+        <button data-lang="en" aria-label="English"><img src="https://flagcdn.com/gb.svg" alt="English"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-banner" aria-hidden="false">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 data-i18n="hero_title_grupos">Menús para Grupos</h1>
+      <p data-i18n="hero_sub_grupos">Celebra tus eventos especiales con nosotros (mínimo 12 personas)</p>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="container" id="maincontent" role="main">
+    <!-- Información general -->
+    <section class="card animate-on-scroll">
+      <h2 data-i18n="grupos_titulo">Menús Especiales para Grupos</h2>
+      <p data-i18n="grupos_text">Organizamos comidas para grupos a partir de <strong>12 personas</strong>. Ofrecemos diferentes opciones de menú adaptadas a tus necesidades, ideales para:</p>
+      <ul>
+        <li data-i18n="grupos_list1">Celebraciones familiares</li>
+        <li data-i18n="grupos_list2">Comidas de empresa</li>
+        <li data-i18n="grupos_list3">Reuniones de amigos</li>
+        <li data-i18n="grupos_list4">Eventos especiales</li>
+        <li data-i18n="grupos_list5">Calçotadas (temporada)</li>
+      </ul>
+      <div class="requirements">
+      </div>
+    </section>
+
+    <!-- CALCULADORA DE GRUPOS -->
+    <section id="calculadora" class="group-calculator animate-on-scroll">
+      <h3 data-i18n="calc_title">Calculadora de Grupos</h3>
+      <p data-i18n="calc_desc">Calcula el precio total para tu grupo (mínimo 12 personas)</p>
+      
+      <div class="calculator-inputs">
+        <div>
+          <label data-i18n="calc_personas">Número de personas:</label>
+          <input type="number" class="calc-input" id="groupSize" min="12" value="12" aria-label="Número de personas">
+        </div>
+        <div>
+          <label data-i18n="calc_menu">Tipo de menú:</label>
+          <select class="calc-input" id="menuType" aria-label="Tipo de menú">
+            <option value="29" data-i18n="menu1_option">Menú 1 - 29€</option>
+            <option value="32" data-i18n="menu2_option">Menú 2 - 32€</option>
+            <option value="39" data-i18n="menu3_option">Menú 3 - 39€</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="calc-result" id="totalPrice" aria-live="polite" data-i18n-prefix="Total: ">Total: 348€</div>
+      <button class="btn btn-primary" onclick="showReservationConfirmation()" style="margin-top: 10px;" data-i18n="solicitar_reserva">Solicitar Reserva</button>
+    </section>
+
+    <!-- MENÚ 1 -->
+    <section class="menu-option animate-on-scroll">
+      <div class="menu-header">
+        <h3>MENÚ 1</h3>
+        <div class="menu-price">29€ / <span data-i18n="persona">persona</span></div>
+      </div>
+      
+      <div class="menu-section">
+        <h4 data-i18n="pica_pica">Pica-pica:</h4>
+        <ul class="menu-items">
+          <li data-i18n="g1_ensalada">Ensalada verde</li>
+          <li data-i18n="g1_embutidos">Embutidos variados</li>
+          <li data-i18n="g1_coca">Coca de cebolla</li>
+          <li data-i18n="g1_croquetas">Croquetas</li>
+          <li data-i18n="g1_pan_tostado">Pan tostado con ajo y tomate</li>
+        </ul>
+      </div>
+      
+      <div class="menu-section">
+        <h4 data-i18n="segundo">Segundo a elegir:</h4>
+        <ul class="menu-items">
+          <li data-i18n="g1_butifarra">Butifarra con guarnición</li>
+          <li data-i18n="g1_lomo">Lomo con guarnición</li>
+          <li data-i18n="g1_pollo">Pollo con guarnición</li>
+          <li data-i18n="g1_canelones">Canelones de la abuela</li>
+        </ul>
+      </div>
+      
+      <div class="menu-section">
+        <h4 data-i18n="incluye">Incluye:</h4>
+        <ul class="menu-items">
+          <li data-i18n="g_postre">Postre: Pastel de la casa</li>
+          <li data-i18n="g_bebidas">Bebidas: Vinos, aguas, refrescos</li>
+          <li data-i18n="g_cafes">Cafés</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MENÚ 2 -->
+    <section class="menu-option animate-on-scroll">
+      <div class="menu-header">
+        <h3>MENÚ 2</h3>
+        <div class="menu-price">32€ / <span data-i18n="persona">persona</span></div>
+      </div>
+      
+      <div class="menu-section">
+        <h4 data-i18n="pica_pica">Pica-pica:</h4>
+        <ul class="menu-items">
+          <li data-i18n="g2_ensalada">Ensalada Les Guatlles</li>
+          <li data-i18n="g2_coca">Coca de cebolla</li>
+          <li data-i18n="g2_escalivada">Escalivada</li>
+          <li data-i18n="g2_embutidos">Embutidos variados</li>
+          <li data-i18n="g2_croquetas">Croquetas</li>
+          <li data-i18n="g2_pan_tostado">Pan tostado con ajo y tomate</li>
+        </ul>
+      </div>
+      
+      <div class="menu-section">
+        <h4 data-i18n="segundo">Segundo a elegir:</h4>
+        <ul class="menu-items">
+          <li data-i18n="g2_butifarra">Butifarra con guarnición</li>
+          <li data-i18n="g2_carrillada">Carrillada con guarnición</li>
+          <li data-i18n="g2_churrasco">Churrasco con guarnición</li>
+          <li data-i18n="g2_pollo">Pollo con guarnición</li>
+          <li data-i18n="g2_canelones">Canelones de la abuela</li>
+        </ul>
+      </div>
+      
+      <div class="menu-section">
+        <h4 data-i18n="incluye">Incluye:</h4>
+        <ul class="menu-items">
+          <li data-i18n="g_postre">Postre: Pastel de la casa</li>
+          <li data-i18n="g_bebidas">Bebidas: Vinos, aguas, refrescos</li>
+          <li data-i18n="g_cafes">Cafés</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MENÚ 3 -->
+    <section class="menu-option animate-on-scroll">
+      <div class="menu-header">
+        <h3>MENÚ 3</h3>
+        <div class="menu-price">39€ / <span data-i18n="persona">persona</span></div>
+      </div>
+      
+      <div class="menu-section">
+        <h4 data-i18n="pica_pica">Pica-pica:</h4>
+        <ul class="menu-items">
+          <li data-i18n="g3_ensalada">Ensalada Les Guatlles</li>
+          <li data-i18n="g3_embutidos">Embutidos variados</li>
+          <li data-i18n="g3_caracoles">Caracoles a la llauna</li>
+          <li data-i18n="g3_coca">Coca de cebolla</li>
+          <li data-i18n="g3_escalivada">Escalivada</li>
+          <li data-i18n="g3_pan_tostado">Pan tostado con ajo y tomate</li>
+        </ul>
+      </div>
+      
+      <div class="menu-section">
+        <h4 data-i18n="segundo">Segundo a elegir:</h4>
+        <ul class="menu-items">
+          <li data-i18n="g3_butifarra">Butifarra con guarnición</li>
+          <li data-i18n="g3_picanton">Picantón con guarnición</li>
+          <li data-i18n="g3_entrecot">Entrecot con guarnición</li>
+          <li data-i18n="g3_conejo">Conejo con guarnición</li>
+          <li data-i18n="g3_bacalao">Bacalao con pisto (samfaina)</li>
+        </ul>
+      </div>
+      
+      <div class="menu-section">
+        <h4 data-i18n="incluye">Incluye:</h4>
+        <ul class="menu-items">
+          <li data-i18n="g_postre">Postre: Pastel de la casa</li>
+          <li data-i18n="g_bebidas">Bebidas: Vinos, aguas, refrescos</li>
+          <li data-i18n="g_cafes">Cafés</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MENÚ INFANTIL -->
+    <section class="card animate-on-scroll">
+      <h3 data-i18n="infantil_titulo">Menú Infantil para Grupos</h3>
+      <div class="highlight">
+        <p><strong data-i18n="infantil_text">Plato combinado especial para niños:</strong></p>
+        <ul>
+          <li data-i18n="infantil_macarrones">Macarrones con tomate</li>
+          <li data-i18n="infantil_nuggets">Nuggets de pollo</li>
+          <li data-i18n="infantil_patatas">Patatas fritas</li>
+          <li data-i18n="infantil_refresco">Refresco</li>
+          <li data-i18n="infantil_helado">Helado (o postre alternativo)</li>
+        </ul>
+        <p style="margin-top: 15px; font-weight: bold; color: var(--accent);" data-i18n="precio_niño">Precio: 17€ por niño</p>
+      </div>
+    </section>
+
+    <!-- NAVEGACIÓN ENTRE PÁGINAS -->
+    <div class="page-nav">
+      <a href="carta.html" class="btn btn-secondary">
+        <i class="fas fa-arrow-left" style="margin-right: 8px;"></i><span data-i18n="ver_carta">Ver La Carta</span>
+      </a>
+      
+      <a href="index.html" class="btn btn-primary">
+        <span data-i18n="volver_inicio">Volver al inicio</span> <i class="fas fa-home" style="margin-left: 8px;"></i>
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="container" role="contentinfo">
+    <span class="social-icons" aria-label="Redes sociales">
+      <a href="https://www.instagram.com/restaurantlesguatlles/?hl=es" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="20" height="20">
+      </a>
+      <a href="https://www.facebook.com/Restaurantlesguatlles/?locale=es_ES" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook" width="20" height="20">
+      </a>
+    </span>
+    <span>© <span id="year"></span> <span data-i18n="title">Restaurant Les Guatlles</span></span>
+  </footer>
+
+  <!-- BOTÓN WHATSAPP -->
+  <a href="https://wa.me/34977809022" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <script>
+    // === INICIALIZACIÓN ===
+    document.addEventListener('DOMContentLoaded', function() {
+      // Año actual
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Inicializar calculadora
+      initializeCalculator();
+      
+      // Inicializar animaciones al hacer scroll
+      initializeScrollAnimations();
+      
+      // Sistema de navegación
+      initializeNavigation();
+      
+      // Sistema de idiomas COMPLETO
+      initializeLanguage();
+    });
+
+    // === CALCULADORA DE GRUPOS ===
+    function initializeCalculator() {
+      const groupSize = document.getElementById('groupSize');
+      const menuType = document.getElementById('menuType');
+      
+      function updateCalculation() {
+        const people = parseInt(groupSize.value) || 12;
+        const price = parseInt(menuType.value);
+        const total = people * price;
+        
+        const totalElement = document.getElementById('totalPrice');
+        const prefix = totalElement.getAttribute('data-i18n-prefix') || 'Total: ';
+        totalElement.textContent = prefix + total + '€';
+      }
+      
+      groupSize.addEventListener('input', updateCalculation);
+      menuType.addEventListener('change', updateCalculation);
+      
+      // Calcular inicialmente
+      updateCalculation();
+    }
+
+    function showReservationConfirmation() {
+      const people = document.getElementById('groupSize').value;
+      const menu = document.getElementById('menuType').options[document.getElementById('menuType').selectedIndex].text;
+      const total = document.getElementById('totalPrice').textContent;
+      
+      alert(`RESERVA SOLICITADA\n\n• Personas: ${people}\n• Menú: ${menu}\n• ${total}\n\nTe contactaremos para confirmar los detalles.\n\nO llámanos directamente al +34 977 80 90 22`);
+    }
+
+    // === ANIMACIONES AL SCROLL ===
+    function initializeScrollAnimations() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+            
+            // Efecto escalonado para los menús
+            if (entry.target.classList.contains('menu-option')) {
+              setTimeout(() => {
+                entry.target.style.transform = 'translateY(0)';
+                entry.target.style.opacity = '1';
+              }, 300);
+            }
+          }
+        });
+      }, observerOptions);
+      
+      // Observar todos los elementos con la clase animate-on-scroll
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    // === SISTEMA DE NAVEGACIÓN ===
+    function initializeNavigation() {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+
+      function toggleMenu() {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', String(!expanded));
+        navLinks.classList.toggle('active');
+      }
+      
+      if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
+      }
+
+      // Cerrar menú al hacer clic en un enlace
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          hamburger.setAttribute('aria-expanded','false');
+        });
+      });
+    }
+
+    // === SISTEMA DE IDIOMAS COMPLETO ===
+    function initializeLanguage() {
+      const translations = {
+        es: {
+          // Títulos generales
+          "title": "Restaurant Les Guatlles",
+          "location": "Roda de Berà — Tarragona",
+          
+          // Navegación
+          "menu_about": "Inicio",
+          "menu_menu": "La Carta",
+          "menu_groups": "Menú Grupos",
+          "menu_events": "Eventos",
+          "menu_reserve": "Reservas",
+          
+          // Hero
+          "hero_title_grupos": "Menús para Grupos",
+          "hero_sub_grupos": "Celebra tus eventos especiales con nosotros (mínimo 12 personas)",
+          
+          // Información grupos
+          "grupos_titulo": "Menús Especiales para Grupos",
+          "grupos_text": "Organizamos comidas para grupos a partir de 12 personas. Ofrecemos diferentes opciones de menú adaptadas a tus necesidades, ideales para:",
+          "grupos_list1": "Celebraciones familiares",
+          "grupos_list2": "Comidas de empresa",
+          "grupos_list3": "Reuniones de amigos",
+          "grupos_list4": "Eventos especiales",
+          "grupos_list5": "Calçotadas (temporada)",
+          "nota": "Nota importante:",
+          "nota_text": "Los menús para grupos requieren reserva previa con al menos 48 horas de antelación.",
+          
+          // Calculadora
+          "calc_title": "Calculadora de Grupos",
+          "calc_desc": "Calcula el precio total para tu grupo (mínimo 12 personas)",
+          "calc_personas": "Número de personas:",
+          "calc_menu": "Tipo de menú:",
+          "menu1_option": "Menú 1 - 29€",
+          "menu2_option": "Menú 2 - 32€",
+          "menu3_option": "Menú 3 - 39€",
+          "solicitar_reserva": "Solicitar Reserva",
+          
+          // Menús
+          "persona": "persona",
+          "pica_pica": "Pica-pica:",
+          "segundo": "Segundo a elegir:",
+          "incluye": "Incluye:",
+          
+          // Menú 1
+          "g1_ensalada": "Ensalada verde",
+          "g1_embutidos": "Embutidos variados",
+          "g1_coca": "Coca de cebolla",
+          "g1_croquetas": "Croquetas",
+          "g1_pan_tostado": "Pan tostado con ajo y tomate",
+          "g1_butifarra": "Butifarra con guarnición",
+          "g1_lomo": "Lomo con guarnición",
+          "g1_pollo": "Pollo con guarnición",
+          "g1_canelones": "Canelones de la abuela",
+          
+          // Menú 2
+          "g2_ensalada": "Ensalada Les Guatlles",
+          "g2_coca": "Coca de cebolla",
+          "g2_escalivada": "Escalivada",
+          "g2_embutidos": "Embutidos variados",
+          "g2_croquetas": "Croquetas",
+          "g2_pan_tostado": "Pan tostado con ajo y tomate",
+          "g2_butifarra": "Butifarra con guarnición",
+          "g2_carrillada": "Carrillada con guarnición",
+          "g2_churrasco": "Churrasco con guarnición",
+          "g2_pollo": "Pollo con guarnición",
+          "g2_canelones": "Canelones de la abuela",
+          
+          // Menú 3
+          "g3_ensalada": "Ensalada Les Guatlles",
+          "g3_embutidos": "Embutidos variados",
+          "g3_caracoles": "Caracoles a la llauna",
+          "g3_coca": "Coca de cebolla",
+          "g3_escalivada": "Escalivada",
+          "g3_pan_tostado": "Pan tostado con ajo y tomate",
+          "g3_butifarra": "Butifarra con guarnición",
+          "g3_picanton": "Picantón con guarnición",
+          "g3_entrecot": "Entrecot con guarnición",
+          "g3_conejo": "Conejo con guarnición",
+          "g3_bacalao": "Bacalao con pisto (samfaina)",
+          
+          // Elementos comunes
+          "g_postre": "Postre: Pastel de la casa",
+          "g_bebidas": "Bebidas: Vinos, aguas, refrescos",
+          "g_cafes": "Cafés",
+          
+          // Menú infantil
+          "infantil_titulo": "Menú Infantil para Grupos",
+          "infantil_text": "Plato combinado especial para niños:",
+          "infantil_macarrones": "Macarrones con tomate",
+          "infantil_nuggets": "Nuggets de pollo",
+          "infantil_patatas": "Patatas fritas",
+          "infantil_refresco": "Refresco",
+          "infantil_helado": "Helado (o postre alternativo)",
+          "precio_niño": "Precio: 17€ por niño",
+          
+          // Información importante
+          "info_titulo": "Información Importante",
+          "info_minimo": "Mínimo:",
+          "info_minimo_text": "12 personas por grupo",
+          "info_reserva": "Reserva:",
+          "info_reserva_text": "Requiere confirmación con 48 horas de antelación",
+          "info_modif": "Modificaciones:",
+          "info_modif_text": "Posibilidad de adaptar menús a alergias o preferencias (consultar)",
+          "info_pagos": "Pagos:",
+          "info_pagos_text": "Se aceptan efectivo y tarjeta",
+          "info_horario": "Horario grupos:",
+          "info_horario_text": "Consultar disponibilidad para comidas fuera del horario habitual",
+          "info_contacto": "Para reservar o más información:",
+          
+          // Navegación
+          "ver_carta": "Ver La Carta",
+          "volver_inicio": "Volver al inicio"
+        },
+        ca: {
+          // Títulos generales
+          "title": "Restaurant Les Guatlles",
+          "location": "Roda de Berà — Tarragona",
+          
+          // Navegación
+          "menu_about": "Inici",
+          "menu_menu": "La Carta",
+          "menu_groups": "Menú Grups",
+          "menu_events": "Esdeveniments",
+          "menu_reserve": "Reserves",
+          
+          // Hero
+          "hero_title_grupos": "Menús per a Grups",
+          "hero_sub_grupos": "Celebra els teus esdeveniments especials amb nosaltres (mínim 12 persones)",
+          
+          // Información grupos
+          "grupos_titulo": "Menús Especials per a Grups",
+          "grupos_text": "Organitzem àpats per a grups a partir de 12 persones. Oferim diferents opcions de menú adaptades a les teves necessitats, ideals per a:",
+          "grupos_list1": "Celebracions familiars",
+          "grupos_list2": "Dinars d'empresa",
+          "grupos_list3": "Trobades d'amics",
+          "grupos_list4": "Esdeveniments especials",
+          "grupos_list5": "Calçotades (temporada)",
+          "nota": "Nota important:",
+          "nota_text": "Els menús per a grups requereixen reserva prèvia amb almenys 48 hores d'antelació.",
+          
+          // Calculadora
+          "calc_title": "Calculadora de Grups",
+          "calc_desc": "Calcula el preu total per al teu grup (mínim 12 persones)",
+          "calc_personas": "Nombre de persones:",
+          "calc_menu": "Tipus de menú:",
+          "menu1_option": "Menú 1 - 29€",
+          "menu2_option": "Menú 2 - 32€",
+          "menu3_option": "Menú 3 - 39€",
+          "solicitar_reserva": "Sol·licitar Reserva",
+          
+          // Menús
+          "persona": "persona",
+          "pica_pica": "Pica-pica:",
+          "segundo": "Segon a triar:",
+          "incluye": "Inclou:",
+          
+          // Menú 1
+          "g1_ensalada": "Amanida verda",
+          "g1_embutidos": "Embotits variats",
+          "g1_coca": "Coca de ceba",
+          "g1_croquetas": "Croquetes",
+          "g1_pan_tostado": "Pa torrat amb all i tomàquet",
+          "g1_butifarra": "Botifarra amb guarnició",
+          "g1_lomo": "Llom amb guarnició",
+          "g1_pollo": "Pollastre amb guarnició",
+          "g1_canelones": "Canalons de l'àvia",
+          
+          // Menú 2
+          "g2_ensalada": "Amanida Les Guatlles",
+          "g2_coca": "Coca de ceba",
+          "g2_escalivada": "Escalivada",
+          "g2_embutidos": "Embotits variats",
+          "g2_croquetas": "Croquetes",
+          "g2_pan_tostado": "Pa torrat amb all i tomàquet",
+          "g2_butifarra": "Botifarra amb guarnició",
+          "g2_carrillada": "Galta amb guarnició",
+          "g2_churrasco": "Xurrasco amb guarnició",
+          "g2_pollo": "Pollastre amb guarnició",
+          "g2_canelones": "Canalons de l'àvia",
+          
+          // Menú 3
+          "g3_ensalada": "Amanida Les Guatlles",
+          "g3_embutidos": "Embotits variats",
+          "g3_caracoles": "Cargols a la llauna",
+          "g3_coca": "Coca de ceba",
+          "g3_escalivada": "Escalivada",
+          "g3_pan_tostado": "Pa torrat amb all i tomàquet",
+          "g3_butifarra": "Botifarra amb guarnició",
+          "g3_picanton": "Picantó amb guarnició",
+          "g3_entrecot": "Entrecot amb guarnició",
+          "g3_conejo": "Conill amb guarnició",
+          "g3_bacalao": "Bacallà amb samfaina",
+          
+          // Elementos comunes
+          "g_postre": "Postres: Pastís de la casa",
+          "g_bebidas": "Begudes: Vins, aigües, refrescos",
+          "g_cafes": "Cafès",
+          
+          // Menú infantil
+          "infantil_titulo": "Menú Infantil per a Grups",
+          "infantil_text": "Plat combinat especial per a nens:",
+          "infantil_macarrones": "Macarrons amb tomàquet",
+          "infantil_nuggets": "Nuggets de pollastre",
+          "infantil_patatas": "Patates fregides",
+          "infantil_refresco": "Refresc",
+          "infantil_helado": "Gelat (o postre alternatiu)",
+          "precio_niño": "Preu: 17€ per nen",
+          
+          // Información importante
+          "info_titulo": "Informació Important",
+          "info_minimo": "Mínim:",
+          "info_minimo_text": "12 persones per grup",
+          "info_reserva": "Reserva:",
+          "info_reserva_text": "Requereix confirmació amb 48 hores d'antelació",
+          "info_modif": "Modificacions:",
+          "info_modif_text": "Possibilitat d'adaptar menús a al·lèrgies o preferències (consultar)",
+          "info_pagos": "Pagaments:",
+          "info_pagos_text": "S'accepten efectiu i targeta",
+          "info_horario": "Horari grups:",
+          "info_horario_text": "Consultar disponibilitat per àpats fora de l'horari habitual",
+          "info_contacto": "Per reservar o més informació:",
+          
+          // Navegación
+          "ver_carta": "Veure La Carta",
+          "volver_inicio": "Tornar a l'inici"
+        },
+        en: {
+          // Títulos generales
+          "title": "Restaurant Les Guatlles",
+          "location": "Roda de Berà — Tarragona",
+          
+          // Navegación
+          "menu_about": "Home",
+          "menu_menu": "Menu",
+          "menu_groups": "Group Menus",
+          "menu_events": "Events",
+          "menu_reserve": "Reservations",
+          
+          // Hero
+          "hero_title_grupos": "Group Menus",
+          "hero_sub_grupos": "Celebrate your special events with us (minimum 12 people)",
+          
+          // Información grupos
+          "grupos_titulo": "Special Group Menus",
+          "grupos_text": "We organize meals for groups from 12 people. We offer different menu options adapted to your needs, ideal for:",
+          "grupos_list1": "Family celebrations",
+          "grupos_list2": "Company lunches",
+          "grupos_list3": "Friends gatherings",
+          "grupos_list4": "Special events",
+          "grupos_list5": "Calçotades (seasonal)",
+          "nota": "Important note:",
+          "nota_text": "Group menus require prior reservation with at least 48 hours notice.",
+          
+          // Calculadora
+          "calc_title": "Group Calculator",
+          "calc_desc": "Calculate the total price for your group (minimum 12 people)",
+          "calc_personas": "Number of people:",
+          "calc_menu": "Menu type:",
+          "menu1_option": "Menu 1 - 29€",
+          "menu2_option": "Menu 2 - 32€",
+          "menu3_option": "Menu 3 - 39€",
+          "solicitar_reserva": "Request Reservation",
+          
+          // Menús
+          "persona": "person",
+          "pica_pica": "Starters:",
+          "segundo": "Main course to choose:",
+          "incluye": "Includes:",
+          
+          // Menú 1
+          "g1_ensalada": "Green salad",
+          "g1_embutidos": "Assorted cold meats",
+          "g1_coca": "Onion flatbread",
+          "g1_croquetas": "Croquetes",
+          "g1_pan_tostado": "Toasted bread with garlic and tomato",
+          "g1_butifarra": "Catalan sausage with garnish",
+          "g1_lomo": "Pork loin with garnish",
+          "g1_pollo": "Chicken with garnish",
+          "g1_canelones": "Grandma's cannelloni",
+          
+          // Menú 2
+          "g2_ensalada": "Les Guatlles Salad",
+          "g2_coca": "Onion flatbread",
+          "g2_escalivada": "Grilled vegetables",
+          "g2_embutidos": "Assorted cold meats",
+          "g2_croquetas": "Croquetes",
+          "g2_pan_tostado": "Toasted bread with garlic and tomato",
+          "g2_butifarra": "Catalan sausage with garnish",
+          "g2_carrillada": "Pork cheek with garnish",
+          "g2_churrasco": "Beef churrasco with garnish",
+          "g2_pollo": "Chicken with garnish",
+          "g2_canelones": "Grandma's cannelloni",
+          
+          // Menú 3
+          "g3_ensalada": "Les Guatlles Salad",
+          "g3_embutidos": "Assorted cold meats",
+          "g3_caracoles": "Snails in a tin",
+          "g3_coca": "Onion flatbread",
+          "g3_escalivada": "Grilled vegetables",
+          "g3_pan_tostado": "Toasted bread with garlic and tomato",
+          "g3_butifarra": "Catalan sausage with garnish",
+          "g3_picanton": "Poussin with garnish",
+          "g3_entrecot": "Entrecôte with garnish",
+          "g3_conejo": "Rabbit with garnish",
+          "g3_bacalao": "Cod with ratatouille",
+          
+          // Elementos comunes
+          "g_postre": "Dessert: House cake",
+          "g_bebidas": "Drinks: Wines, waters, soft drinks",
+          "g_cafes": "Coffees",
+          
+          // Menú infantil
+          "infantil_titulo": "Kids Menu for Groups",
+          "infantil_text": "Special combo plate for children:",
+          "infantil_macarrones": "Macaroni with tomato",
+          "infantil_nuggets": "Chicken nuggets",
+          "infantil_patatas": "French fries",
+          "infantil_refresco": "Soft drink",
+          "infantil_helado": "Ice cream (or alternative dessert)",
+          "precio_niño": "Price: 17€ per child",
+          
+          // Información importante
+          "info_titulo": "Important Information",
+          "info_minimo": "Minimum:",
+          "info_minimo_text": "12 people per group",
+          "info_reserva": "Reservation:",
+          "info_reserva_text": "Requires confirmation 48 hours in advance",
+          "info_modif": "Modifications:",
+          "info_modif_text": "Possibility to adapt menus to allergies or preferences (inquire)",
+          "info_pagos": "Payments:",
+          "info_pagos_text": "Cash and card accepted",
+          "info_horario": "Group hours:",
+          "info_horario_text": "Check availability for meals outside regular hours",
+          "info_contacto": "To book or for more information:",
+          
+          // Navegación
+          "ver_carta": "See The Menu",
+          "volver_inicio": "Back to home"
+        }
+      };
+
+      const savedLang = localStorage.getItem('lang') || 'es';
+      setLanguage(savedLang);
+
+      document.querySelectorAll('.lang-switch button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lang = btn.getAttribute('data-lang');
+          setLanguage(lang);
+        });
+      });
+
+      function setLanguage(lang) {
+        try { localStorage.setItem('lang', lang); } catch(e) {}
+        
+        if (translations[lang]) {
+          // Traducir elementos con data-i18n
+          document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+              el.textContent = translations[lang][key];
+            }
+          });
+          
+          // Traducir elementos con data-i18n dentro de listas
+          document.querySelectorAll('li[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+              el.textContent = translations[lang][key];
+            }
+          });
+          
+          // Traducir elementos dentro de strong
+          document.querySelectorAll('strong[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+              el.textContent = translations[lang][key];
+            }
+          });
+          
+          // Traducir spans dentro de strong
+          document.querySelectorAll('span[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+              el.textContent = translations[lang][key];
+            }
+          });
+          
+          // Traducir opciones del select
+          document.querySelectorAll('option[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+              el.textContent = translations[lang][key];
+            }
+          });
+          
+          // Actualizar prefix en la calculadora
+          const totalElement = document.getElementById('totalPrice');
+          if (totalElement) {
+            const prefix = translations[lang]['calc_title'] ? 'Total: ' : 'Total: ';
+            totalElement.setAttribute('data-i18n-prefix', prefix);
+            const currentText = totalElement.textContent;
+            const number = currentText.replace(/[^0-9]/g, '');
+            totalElement.textContent = prefix + number + '€';
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
