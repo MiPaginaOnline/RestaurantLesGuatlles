@@ -522,7 +522,17 @@
       box-shadow: 0 4px 12px rgba(139, 46, 46, 0.3);
     }
 
-    /* === WhatsApp flotante === */
+    .btn-secondary {
+      background: #f1e0c6;
+      color: #8b2e2e;
+      border: 2px solid #8b2e2e;
+    }
+    
+    .btn-secondary:hover {
+      background: #e2cda0;
+    }
+
+    /* WhatsApp flotante */
     .whatsapp-btn {
       position: fixed;
       bottom: 20px;
@@ -1016,158 +1026,46 @@
       <p data-i18n="about_text">En Les Guatlles ofrecemos cocina catalana auténtica en un ambiente rústico y moderno. Nuestro espacio está rodeado de naturaleza y pensado para disfrutar en familia.</p>
     </section>
 
-    <!-- ========== LA CARTA CON BÚSQUEDA ========== -->
-    <details class="toggle-section card animate-on-scroll" id="La Carta-section">
-      <summary><span data-i18n="lacarta_title">La Carta</span> <span class="arrow">▼</span></summary>
-      <div class="contenido">
+    <!-- ========== LA CARTA (BOTÓN A PÁGINA SECUNDARIA) ========== -->
+    <section id="lacarta" class="card animate-on-scroll" tabindex="-1">
+      <h2 data-i18n="lacarta_title">La Carta</h2>
+      <p>Descubre nuestra amplia selección de platos tradicionales catalanes.</p>
+      
+      <div style="text-align: center; margin: 30px 0;">
+        <a href="carta.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 12px 30px;">
+          <i class="fas fa-utensils" style="margin-right: 8px;"></i>Ver La Carta Completa
+        </a>
+      </div>
+    </section>
+
+    <!-- ========== MENÚ PARA GRUPOS (BOTÓN A PÁGINA SECUNDARIA) ========== -->
+    <section id="grupos" class="card animate-on-scroll" tabindex="-1">
+      <h2>Menú para grupos</h2>
+      <p>Organizamos comidas para grupos a partir de 12 personas. Ofrecemos diferentes opciones de menú adaptadas a tus necesidades.</p>
+      
+      <div style="text-align: center; margin: 30px 0;">
+        <a href="menu-grupos.html" class="btn btn-secondary" style="font-size: 1.1rem; padding: 12px 30px;">
+          <i class="fas fa-users" style="margin-right: 8px;"></i>Ver Menús de Grupo
+        </a>
+      </div>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 20px;">
+        <div style="flex: 1; min-width: 200px; background: white; padding: 15px; border-radius: 8px; text-align: center; border: 2px solid var(--accent);">
+          <h3 style="margin-top: 0; color: var(--accent);">Menú 1</h3>
+          <p style="font-weight: bold; font-size: 1.2rem;">29€ / persona</p>
+        </div>
         
-        <!-- Barra de búsqueda -->
-        <div class="search-container">
-          <input type="text" class="search-box" id="cartaSearch" placeholder="Buscar en la carta..." aria-label="Buscar en la carta">
+        <div style="flex: 1; min-width: 200px; background: white; padding: 15px; border-radius: 8px; text-align: center; border: 2px solid var(--accent);">
+          <h3 style="margin-top: 0; color: var(--accent);">Menú 2</h3>
+          <p style="font-weight: bold; font-size: 1.2rem;">32€ / persona</p>
         </div>
-
-        <h3 data-i18n="lacarta_starters">PRIMEROS PLATOS</h3>
-        <div class="menu-list" aria-label="Primeros platos">
-          <div class="menu-item"><span data-i18n="p_en_salad_house">Ensalada Les Guatlles (lechuga variada, huevos de codorniz, paté, tomates cherry, cebolla frita, frutos secos y vinagre de módena)</span><span>13,90€</span></div>
-          <div class="menu-item"><span data-i18n="p_en_salad_green">Ensalada verde (Lechuga, tomate, pimiento, cebolla, atún, huevo, remolacha, zanahoria y aceitunas)</span><span>11,90€</span></div>
-          <div class="menu-item"><span data-i18n="p_xato">Xató (escarola, bacalao, atún, anchoas, aceitunas y salsa de romesco)</span><span>14,90€</span></div>
-          <div class="menu-item"><span data-i18n="p_escalivada">Escalivada (pimiento y berenjena)</span><span>14,90€</span></div>
-          <div class="menu-item"><span data-i18n="p_snails">Caracoles a la llauna</span><span>16,80€</span></div>
-          <div class="menu-item"><span data-i18n="p_canelones">Canelones de la abuela</span><span>11,20€</span></div>
-          <div class="menu-item"><span data-i18n="p_calçots">Calçots con salsa</span><span>15,00€</span></div>
-          <div class="menu-item"><span data-i18n="p_jamon">Jamón del país</span><span>11,00€</span></div>
-          <div class="menu-item"><span data-i18n="p_coca">Coca de cebolla</span><span>9,50€</span></div>
-          <div class="menu-item"><span data-i18n="p_anchovies">Anchoas de L'Escala (anchoas, zanahoria, remolacha y aceitunas)</span><span>13,80€</span></div>
-          <div class="menu-item"><span data-i18n="p_toast_house">Tostada de la casa (Pan tostado con "all i oli", escalivada, anchoas y olivas)</span><span>13,90€</span></div>
+        
+        <div style="flex: 1; min-width: 200px; background: white; padding: 15px; border-radius: 8px; text-align: center; border: 2px solid var(--accent);">
+          <h3 style="margin-top: 0; color: var(--accent);">Menú 3</h3>
+          <p style="font-weight: bold; font-size: 1.2rem;">39€ / persona</p>
         </div>
-
-        <h3 data-i18n="lacarta_mains">SEGUNDOS PLATOS</h3>
-        <div class="menu-list" aria-label="Segundos platos">
-          <div class="menu-item"><span data-i18n="s_panceta">Panceta con guarnición</span><span>11,50€</span></div>
-          <div class="menu-item"><span data-i18n="s_butifarra">Butifarra con guarnición</span><span>11,50€</span></div>
-          <div class="menu-item"><span data-i18n="s_morcilla">Morcilla con guarnición</span><span>12,50€</span></div>
-          <div class="menu-item"><span data-i18n="s_cordero">Cordero a la brasa con guarnición</span><span>16,60€</span></div>
-          <div class="menu-item"><span data-i18n="s_lomo">Lomo a la brasa con guarnición</span><span>10,50€</span></div>
-          <div class="menu-item"><span data-i18n="s_codornices">Codornices al ron (una pieza)</span><span>4,45€</span></div>
-          <div class="menu-item"><span data-i18n="s_conejo">Conejo a la brasa con guarnición</span><span>14,50€</span></div>
-          <div class="menu-item"><span data-i18n="s_picanton">Picantón a la brasa con guarnición</span><span>14,50€</span></div>
-          <div class="menu-item"><span data-i18n="s_entrecot">Entrecot a la brasa con guarnición</span><span>21,00€</span></div>
-          <div class="menu-item"><span data-i18n="s_churrasco">Churrasco de ternera a la brasa</span><span>14,00€</span></div>
-          <div class="menu-item"><span data-i18n="s_pies">Pies de cerdo a la brasa con guarnición</span><span>13,00€</span></div>
-          <div class="menu-item"><span data-i18n="s_carrillada">Carrillada de cerdo a la brasa con guarnición</span><span>14,00€</span></div>
-          <div class="menu-item"><span data-i18n="s_bacalao">Bacalao al pisto (samfaina)</span><span>17,00€</span></div>
-        </div>
-
-        <h3 data-i18n="lacarta_raciones">RACIONES Y EXTRAS</h3>
-        <div class="menu-list" aria-label="Raciones y extras">
-          <div class="menu-item"><span data-i18n="r_judias">Judías secas</span><span>4,70€</span></div>
-          <div class="menu-item"><span data-i18n="r_patatas_fritas">Patatas fritas</span><span>4,50€</span></div>
-          <div class="menu-item"><span data-i18n="r_patatas_horno">Patatas al horno</span><span>3,90€</span></div>
-          <div class="menu-item"><span data-i18n="r_romesco">Salsa romesco</span><span>3,50€</span></div>
-          <div class="menu-item"><span data-i18n="r_alioli">Alioli</span><span>2,50€</span></div>
-          <div class="menu-item"><span data-i18n="r_alcachofa">Alcachofa a la brasa, unidad s/t</span><span>2,80€/u</span></div>
-          <div class="menu-item"><span data-i18n="r_pan_tostado">Pan tostado (rebanada)</span><span>1,00€/u</span></div>
-          <div class="menu-item"><span data-i18n="r_babero">Babero</span><span>0,50€</span></div>
-          <div class="menu-item"><span data-i18n="r_taper">Táper</span><span>1,00€</span></div>
-        </div>
-
-        <h3 data-i18n="lacarta_kids">MENÚ INFANTIL</h3>
-        <div class="menu-list" aria-label="Menú infantil">
-          <div class="menu-item"><span data-i18n="kids_combo">Plato combinado: macarrones con tomate, Nuggets de pollo, patatas fritas, refresco y helado (o postre)</span><span>15,00€</span></div>
-        </div>
-
-        <!-- Flecha para cerrar -->
-        <div class="close-arrow">▲</div>
       </div>
-    </details>
-
-    <!-- ========== MENÚ PARA GRUPOS CON BÚSQUEDA ========== -->
-    <details class="toggle-section card animate-on-scroll" id="Menú para grupos (MíNimo 12 personas)-section">
-      <summary><span data-i18n="groups_title">Menú para grupos (Mínimo 12 personas)</span> <span class="arrow">▼</span></summary>
-      <div class="contenido">
-
-        <h3>MENÚ 1</h3>
-        <p data-i18n="groups_pica1_title">Pica-pica:</p>
-        <ul>
-          <li data-i18n="g1_en_salad">Ensalada verde</li>
-          <li data-i18n="g1_embutidos">Embutidos variados</li>
-          <li data-i18n="g1_coca">Coca de cebolla</li>
-          <li data-i18n="g1_croquetas">Croquetas</li>
-          <li data-i18n="g1_pan_tostado">Pan tostado con ajo y tomate</li>
-        </ul>
-        <p data-i18n="groups_second">Segundo a elegir:</p>
-        <ul>
-          <li data-i18n="g1_butifarra">Butifarra con guarnición</li>
-          <li data-i18n="g1_lomo">Lomo con guarnición</li>
-          <li data-i18n="g1_pollo">Pollo con guarnición</li>
-          <li data-i18n="g1_canelones">Canelones de la abuela</li>
-        </ul>
-        <p data-i18n="g3_postre">Postres: Pastel de la casa</span></p>
-        <p data-i18n="g3_bebidas">Bebidas: Vinos – aguas – refrescos</span></p>
-        <p data-i18n="g3_cafés">Cafés</span></p>
-        <p><strong>Menu 1: 29€</strong></p>
-
-        <hr>
-
-        <h3>MENÚ 2</h3>
-        <p data-i18n="groups_pica2_title">Pica-pica:</p>
-        <ul>
-          <li data-i18n="g2_ensalada">Ensalada Les Guatlles</li>
-          <li data-i18n="g2_coca">Coca de cebolla</li>
-          <li data-i18n="g2_escalivada">Escalivada</li>
-          <li data-i18n="g2_embutidos">Embutidos variados</li>
-          <li data-i18n="g2_croquetas">Croquetas</li>
-          <li data-i18n="g2_pan_tostado">Pan tostado con ajo y tomate</li>
-        </ul>
-        <p data-i18n="groups_second">Segundo a elegir:</p>
-        <ul>
-          <li data-i18n="g2_butifarra">Butifarra con guarnición</li>
-          <li data-i18n="g2_carrillada">Carrillada con guarnición</li>
-          <li data-i18n="g2_churrasco">Churrasco con guarnición</li>
-          <li data-i18n="g2_pollo">Pollo con guarnición</li>
-          <li data-i18n="g2_canelones">Canelones de la abuela</li>
-        </ul>
-        <p data-i18n="g3_postre">Postres: Pastel de la casa</span></p>
-        <p data-i18n="g3_bebidas">Bebidas: Vinos – aguas – refrescos</span></p>
-        <p data-i18n="g3_cafés">Cafés</span></p>
-        <p><strong>Menu 2: 32€</strong></p>
-
-        <hr>
-
-        <h3>MENÚ 3</h3>
-        <p data-i18n="groups_pica3_title">Pica-pica:</p>
-        <ul>
-          <li data-i18n="g3_ensalada">Ensalada Les Guatlles</li>
-          <li data-i18n="g3_embutidos">Embutidos variados</li>
-          <li data-i18n="g3_snails">Caracoles a la llauna</li>
-          <li data-i18n="g3_coca">Coca de cebolla</li>
-          <li data-i18n="g3_escalivada">Escalivada</li>
-          <li data-i18n="g3_pan_tostado">Pan tostado con ajo y tomate</li>
-        </ul>
-        <p data-i18n="groups_second">Segundo a elegir:</p>
-        <ul>
-          <li data-i18n="g3_butifarra">Butifarra con guarnición</li>
-          <li data-i18n="g3_picanton">Picantón con guarnición</li>
-          <li data-i18n="g3_entrecot">Entrecot con guarnición</li>
-          <li data-i18n="g3_conejo">Conejo con guarnición</li>
-          <li data-i18n="g3_bacalao">Bacalao con pisto (samfaina)</li>
-        </ul>
-        <p data-i18n="g3_postre">Postres: Pastel de la casa</span></p>
-        <p data-i18n="g3_bebidas">Bebidas: Vinos – aguas – refrescos</span></p>
-        <p data-i18n="g3_cafés">Cafés</span></p>
-        <p><strong>Menu 3: 39€</strong></p>
-
-        <hr>
-
-        <h3 data-i18n="groups_kids_title">MENÚ INFANTIL</h3>
-        <div class="menu-list">
-          <div class="menu-item"><span data-i18n="kids_combo_short">Plato combinado: macarrones con tomate, Nuggets de pollo, patatas fritas, refresco y helado (o postre)</span><span>17€</span></div>
-        </div>
-
-        <!-- Flecha para cerrar -->
-        <div class="close-arrow">▲</div>
-      </div>
-    </details>
+    </section>
 
     <!-- ========== CALCULADORA DE GRUPOS ========== -->
     <section id="calculadora" class="group-calculator animate-on-scroll">
@@ -1190,7 +1088,7 @@
       </div>
       
       <div class="calc-result" id="totalPrice" aria-live="polite">Total: 348€</div>
-      </button>
+      <button class="btn btn-primary" onclick="showReservationConfirmation()" style="margin-top: 10px;">Solicitar Reserva</button>
     </section>
 
     <!-- SECCIONES EXISTENTES -->
@@ -1298,9 +1196,6 @@
       // Inicializar calculadora
       initializeCalculator();
       
-      // Inicializar búsquedas
-      initializeSearches();
-      
       // Inicializar animaciones al hacer scroll
       initializeScrollAnimations();
       
@@ -1336,66 +1231,6 @@
       alert(`Reserva solicitada para ${people} personas con ${menu} (${total})\n\nTe contactaremos para confirmar los detalles.`);
     }
 
-    // === SISTEMA DE BÚSQUEDA ===
-    function initializeSearches() {
-      // Búsqueda en La Carta
-      const cartaSearch = document.getElementById('cartaSearch');
-      if (cartaSearch) {
-        cartaSearch.addEventListener('input', function(e) {
-          filterMenuItems('La Carta-section', e.target.value.toLowerCase());
-        });
-      }
-      
-      // Búsqueda en Menús de Grupo
-      const gruposSearch = document.getElementById('gruposSearch');
-      if (gruposSearch) {
-        gruposSearch.addEventListener('input', function(e) {
-          filterMenuItems('Menú para grupos (MíNimo 12 personas)-section', e.target.value.toLowerCase());
-        });
-      }
-    }
-
-    function filterMenuItems(sectionId, searchTerm) {
-      const section = document.getElementById(sectionId);
-      if (!section) return;
-      
-      const menuItems = section.querySelectorAll('.menu-item');
-      let hasVisibleItems = false;
-      
-      menuItems.forEach(item => {
-        const text = item.textContent.toLowerCase();
-        if (text.includes(searchTerm)) {
-          item.style.display = 'flex';
-          hasVisibleItems = true;
-          
-          // Animación de aparición
-          item.style.opacity = '0';
-          item.style.transform = 'translateX(-10px)';
-          setTimeout(() => {
-            item.style.transition = 'all 0.3s ease';
-            item.style.opacity = '1';
-            item.style.transform = 'translateX(0)';
-          }, 50);
-        } else {
-          item.style.display = 'none';
-        }
-      });
-      
-      // Mostrar mensaje si no hay resultados
-      const headers = section.querySelectorAll('h3');
-      headers.forEach(header => {
-        const nextElement = header.nextElementSibling;
-        if (nextElement && nextElement.classList.contains('menu-list')) {
-          const visibleItems = nextElement.querySelectorAll('.menu-item[style*="display: flex"]');
-          if (visibleItems.length === 0) {
-            header.style.opacity = '0.5';
-          } else {
-            header.style.opacity = '1';
-          }
-        }
-      });
-    }
-
     // === ANIMACIONES AL SCROLL ===
     function initializeScrollAnimations() {
       const observerOptions = {
@@ -1407,22 +1242,6 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animated');
-            
-            // Efecto escalonado para los elementos del menú
-            if (entry.target.classList.contains('toggle-section')) {
-              const menuItems = entry.target.querySelectorAll('.menu-item');
-              menuItems.forEach((item, index) => {
-                setTimeout(() => {
-                  item.style.opacity = '0';
-                  item.style.transform = 'translateX(-20px)';
-                  item.style.transition = 'all 0.5s ease';
-                  setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateX(0)';
-                  }, 100);
-                }, index * 100);
-              });
-            }
           }
         });
       }, observerOptions);
@@ -1515,11 +1334,11 @@
         }
         
         if (normalizedMessage.includes('menu') || normalizedMessage.includes('carta')) {
-          return 'Tenemos una amplia carta con platos tradicionales catalanes. Puedes consultar nuestra carta completa en la sección "La Carta".';
+          return 'Puedes consultar nuestra carta completa en la página "La Carta" o ver los menús para grupos en la sección correspondiente.';
         }
         
         if (normalizedMessage.includes('grupo') || normalizedMessage.includes('grupos')) {
-          return 'Ofrecemos menús especiales para grupos a partir de 12 personas. Tenemos tres opciones de menú con precios desde 29€.';
+          return 'Ofrecemos menús especiales para grupos a partir de 12 personas. Tenemos tres opciones de menú con precios desde 29€. Puedes calcular el precio total con nuestra calculadora de grupos.';
         }
         
         if (normalizedMessage.includes('precio') || normalizedMessage.includes('cuanto')) {
@@ -1598,8 +1417,7 @@
           monday: 'Lunes', tuesday: 'Martes', wednesday: 'Miércoles',
           thursday: 'Jueves', friday: 'Viernes', saturday: 'Sábado', sunday: 'Domingo',
           closed: 'Cerrado',
-          lacarta_title: 'La Carta',
-          groups_title: 'Menú para grupos (Mínimo 12 personas)'
+          lacarta_title: 'La Carta'
         },
         ca: {
           title: 'Restaurant Les Guatlles',
@@ -1622,8 +1440,7 @@
           monday: 'Dilluns', tuesday: 'Dimarts', wednesday: 'Dimecres',
           thursday: 'Dijous', friday: 'Divendres', saturday: 'Dissabte', sunday: 'Diumenge',
           closed: 'Tancat',
-          lacarta_title: 'La Carta',
-          groups_title: 'Menú per a grups (Mínim 12 persones)'
+          lacarta_title: 'La Carta'
         },
         en: {
           title: 'Restaurant Les Guatlles',
@@ -1647,8 +1464,7 @@
           monday: 'Monday', tuesday: 'Tuesday', wednesday: 'Wednesday',
           thursday: 'Thursday', friday: 'Friday', saturday: 'Saturday', sunday: 'Sunday',
           closed: 'Closed',
-          lacarta_title: 'La Carta / Menu',
-          groups_title: 'Group Menus (min. 12 people)'
+          lacarta_title: 'Menu'
         }
       };
 
@@ -1676,25 +1492,6 @@
         });
       }
     }
-
-    // === FUNCIONALIDAD PARA FLECHAS DE CIERRE ===
-    document.querySelectorAll('.toggle-section').forEach(section => {
-      const closeArrow = section.querySelector('.close-arrow');
-      if (closeArrow) {
-        closeArrow.addEventListener('click', (e) => {
-          e.preventDefault();
-          section.open = false;
-          setTimeout(() => {
-            const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-            const headerOffset = 96;
-            window.scrollTo({
-              top: sectionTop - headerOffset,
-              behavior: 'smooth'
-            });
-          }, 100);
-        });
-      }
-    });
   </script>
 </body>
 </html>
