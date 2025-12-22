@@ -23,7 +23,7 @@
       --muted: #6b6b6b;
       --bg: #d2b48c;
       --card: #f1e0c6;
-      --glass-bg: rgba(255,255,255,0.45);
+      --glass-bg: rgba(255,255,255,0.85);
       --header-offset: 96px;
     }
 
@@ -54,7 +54,7 @@
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 28px;
+      padding: 20px;
     }
 
     /* === ANIMACIONES DE ENTRADA === */
@@ -80,36 +80,40 @@
       transform: translateY(0);
     }
 
-    /* === HEADER STICKY === */
+    /* === HEADER STICKY CORREGIDO === */
     header {
       position: fixed;
-      top: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: calc(100% - 40px);
-      max-width: 1100px;
+      top: 0;
+      left: 0;
+      width: 100%;
       background: var(--glass-bg);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      border-radius: 14px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      z-index: 1200;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      animation: fadeInDown 0.8s ease-out;
+      padding: 0;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 10px 18px;
-      z-index: 1200;
-      animation: fadeInDown 0.8s ease-out;
     }
 
     @keyframes fadeInDown {
       from {
         opacity: 0;
-        transform: translateX(-50%) translateY(-20px);
+        transform: translateY(-20px);
       }
       to {
         opacity: 1;
-        transform: translateX(-50%) translateY(0);
+        transform: translateY(0);
       }
     }
 
@@ -220,7 +224,7 @@
       background-position: center;
       color: #fff;
       text-align: center;
-      margin-top: 84px;
+      margin-top: 80px;
       animation: fadeInUp 1s ease-out 0.3s both;
     }
 
@@ -253,22 +257,23 @@
 
     /* === MAIN CONTENT === */
     main {
-      margin-top: 24px;
+      margin-top: 40px;
       padding-bottom: 80px;
     }
 
     section {
-      scroll-margin-top: var(--header-offset);
+      scroll-margin-top: 100px;
     }
 
     /* === CARDS Y COMPONENTES === */
     .card {
       background: var(--card);
-      padding: 18px;
+      padding: 24px;
       border-radius: 12px;
       box-shadow: 0 6px 20px rgba(12,12,12,0.1);
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       transition: all 0.3s ease;
+      opacity: 1 !important;
     }
 
     .card:hover {
@@ -727,11 +732,8 @@
     }
 
     @media (max-width:768px){
-      header{
-        flex-direction: column;
-        align-items:stretch;
-        padding: 2px 8px;
-        min-height: auto;
+      .header-inner {
+        padding: 8px 15px;
       }
       
       .brand{
@@ -780,14 +782,14 @@
 
       nav ul{
         position: absolute;
-        top: calc(100% + 10px);
-        left: 8px;
-        right: 8px;
+        top: 100%;
+        left: 0;
+        right: 0;
         margin-top:0;
         background: var(--glass-bg);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
-        border-radius: 12px;
+        border-radius: 0 0 12px 12px;
         padding: 12px;
         flex-direction: column;
         display: none;
@@ -798,6 +800,14 @@
       nav ul.active{ display:flex; }
       
       .hero-content h1{font-size:1.8rem}
+      
+      .hero-banner {
+        margin-top: 70px;
+      }
+      
+      main {
+        margin-top: 30px;
+      }
 
       .assistant-container {
         bottom: 90px;
@@ -832,9 +842,10 @@
       .gallery img{height:90px}
       .hero-content h1{font-size:1.6rem}
       
-      header{
-        padding: 1px 6px;
+      .header-inner {
+        padding: 6px 10px;
       }
+      
       .nav-menu{
         padding: 0px 3px;
         min-height: 22px;
@@ -886,35 +897,38 @@
   </style>
 </head>
 <body>
-  <!-- HEADER -->
-  <header class="container" role="banner" aria-label="Barra principal">
-    <div class="brand" aria-hidden="false">
-      <div class="logo" aria-hidden="true"></div>
-      <div>
-        <h1 data-i18n="title">Restaurant Les Guatlles</h1>
-        <div class="muted" data-i18n="location" style="font-size:0.85rem;color:var(--muted)">Roda de Berà — Tarragona</div>
-      </div>
-    </div>
-
-    <div class="nav-menu" aria-hidden="false">
-      <div class="hamburger" id="hamburger" aria-label="Abrir menú" role="button" tabindex="0" aria-expanded="false">
-        <span></span><span></span><span></span>
+  <!-- HEADER CORREGIDO -->
+  <header role="banner" aria-label="Barra principal">
+    <div class="header-inner">
+      <div class="brand" aria-hidden="false">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1 data-i18n="title">Restaurant Les Guatlles</h1>
+          <div class="muted" data-i18n="location" style="font-size:0.85rem;color:var(--muted)">Roda de Berà — Tarragona</div>
+        </div>
       </div>
 
-      <nav aria-label="Navegación principal">
-        <ul id="nav-links" class="nav-links" role="menu">
-          <li role="none"><a role="menuitem" href="#lacarta" data-i18n="menu_menu">La Carta</a></li>
-          <li role="none"><a role="menuitem" href="#grupos" data-i18n="menu_groups">Menú Grupos</a></li>
-          <li role="none"><a role="menuitem" href="#reservas" data-i18n="menu_reserve">Reservas</a></li>
-          <li role="none"><a role="menuitem" href="#horario" data-i18n="menu_hours">Horario</a></li>
-          <li role="none"><a role="menuitem" href="#ubicacion" data-i18n="menu_location">Ubicación</a></li>
-        </ul>
-      </nav>
+      <div class="nav-menu" aria-hidden="false">
+        <div class="hamburger" id="hamburger" aria-label="Abrir menú" role="button" tabindex="0" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </div>
 
-      <div class="lang-switch" aria-label="Selector de idioma">
-        <button data-lang="es" aria-label="Español"><img src="https://flagcdn.com/es.svg" alt="Español"></button>
-        <button data-lang="ca" aria-label="Català"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Catalonia.svg" alt="Català"></button>
-        <button data-lang="en" aria-label="English"><img src="https://flagcdn.com/gb.svg" alt="English"></button>
+        <nav aria-label="Navegación principal">
+          <ul id="nav-links" class="nav-links" role="menu">
+            <li role="none"><a role="menuitem" href="#sobre" data-i18n="menu_about">Inicio</a></li>
+            <li role="none"><a role="menuitem" href="#lacarta" data-i18n="menu_menu">La Carta</a></li>
+            <li role="none"><a role="menuitem" href="#grupos" data-i18n="menu_groups">Menú Grupos</a></li>
+            <li role="none"><a role="menuitem" href="#reservas" data-i18n="menu_reserve">Reservas</a></li>
+            <li role="none"><a role="menuitem" href="#horario" data-i18n="menu_hours">Horario</a></li>
+            <li role="none"><a role="menuitem" href="#ubicacion" data-i18n="menu_location">Ubicación</a></li>
+          </ul>
+        </nav>
+
+        <div class="lang-switch" aria-label="Selector de idioma">
+          <button data-lang="es" aria-label="Español"><img src="https://flagcdn.com/es.svg" alt="Español"></button>
+          <button data-lang="ca" aria-label="Català"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Catalonia.svg" alt="Català"></button>
+          <button data-lang="en" aria-label="English"><img src="https://flagcdn.com/gb.svg" alt="English"></button>
+        </div>
       </div>
     </div>
   </header>
@@ -1080,11 +1094,15 @@
   <script>
     // === INICIALIZACIÓN ===
     document.addEventListener('DOMContentLoaded', function() {
+      // Mostrar todas las secciones inmediatamente
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        el.classList.add('animated');
+      });
+      
       // Año actual
       document.getElementById('year').textContent = new Date().getFullYear();
-      
-      // Inicializar calculadora
-      initializeCalculator();
       
       // Inicializar animaciones al hacer scroll
       initializeScrollAnimations();
@@ -1095,36 +1113,6 @@
       // Sistema de navegación y traducciones
       initializeNavigationAndTranslations();
     });
-
-    // === CALCULADORA DE GRUPOS ===
-    function initializeCalculator() {
-      const groupSize = document.getElementById('groupSize');
-      const menuType = document.getElementById('menuType');
-      
-      function updateCalculation() {
-        const people = parseInt(groupSize.value) || 12;
-        const price = parseInt(menuType.value);
-        const total = people * price;
-        
-        const totalElement = document.getElementById('totalPrice');
-        const prefix = totalElement.getAttribute('data-i18n-prefix') || 'Total: ';
-        totalElement.textContent = prefix + total + '€';
-      }
-      
-      groupSize.addEventListener('input', updateCalculation);
-      menuType.addEventListener('change', updateCalculation);
-      
-      // Calcular inicialmente
-      updateCalculation();
-    }
-
-    function showReservationConfirmation() {
-      const people = document.getElementById('groupSize').value;
-      const menu = document.getElementById('menuType').options[document.getElementById('menuType').selectedIndex].text;
-      const total = document.getElementById('totalPrice').textContent;
-      
-      alert(`RESERVA SOLICITADA\n\n• Personas: ${people}\n• Menú: ${menu}\n• ${total}\n\nTe contactaremos para confirmar los detalles.\n\nO llámanos directamente al +34 977 80 90 22`);
-    }
 
     // === ANIMACIONES AL SCROLL ===
     function initializeScrollAnimations() {
@@ -1270,7 +1258,7 @@
           navLinks.classList.remove('active');
           hamburger.setAttribute('aria-expanded','false');
           
-          const offset = 96;
+          const offset = 100;
           const top = target.getBoundingClientRect().top + window.scrollY - offset;
           
           window.scrollTo({ top, behavior: 'smooth' });
@@ -1559,37 +1547,6 @@
             const key = el.getAttribute('data-i18n-placeholder');
             if (translations[lang][key]) {
               el.placeholder = translations[lang][key];
-            }
-          });
-          
-          // Traducir elementos con data-i18n-prefix
-          document.querySelectorAll('[data-i18n-prefix]').forEach(el => {
-            const prefixKey = 'calc_title'; // Usamos calc_title como referencia
-            if (translations[lang][prefixKey]) {
-              const prefix = 'Total: ';
-              el.setAttribute('data-i18n-prefix', prefix);
-              // Actualizar el texto si es un cálculo
-              if (el.id === 'totalPrice') {
-                const currentText = el.textContent;
-                const number = currentText.replace(/[^0-9]/g, '');
-                el.textContent = prefix + number + '€';
-              }
-            }
-          });
-          
-          // Traducir opciones del select
-          document.querySelectorAll('option[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (translations[lang][key]) {
-              el.textContent = translations[lang][key];
-            }
-          });
-          
-          // Traducir elementos dentro de listas
-          document.querySelectorAll('li[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (translations[lang][key]) {
-              el.textContent = translations[lang][key];
             }
           });
         }
