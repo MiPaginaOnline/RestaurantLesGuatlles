@@ -80,40 +80,37 @@
       transform: translateY(0);
     }
 
-    /* === HEADER STICKY CORREGIDO === */
+    /* === HEADER STICKY (VERSIÓN ORIGINAL) === */
     header {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 40px);
+      max-width: 1100px;
       background: var(--glass-bg);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      z-index: 1200;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      animation: fadeInDown 0.8s ease-out;
-      padding: 0;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-    }
-
-    .header-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 10px 20px;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
+      padding: 12px 24px;
+      z-index: 1200;
+      animation: fadeInDown 0.8s ease-out;
+      border: 1px solid rgba(0,0,0,0.1);
     }
 
     @keyframes fadeInDown {
       from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateX(-50%) translateY(-20px);
       }
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(-50%) translateY(0);
       }
     }
 
@@ -224,7 +221,7 @@
       background-position: center;
       color: #fff;
       text-align: center;
-      margin-top: 80px;
+      margin-top: 100px;
       animation: fadeInUp 1s ease-out 0.3s both;
     }
 
@@ -262,7 +259,7 @@
     }
 
     section {
-      scroll-margin-top: 100px;
+      scroll-margin-top: 120px;
     }
 
     /* === CARDS Y COMPONENTES === */
@@ -732,8 +729,10 @@
     }
 
     @media (max-width:768px){
-      .header-inner {
+      header {
+        width: calc(100% - 20px);
         padding: 8px 15px;
+        top: 10px;
       }
       
       .brand{
@@ -782,14 +781,15 @@
 
       nav ul{
         position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
+        top: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
         margin-top:0;
         background: var(--glass-bg);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
-        border-radius: 0 0 12px 12px;
+        border-radius: 12px;
         padding: 12px;
         flex-direction: column;
         display: none;
@@ -802,7 +802,7 @@
       .hero-content h1{font-size:1.8rem}
       
       .hero-banner {
-        margin-top: 70px;
+        margin-top: 90px;
       }
       
       main {
@@ -842,7 +842,7 @@
       .gallery img{height:90px}
       .hero-content h1{font-size:1.6rem}
       
-      .header-inner {
+      header {
         padding: 6px 10px;
       }
       
@@ -858,6 +858,10 @@
       .calculator-inputs {
         flex-direction: column;
         gap: 10px;
+      }
+      
+      section {
+        scroll-margin-top: 100px;
       }
     }
 
@@ -897,38 +901,36 @@
   </style>
 </head>
 <body>
-  <!-- HEADER CORREGIDO -->
-  <header role="banner" aria-label="Barra principal">
-    <div class="header-inner">
-      <div class="brand" aria-hidden="false">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <h1 data-i18n="title">Restaurant Les Guatlles</h1>
-          <div class="muted" data-i18n="location" style="font-size:0.85rem;color:var(--muted)">Roda de Berà — Tarragona</div>
-        </div>
+  <!-- HEADER (VERSIÓN ORIGINAL) -->
+  <header class="container" role="banner" aria-label="Barra principal">
+    <div class="brand" aria-hidden="false">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1 data-i18n="title">Restaurant Les Guatlles</h1>
+        <div class="muted" data-i18n="location" style="font-size:0.85rem;color:var(--muted)">Roda de Berà — Tarragona</div>
+      </div>
+    </div>
+
+    <div class="nav-menu" aria-hidden="false">
+      <div class="hamburger" id="hamburger" aria-label="Abrir menú" role="button" tabindex="0" aria-expanded="false">
+        <span></span><span></span><span></span>
       </div>
 
-      <div class="nav-menu" aria-hidden="false">
-        <div class="hamburger" id="hamburger" aria-label="Abrir menú" role="button" tabindex="0" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </div>
+      <nav aria-label="Navegación principal">
+        <ul id="nav-links" class="nav-links" role="menu">
+          <li role="none"><a role="menuitem" href="#sobre" data-i18n="menu_about">Inicio</a></li>
+          <li role="none"><a role="menuitem" href="#lacarta" data-i18n="menu_menu">La Carta</a></li>
+          <li role="none"><a role="menuitem" href="#grupos" data-i18n="menu_groups">Menú Grupos</a></li>
+          <li role="none"><a role="menuitem" href="#reservas" data-i18n="menu_reserve">Reservas</a></li>
+          <li role="none"><a role="menuitem" href="#horario" data-i18n="menu_hours">Horario</a></li>
+          <li role="none"><a role="menuitem" href="#ubicacion" data-i18n="menu_location">Ubicación</a></li>
+        </ul>
+      </nav>
 
-        <nav aria-label="Navegación principal">
-          <ul id="nav-links" class="nav-links" role="menu">
-            <li role="none"><a role="menuitem" href="#sobre" data-i18n="menu_about">Inicio</a></li>
-            <li role="none"><a role="menuitem" href="#lacarta" data-i18n="menu_menu">La Carta</a></li>
-            <li role="none"><a role="menuitem" href="#grupos" data-i18n="menu_groups">Menú Grupos</a></li>
-            <li role="none"><a role="menuitem" href="#reservas" data-i18n="menu_reserve">Reservas</a></li>
-            <li role="none"><a role="menuitem" href="#horario" data-i18n="menu_hours">Horario</a></li>
-            <li role="none"><a role="menuitem" href="#ubicacion" data-i18n="menu_location">Ubicación</a></li>
-          </ul>
-        </nav>
-
-        <div class="lang-switch" aria-label="Selector de idioma">
-          <button data-lang="es" aria-label="Español"><img src="https://flagcdn.com/es.svg" alt="Español"></button>
-          <button data-lang="ca" aria-label="Català"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Catalonia.svg" alt="Català"></button>
-          <button data-lang="en" aria-label="English"><img src="https://flagcdn.com/gb.svg" alt="English"></button>
-        </div>
+      <div class="lang-switch" aria-label="Selector de idioma">
+        <button data-lang="es" aria-label="Español"><img src="https://flagcdn.com/es.svg" alt="Español"></button>
+        <button data-lang="ca" aria-label="Català"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Catalonia.svg" alt="Català"></button>
+        <button data-lang="en" aria-label="English"><img src="https://flagcdn.com/gb.svg" alt="English"></button>
       </div>
     </div>
   </header>
@@ -1258,7 +1260,7 @@
           navLinks.classList.remove('active');
           hamburger.setAttribute('aria-expanded','false');
           
-          const offset = 100;
+          const offset = 120;
           const top = target.getBoundingClientRect().top + window.scrollY - offset;
           
           window.scrollTo({ top, behavior: 'smooth' });
