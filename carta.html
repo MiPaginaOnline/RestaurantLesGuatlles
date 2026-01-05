@@ -25,6 +25,7 @@
       --card: #f1e0c6;
       --glass-bg: rgba(255,255,255,0.45);
       --header-offset: 96px;
+      --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * {
@@ -49,6 +50,7 @@
     a {
       color: var(--accent);
       text-decoration: none;
+      transition: all 0.3s var(--transition-smooth);
     }
 
     .container {
@@ -57,11 +59,11 @@
       padding: 28px;
     }
 
-    /* === ANIMACIONES DE ENTRADA === */
+    /* === ANIMACIONES DE ENTRADA PROFESIONALES === */
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
       }
       to {
         opacity: 1;
@@ -69,10 +71,30 @@
       }
     }
 
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
     .animate-on-scroll {
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
+      transform: translateY(40px);
+      transition: all 0.8s var(--transition-smooth);
     }
 
     .animate-on-scroll.animated {
@@ -89,28 +111,35 @@
       width: calc(100% - 40px);
       max-width: 1100px;
       background: var(--glass-bg);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-radius: 14px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 10px 18px;
+      padding: 12px 28px;
       z-index: 1200;
-      animation: fadeInDown 0.8s ease-out;
+      animation: fadeInDown 0.8s var(--transition-smooth) 0.2s both;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.4s var(--transition-smooth);
     }
 
     @keyframes fadeInDown {
       from {
         opacity: 0;
-        transform: translateX(-50%) translateY(-20px);
+        transform: translateX(-50%) translateY(-40px);
       }
       to {
         opacity: 1;
         transform: translateX(-50%) translateY(0);
       }
+    }
+
+    header:hover {
+      box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+      transform: translateX(-50%) translateY(-2px);
     }
 
     .brand {
@@ -122,12 +151,17 @@
     .logo {
       width: 64px;
       height: 64px;
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
       flex: 0 0 64px;
       background-image: url('https://tse1.mm.bing.net/th/id/OIP.Gi4hYsIc4B3YbKDPpV0b8wAAAA?pid=Api');
       background-size: cover;
       background-position: center;
+      transition: all 0.4s var(--transition-smooth);
+    }
+
+    .logo:hover {
+      transform: rotate(5deg) scale(1.05);
     }
 
     h1 {
@@ -145,18 +179,39 @@
     }
 
     nav li {
-      padding: 6px 10px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
+      padding: 8px 14px;
+      border-radius: 10px;
+      transition: all 0.3s var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
     }
 
     nav li:hover {
       background: rgba(139, 46, 46, 0.1);
+      transform: translateY(-2px);
+    }
+
+    nav li::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: all 0.3s var(--transition-smooth);
+      transform: translateX(-50%);
+    }
+
+    nav li:hover::after {
+      width: 70%;
     }
 
     nav a {
       font-weight: 600;
       cursor: pointer;
+      position: relative;
+      z-index: 2;
     }
 
     .hamburger {
@@ -164,7 +219,13 @@
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
-      padding: 6px;
+      padding: 8px;
+      border-radius: 8px;
+      transition: all 0.3s var(--transition-smooth);
+    }
+
+    .hamburger:hover {
+      background: rgba(139, 46, 46, 0.1);
     }
 
     .hamburger span {
@@ -173,7 +234,19 @@
       background: #222;
       border-radius: 3px;
       display: block;
-      transition: all 0.3s ease;
+      transition: all 0.3s var(--transition-smooth);
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
     }
 
     .nav-menu {
@@ -192,36 +265,56 @@
       background: none;
       border: none;
       cursor: pointer;
-      padding: 0;
-      transition: transform 0.3s ease;
+      padding: 4px;
+      transition: all 0.3s var(--transition-smooth);
+      border-radius: 4px;
     }
 
     .lang-switch button:hover {
-      transform: scale(1.1);
+      transform: scale(1.15);
+      background: rgba(139, 46, 46, 0.1);
     }
 
     .lang-switch img {
       width: 28px;
       height: 20px;
       border-radius: 3px;
-      box-shadow: 0 0 2px rgba(0,0,0,.15);
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      transition: all 0.3s var(--transition-smooth);
+    }
+
+    .lang-switch button:hover img {
+      box-shadow: 0 4px 12px rgba(0,0,0,.2);
     }
 
     /* === HERO SECTION === */
     .hero-banner {
       position: relative;
-      height: 40vh;
-      min-height: 300px;
+      height: 50vh;
+      min-height: 400px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-image: url('https://tse2.mm.bing.net/th/id/OIP.NeFWFeG1jl9k7wvETfMcuwHaIW?pid=Api');
+      background-image: url('https://tse2.mm.bing.net/th/id/OIP.O7ewhGLgfSO-NGCan1UeLAHaFj?pid=Api');
       background-size: cover;
       background-position: center;
+      background-attachment: fixed;
       color: #fff;
       text-align: center;
       margin-top: 84px;
-      animation: fadeInUp 1s ease-out 0.3s both;
+      animation: fadeIn 1.2s var(--transition-smooth);
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
+      z-index: 1;
     }
 
     .hero-overlay {
@@ -230,31 +323,36 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.45);
+      background: rgba(0,0,0,0.3);
+      z-index: 1;
     }
 
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       max-width: 800px;
-      padding: 20px;
+      padding: 30px;
+      animation: scaleIn 1.5s var(--transition-smooth) 0.3s both;
     }
 
     .hero-content h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       font-family: 'Playfair Display', serif;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
 
     .hero-content p {
-      font-size: 1.2rem;
-      line-height: 1.4;
+      font-size: 1.3rem;
+      line-height: 1.6;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
     }
 
     /* === MAIN CONTENT === */
     main {
       margin-top: 24px;
       padding-bottom: 80px;
+      animation: fadeIn 1s var(--transition-smooth) 0.8s both;
     }
 
     section {
@@ -264,16 +362,35 @@
     /* === CARDS Y COMPONENTES === */
     .card {
       background: var(--card);
-      padding: 18px;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(12,12,12,0.1);
-      margin-bottom: 20px;
-      transition: all 0.3s ease;
+      padding: 28px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(12,12,12,0.08);
+      margin-bottom: 30px;
+      transition: all 0.5s var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), #d2b48c);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s var(--transition-smooth);
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(12,12,12,0.15);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 60px rgba(12,12,12,0.15);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
     }
 
     .muted {
@@ -283,20 +400,29 @@
     .menu-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 15px;
     }
 
     .menu-item {
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px dashed #aaa;
-      padding-bottom: 8px;
-      transition: all 0.3s ease;
+      align-items: center;
+      border-bottom: 2px dashed #ccc;
+      padding-bottom: 12px;
+      padding-top: 8px;
+      transition: all 0.4s var(--transition-smooth);
+      position: relative;
     }
 
     .menu-item:hover {
-      transform: translateX(5px);
+      transform: translateX(10px);
       border-color: var(--accent);
+      padding-left: 10px;
+    }
+
+    .menu-item:hover .price {
+      transform: scale(1.1);
+      color: var(--accent);
     }
 
     .menu-item:last-child {
@@ -304,141 +430,142 @@
     }
 
     footer {
-      margin-top: 28px;
-      padding: 20px 0;
+      margin-top: 40px;
+      padding: 30px 0;
       color: var(--muted);
       font-size: 0.9rem;
       text-align: center;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      animation: fadeInUp 1s var(--transition-smooth);
     }
 
-    /* === BÚSQUEDA EN CARTA === */
+    /* === BÚSQUEDA EN CARTA MEJORADA === */
     .search-container {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      position: relative;
     }
     
     .search-box {
       width: 100%;
-      padding: 12px 20px;
-      border: 1px solid #ddd;
-      border-radius: 25px;
-      font-size: 1rem;
-      transition: all 0.3s ease;
+      padding: 16px 25px;
+      border: 2px solid #ddd;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      transition: all 0.4s var(--transition-smooth);
+      background: white;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
     }
     
     .search-box:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(139, 46, 46, 0.1);
+      box-shadow: 0 0 0 4px rgba(139, 46, 46, 0.1), 0 12px 35px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
     }
 
-    /* === BOTONES === */
+    .search-box::placeholder {
+      color: #999;
+      transition: all 0.3s var(--transition-smooth);
+    }
+
+    .search-box:focus::placeholder {
+      opacity: 0.5;
+      transform: translateX(10px);
+    }
+
+    /* === BOTONES MEJORADOS === */
     .btn {
-      padding: 10px 20px;
+      padding: 14px 28px;
       border: none;
-      border-radius: 6px;
+      border-radius: 12px;
       cursor: pointer;
       font-size: 1rem;
-      transition: all 0.3s ease;
+      font-weight: 600;
+      transition: all 0.4s var(--transition-smooth);
       display: inline-block;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
     }
     
     .btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
     
     .btn-primary {
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent), #a83a3a);
       color: white;
     }
     
     .btn-primary:hover {
-      background: #7a2727;
-      box-shadow: 0 4px 12px rgba(139, 46, 46, 0.3);
+      background: linear-gradient(135deg, #7a2727, #8b2e2e);
+      box-shadow: 0 10px 25px rgba(139, 46, 46, 0.4);
     }
 
     .btn-secondary {
-      background: #f1e0c6;
+      background: linear-gradient(135deg, #f1e0c6, #e2cda0);
       color: #8b2e2e;
       border: 2px solid #8b2e2e;
     }
     
     .btn-secondary:hover {
-      background: #e2cda0;
-    }
-
-    /* === SECCIONES DESPLEGABLES === */
-    .toggle-section.card {
-      padding: 18px;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(12,12,12,0.1);
-      margin-bottom: 20px;
-      background: var(--card);
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    
-    .toggle-section summary {
-      cursor: pointer;
-      font-weight: bold;
-      display: block;
-      font-size: 1.1rem;
-      padding: 12px 0;
-      list-style: none;
-    }
-
-    .toggle-section summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .toggle-section summary .arrow {
-      float: right;
-      transition: transform 0.3s ease;
-    }
-
-    .toggle-section[open] summary .arrow {
-      transform: rotate(180deg);
-    }
-
-    .toggle-section .contenido {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease-out;
-    }
-
-    .toggle-section[open] .contenido {
-      max-height: 5000px;
+      background: linear-gradient(135deg, #e2cda0, #d4b989);
+      transform: translateY(-5px);
     }
 
     /* WhatsApp flotante */
     .whatsapp-btn {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, #25d366, #1ebe57);
       border-radius: 50%;
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,.3);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
       z-index: 1300;
-      transition: all 0.3s ease;
-      animation: fadeInUp 0.8s ease-out 1s both;
+      transition: all 0.4s var(--transition-smooth);
+      animation: fadeInUp 1s var(--transition-smooth) 1.2s both;
     }
     
     .whatsapp-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      transform: scale(1.15) rotate(10deg);
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
     }
     
     .whatsapp-btn img {
-      width: 35px;
-      height: 35px;
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s var(--transition-smooth);
+    }
+
+    .whatsapp-btn:hover img {
+      transform: scale(1.1);
     }
 
     /* === NAVEGACIÓN ENTRE PÁGINAS === */
@@ -446,11 +573,18 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 40px 0;
-      padding: 20px;
-      background: var(--card);
-      border-radius: 12px;
-      border: 2px solid var(--accent);
+      margin: 50px 0;
+      padding: 30px;
+      background: linear-gradient(135deg, var(--card), #e8d8bc);
+      border-radius: 20px;
+      border: 3px solid var(--accent);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      transition: all 0.4s var(--transition-smooth);
+    }
+
+    .page-nav:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
     }
 
     /* === RESPONSIVE === */
@@ -513,29 +647,39 @@
         right: 8px;
         margin-top:0;
         background: var(--glass-bg);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border-radius: 12px;
-        padding: 12px;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 16px;
+        padding: 20px;
         flex-direction: column;
         display: none;
-        gap: 12px;
-        box-shadow: 0 8px 30px rgba(0,0,0,.18);
+        gap: 15px;
+        box-shadow: 0 15px 50px rgba(0,0,0,.2);
         z-index: 1250;
+        animation: slideInFromTop 0.4s var(--transition-smooth);
       }
       nav ul.active{ display:flex; }
       
-      .hero-content h1{font-size:1.8rem}
+      .hero-content h1{font-size:2.2rem}
+      .hero-content p{font-size:1.1rem}
+      
+      .hero-banner {
+        background-attachment: scroll;
+        height: 40vh;
+        min-height: 300px;
+      }
       
       .page-nav {
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
         text-align: center;
+        padding: 25px;
       }
     }
 
     @media (max-width:520px){
-      .hero-content h1{font-size:1.6rem}
+      .hero-content h1{font-size:1.8rem}
+      .hero-content p{font-size:1rem}
       
       header{
         padding: 1px 6px;
@@ -543,6 +687,34 @@
       .nav-menu{
         padding: 0px 3px;
         min-height: 22px;
+      }
+      
+      .hero-banner {
+        height: 35vh;
+        min-height: 250px;
+        margin-top: 70px;
+      }
+      
+      .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      
+      .price {
+        align-self: flex-end;
+      }
+      
+      .whatsapp-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+      }
+
+      .whatsapp-btn img {
+        width: 35px;
+        height: 35px;
       }
     }
 
@@ -552,30 +724,111 @@
       margin-right: auto;
     }
     
-    .menu-category {
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 2px solid var(--accent);
+    .social-icons a {
+      display: inline-block;
+      margin-right: 15px;
+      transition: all 0.3s var(--transition-smooth);
     }
     
-    .menu-category h3 {
+    .social-icons a:hover {
+      transform: translateY(-5px) scale(1.1);
+    }
+    
+    .social-icons img {
+      transition: all 0.3s var(--transition-smooth);
+      filter: grayscale(30%);
+    }
+    
+    .social-icons a:hover img {
+      filter: grayscale(0%) brightness(1.1);
+    }
+
+    /* Estilos para las categorías del menú */
+    .menu-category {
+      margin-bottom: 40px;
+      padding-bottom: 25px;
+      border-bottom: 3px solid var(--accent);
+      position: relative;
+      animation: fadeInUp 0.6s var(--transition-smooth);
+    }
+    
+    .menu-category h2 {
       color: var(--accent);
-      padding-bottom: 10px;
-      margin-bottom: 15px;
-      border-bottom: 1px solid #ddd;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #e0e0e0;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .menu-category h2::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
     }
     
     .price {
       font-weight: bold;
       color: var(--accent);
       white-space: nowrap;
+      font-size: 1.1rem;
+      transition: all 0.3s var(--transition-smooth);
+      background: rgba(139, 46, 46, 0.05);
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(139, 46, 46, 0.2);
     }
     
     .description {
       font-size: 0.9rem;
       color: var(--muted);
       font-style: italic;
-      margin-top: 4px;
+      margin-top: 6px;
+      line-height: 1.4;
+      transition: all 0.3s var(--transition-smooth);
+    }
+
+    .menu-item:hover .description {
+      color: #555;
+      transform: translateX(5px);
+    }
+
+    /* Scroll personalizado */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 5px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 5px;
+      transition: all 0.3s var(--transition-smooth);
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7a2727;
+    }
+
+    /* Efecto de resaltado en búsqueda */
+    .highlight-search {
+      background-color: rgba(255, 255, 0, 0.3);
+      padding: 2px 4px;
+      border-radius: 4px;
+      animation: pulseHighlight 1.5s var(--transition-smooth);
+    }
+
+    @keyframes pulseHighlight {
+      0%, 100% { background-color: rgba(255, 255, 0, 0.3); }
+      50% { background-color: rgba(255, 255, 0, 0.6); }
     }
   </style>
 </head>
@@ -627,6 +880,7 @@
     <!-- Barra de búsqueda -->
     <div class="search-container">
       <input type="text" class="search-box" id="cartaSearch" placeholder="Buscar en la carta (ej: ensalada, cordero, bacalao)..." aria-label="Buscar en la carta" data-i18n-placeholder="search_placeholder">
+      <div style="text-align: center; margin-top: 10px; font-size: 0.9rem; color: var(--muted);" id="searchResults"></div>
     </div>
 
     <!-- PRIMEROS PLATOS -->
@@ -845,11 +1099,11 @@
     <!-- NAVEGACIÓN ENTRE PÁGINAS -->
     <div class="page-nav">
       <a href="index.html" class="btn btn-secondary">
-        <i class="fas fa-arrow-left" style="margin-right: 8px;"></i><span data-i18n="volver_inicio">Volver al inicio</span>
+        <i class="fas fa-arrow-left" style="margin-right: 10px;"></i><span data-i18n="volver_inicio">Volver al inicio</span>
       </a>
       
       <a href="menu-grupos.html" class="btn btn-primary">
-        <span data-i18n="ver_grupos">Ver Menús de Grupo</span> <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+        <span data-i18n="ver_grupos">Ver Menús de Grupo</span> <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
       </a>
     </div>
   </main>
@@ -857,15 +1111,43 @@
   <!-- FOOTER -->
   <footer class="container" role="contentinfo">
     <span class="social-icons" aria-label="Redes sociales">
-      <a href="https://www.instagram.com/restaurantlesguatlles/?hl=es" target="_blank" rel="noopener">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="20" height="20">
+      <a href="https://www.instagram.com/restaurantlesguatlles/?hl=es" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="22" height="22">
       </a>
-      <a href="https://www.facebook.com/Restaurantlesguatlles/?locale=es_ES" target="_blank" rel="noopener">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook" width="20" height="20">
+      <a href="https://www.facebook.com/Restaurantlesguatlles/?locale=es_ES" target="_blank" rel="noopener" aria-label="Facebook">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook" width="22" height="22">
       </a>
     </span>
     <span>© <span id="year"></span> <span data-i18n="title">Restaurant Les Guatlles</span></span>
   </footer>
+
+      <!-- FIRMA DE DESARROLLO -->
+    <div style="
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        width: 100%;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--muted);
+    ">
+        Esta página web ha sido creada por<br>
+        <a href="https://prounek.com" target="_blank" rel="noopener" style="text-decoration: none;">
+        <span style="
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 1.2rem;
+            background: linear-gradient(90deg, #000000, #c89116);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            margin-top: 5px;
+            transition: all 0.3s var(--transition-smooth);
+        ">Prounek</span>
+        </a>
+    </div>
+</footer>
 
   <!-- BOTÓN WHATSAPP -->
   <a href="https://wa.me/34977809022" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
@@ -891,69 +1173,166 @@
       initializeLanguage();
     });
 
-    // === SISTEMA DE BÚSQUEDA ===
+    // === SISTEMA DE BÚSQUEDA MEJORADO ===
     function initializeSearch() {
       const cartaSearch = document.getElementById('cartaSearch');
+      const searchResults = document.getElementById('searchResults');
+      
       if (cartaSearch) {
         cartaSearch.addEventListener('input', function(e) {
-          filterMenuItems(e.target.value.toLowerCase());
+          const results = filterMenuItems(e.target.value.toLowerCase().trim());
+          updateSearchResults(results);
+        });
+        
+        // Efecto de enfoque
+        cartaSearch.addEventListener('focus', function() {
+          this.style.transform = 'translateY(-3px)';
+          this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.1)';
+        });
+        
+        cartaSearch.addEventListener('blur', function() {
+          this.style.transform = 'translateY(0)';
+          this.style.boxShadow = '0 8px 25px rgba(0,0,0,0.05)';
         });
       }
     }
 
     function filterMenuItems(searchTerm) {
       const menuItems = document.querySelectorAll('.menu-item');
+      let foundCount = 0;
+      const originalTexts = new Map();
+      
+      // Guardar textos originales si es la primera vez
+      if (!window.menuOriginalTexts) {
+        window.menuOriginalTexts = new Map();
+        menuItems.forEach(item => {
+          const key = item.getAttribute('data-i18n-key');
+          if (key) {
+            const nameElement = item.querySelector('[data-i18n-name]') || item.querySelector('div:not(.price):not(.description)');
+            const descElement = item.querySelector('.description');
+            window.menuOriginalTexts.set(key, {
+              name: nameElement ? nameElement.textContent : '',
+              desc: descElement ? descElement.textContent : ''
+            });
+          }
+        });
+      }
       
       menuItems.forEach(item => {
         const text = item.textContent.toLowerCase();
-        if (text.includes(searchTerm)) {
+        
+        if (searchTerm === '' || text.includes(searchTerm)) {
           item.style.display = 'flex';
+          item.style.opacity = '1';
+          item.style.transform = 'translateX(0)';
+          foundCount++;
           
-          // Animación de aparición
-          item.style.opacity = '0';
-          item.style.transform = 'translateX(-10px)';
-          setTimeout(() => {
-            item.style.transition = 'all 0.3s ease';
-            item.style.opacity = '1';
-            item.style.transform = 'translateX(0)';
-          }, 50);
+          // Resaltar texto de búsqueda
+          if (searchTerm !== '') {
+            highlightSearchText(item, searchTerm);
+          } else {
+            removeHighlight(item);
+          }
         } else {
           item.style.display = 'none';
+          item.style.opacity = '0';
+          item.style.transform = 'translateX(-20px)';
         }
       });
       
-      // Mostrar mensaje si no hay resultados
+      // Mostrar/Ocultar categorías
       const categories = document.querySelectorAll('.menu-category');
       categories.forEach(category => {
         const visibleItems = category.querySelectorAll('.menu-item[style*="display: flex"]');
         if (visibleItems.length === 0) {
-          category.style.opacity = '0.5';
+          category.style.opacity = '0.3';
+          category.style.pointerEvents = 'none';
         } else {
           category.style.opacity = '1';
+          category.style.pointerEvents = 'auto';
+          
+          // Animación para categorías con resultados
+          category.style.animation = 'none';
+          setTimeout(() => {
+            category.style.animation = 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+          }, 10);
         }
       });
+      
+      return foundCount;
+    }
+
+    function highlightSearchText(item, searchTerm) {
+      const elements = item.querySelectorAll('div:not(.price)');
+      elements.forEach(element => {
+        const originalText = element.textContent;
+        const regex = new RegExp(`(${searchTerm})`, 'gi');
+        const highlightedText = originalText.replace(regex, '<span class="highlight-search">$1</span>');
+        
+        if (highlightedText !== originalText) {
+          element.innerHTML = highlightedText;
+        }
+      });
+    }
+
+    function removeHighlight(item) {
+      const elements = item.querySelectorAll('div:not(.price)');
+      elements.forEach(element => {
+        if (element.innerHTML.includes('highlight-search')) {
+          const key = item.getAttribute('data-i18n-key');
+          if (key && window.menuOriginalTexts && window.menuOriginalTexts.has(key)) {
+            const original = window.menuOriginalTexts.get(key);
+            if (element.hasAttribute('data-i18n-name') || !element.querySelector('.description')) {
+              element.textContent = original.name;
+            } else if (element.classList.contains('description')) {
+              element.textContent = original.desc;
+            }
+          } else {
+            element.innerHTML = element.textContent;
+          }
+        }
+      });
+    }
+
+    function updateSearchResults(count) {
+      const searchResults = document.getElementById('searchResults');
+      if (searchResults) {
+        if (count === 0 && document.getElementById('cartaSearch').value !== '') {
+          searchResults.textContent = 'No se encontraron resultados. Intenta con otra búsqueda.';
+          searchResults.style.color = '#8b2e2e';
+          searchResults.style.fontWeight = '500';
+        } else if (document.getElementById('cartaSearch').value !== '') {
+          searchResults.textContent = `Se encontraron ${count} platos`;
+          searchResults.style.color = '#2e8b57';
+          searchResults.style.fontWeight = '500';
+        } else {
+          searchResults.textContent = '';
+        }
+      }
     }
 
     // === ANIMACIONES AL SCROLL ===
     function initializeScrollAnimations() {
       const observerOptions = {
-        threshold: 0.1,
+        threshold: 0.05,
         rootMargin: '0px 0px -50px 0px'
       };
       
       const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animated');
+            setTimeout(() => {
+              entry.target.classList.add('animated');
+            }, 200);
             
-            // Efecto escalonado para los elementos del menú
+            // Efecto escalonado para los items del menú
             if (entry.target.classList.contains('menu-category')) {
               const menuItems = entry.target.querySelectorAll('.menu-item');
               menuItems.forEach((item, index) => {
                 setTimeout(() => {
                   item.style.opacity = '0';
                   item.style.transform = 'translateX(-20px)';
-                  item.style.transition = 'all 0.5s ease';
+                  item.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
                   setTimeout(() => {
                     item.style.opacity = '1';
                     item.style.transform = 'translateX(0)';
@@ -979,6 +1358,7 @@
       function toggleMenu() {
         const expanded = hamburger.getAttribute('aria-expanded') === 'true';
         hamburger.setAttribute('aria-expanded', String(!expanded));
+        hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
       }
       
@@ -991,6 +1371,7 @@
         link.addEventListener('click', () => {
           navLinks.classList.remove('active');
           hamburger.setAttribute('aria-expanded','false');
+          hamburger.classList.remove('active');
         });
       });
     }
@@ -1263,41 +1644,44 @@
             const key = item.getAttribute('data-i18n-key');
             if (key && translations[lang]) {
               // Nombre del plato
-              const nameElement = item.querySelector('[data-i18n-name]');
+              const nameElement = item.querySelector('[data-i18n]');
               if (nameElement) {
-                const nameKey = nameElement.getAttribute('data-i18n-name');
+                const nameKey = nameElement.getAttribute('data-i18n');
                 if (translations[lang][nameKey]) {
                   nameElement.textContent = translations[lang][nameKey];
                 }
               }
               
               // Descripción del plato
-              const descElement = item.querySelector('[data-i18n-desc]');
-              if (descElement) {
-                const descKey = descElement.getAttribute('data-i18n-desc');
-                if (translations[lang][descKey]) {
-                  descElement.textContent = translations[lang][descKey];
+              const descElements = item.querySelectorAll('[data-i18n]');
+              descElements.forEach(descEl => {
+                const descKey = descEl.getAttribute('data-i18n');
+                if (descKey.includes('_desc') && translations[lang][descKey]) {
+                  descEl.textContent = translations[lang][descKey];
                 }
-              }
+              });
               
               // Si no tiene elementos separados, traducir el texto directamente
-              if (!nameElement) {
-                const nameKey = key + '_name';
-                const descKey = key + '_desc';
-                
-                if (translations[lang][nameKey]) {
-                  // Buscar el primer div que no sea precio ni descripción
-                  const textDiv = item.querySelector('div:not(.price):not(.description)');
-                  if (textDiv && !textDiv.querySelector('.description')) {
-                    textDiv.textContent = translations[lang][nameKey];
+              const nameKey = key + '_name';
+              const descKey = key + '_desc';
+              
+              if (translations[lang][nameKey]) {
+                // Buscar el primer div que no sea precio ni descripción
+                const textDivs = item.querySelectorAll('div:not(.price):not(.description)');
+                textDivs.forEach(div => {
+                  if (!div.querySelector('.description') && !div.classList.contains('price')) {
+                    const existingText = div.textContent;
+                    if (existingText && !existingText.includes('€')) {
+                      div.textContent = translations[lang][nameKey];
+                    }
                   }
-                }
-                
-                // Actualizar descripción si existe
-                const descElement = item.querySelector('.description');
-                if (descElement && translations[lang][descKey]) {
-                  descElement.textContent = translations[lang][descKey];
-                }
+                });
+              }
+              
+              // Actualizar descripción si existe
+              const descElement = item.querySelector('.description');
+              if (descElement && translations[lang][descKey]) {
+                descElement.textContent = translations[lang][descKey];
               }
             }
           });
