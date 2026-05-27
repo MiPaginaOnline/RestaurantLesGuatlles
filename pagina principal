@@ -1,0 +1,1344 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Restaurant Les Guatlles – Roda de Berà</title>
+  <meta name="description" content="Restaurant Les Guatlles: cuina catalana de tota la vida a Roda de Berà, Tarragona. Obert dissabtes i diumenges. Reserves al 977 80 90 22."/>
+  <meta name="author" content="Restaurant Les Guatlles"/>
+  <meta name="google-site-verification" content="Jsw2X4J8L4KTGrGWxW3BbhvIanGpA91pAaKXPVNSlQM"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Restaurant Les Guatlles"/>
+  <meta property="og:description" content="Cuina catalana i casolana a Roda de Berà. Obert caps de setmana."/>
+  <meta property="og:type" content="restaurant"/>
+  <meta property="og:locale" content="es_ES"/>
+
+  <!-- Schema.org Restaurant -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Restaurant Les Guatlles",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Disseminat, 8",
+      "addressLocality": "Roda de Berà",
+      "postalCode": "43883",
+      "addressRegion": "Tarragona",
+      "addressCountry": "ES"
+    },
+    "telephone": "+34977809022",
+    "servesCuisine": "Catalan",
+    "openingHours": ["Sa 13:30-17:00", "Su 13:30-17:00"],
+    "url": "https://lesguatlles.com",
+    "priceRange": "€€"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ── TOKENS ─────────────────────────────────────── */
+    :root {
+      --ink:       #1c1a17;
+      --stone:     #4a4540;
+      --dust:      #9c8f82;
+      --parch:     #fff9e6;
+      --cream:     #fffdf7;
+      --terra:     #8b3a2a;
+      --terra-dk:  #6b2b1e;
+      --gold:      #b8925a;
+      --gold-lt:   #d4a96a;
+      --line:      rgba(28,26,23,0.08);
+
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'Jost', system-ui, sans-serif;
+
+      --ease: cubic-bezier(0.4,0,0.2,1);
+      --ease-out: cubic-bezier(0,0,0.2,1);
+    }
+
+    /* ── RESET ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── GRAIN OVERLAY ───────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.5;
+    }
+
+    /* ── TYPOGRAPHY ──────────────────────────────────── */
+    h1,h2,h3,h4 { font-family: var(--serif); font-weight: 400; line-height: 1.2; }
+    .label {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dust);
+    }
+
+    /* ── LAYOUT ──────────────────────────────────────── */
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+    .wrap--narrow { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      transition: background 0.5s var(--ease), padding 0.4s var(--ease), box-shadow 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(255,253,247,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 12px 0;
+      box-shadow: 0 1px 0 var(--line);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .nav-brand__name {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--ink);
+      transition: color 0.3s;
+    }
+    nav:not(.scrolled) .nav-brand__name { color: #fff; }
+    nav:not(.scrolled) .label { color: rgba(255,255,255,0.65); }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      transition: color 0.3s;
+      position: relative;
+    }
+    nav:not(.scrolled) .nav-links a { color: rgba(255,255,255,0.8); }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s var(--ease);
+    }
+    .nav-links a:hover { color: var(--gold-lt); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-lang {
+      display: flex;
+      gap: 8px;
+    }
+    .nav-lang button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 2px;
+      border-radius: 3px;
+      transition: transform 0.2s, opacity 0.2s;
+      opacity: 0.7;
+    }
+    .nav-lang button:hover { transform: scale(1.15); opacity: 1; }
+    .nav-lang img { width: 24px; height: 16px; border-radius: 2px; }
+
+    .nav-reserve {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      border: 1px solid var(--gold);
+      color: var(--gold-lt);
+      border-radius: 2px;
+      transition: background 0.3s, color 0.3s;
+      white-space: nowrap;
+    }
+    nav.scrolled .nav-reserve { color: var(--terra); border-color: var(--terra); }
+    .nav-reserve:hover { background: var(--terra); color: #fff !important; border-color: var(--terra); }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      width: 22px; height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      display: block;
+      transition: all 0.3s var(--ease);
+    }
+    nav.scrolled .hamburger span { background: var(--ink); }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+
+    /* ── HERO ────────────────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      background: #1a1208;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.45;
+      transform: scale(1.04);
+      animation: heroZoom 18s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.04); }
+      to   { transform: scale(1.10); }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      padding: 40px 32px;
+      animation: heroFade 1.4s var(--ease-out) both;
+    }
+    @keyframes heroFade {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      margin-bottom: 20px;
+      animation: heroFade 1.4s var(--ease-out) 0.2s both;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 24px;
+      animation: heroFade 1.4s var(--ease-out) 0.35s both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-lt);
+    }
+    .hero-sub {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      animation: heroFade 1.4s var(--ease-out) 0.5s both;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: heroFade 1.4s var(--ease-out) 0.65s both;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      animation: heroFade 1.4s var(--ease-out) 1.2s both;
+    }
+    .hero-scroll span {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: rgba(255,255,255,0.25);
+      position: relative;
+      overflow: hidden;
+      border-radius: 1px;
+    }
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gold-lt);
+      animation: scrollDrop 2s ease-in-out infinite;
+    }
+    @keyframes scrollDrop {
+      0%   { top: -100%; }
+      100% { top: 200%; }
+    }
+
+    /* ── BUTTONS ─────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      border-radius: 2px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--terra);
+      color: #fff;
+      border-color: var(--terra);
+    }
+    .btn-primary:hover { background: var(--terra-dk); border-color: var(--terra-dk); }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,0.5);
+    }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--terra);
+      border-color: var(--terra);
+    }
+    .btn-outline-dark:hover { background: var(--terra); color: #fff; }
+
+    /* ── DIVIDER ─────────────────────────────────────── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+    .divider-ornament {
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    /* ── SECTIONS ────────────────────────────────────── */
+    section { scroll-margin-top: 90px; }
+    .section { padding: 100px 0; }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-top: 12px;
+    }
+
+    /* ── REVEAL ANIMATION ────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── ABOUT ───────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+    .about-img-badge {
+      position: absolute;
+      bottom: -28px;
+      right: -28px;
+      width: 120px;
+      height: 120px;
+      background: var(--terra);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(139,58,42,0.35);
+    }
+    .about-img-badge strong {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .about-img-badge span {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+    .about-text h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin: 12px 0 24px; }
+    .about-text p { color: var(--stone); font-size: 0.95rem; margin-bottom: 18px; }
+    .about-features {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .about-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--stone);
+    }
+    .about-feature-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── MENU SECTION ────────────────────────────────── */
+    .menu-section { background: var(--parch); }
+    .menu-section .label { color: var(--dust); }
+    .menu-section h2 { color: var(--ink); }
+    
+    .menu-preview {
+      padding: 24px;
+    }
+    .menu-preview p {
+      margin-bottom: 32px;
+    }
+
+    .menu-cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+    .btn-gold {
+      background: transparent;
+      color: var(--gold-lt);
+      border: 1px solid var(--gold);
+    }
+    .btn-gold:hover { background: var(--gold); color: var(--ink); }
+
+    /* ── HORARIO ─────────────────────────────────────── */
+    .horario-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .horario-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .horario-table tr { border-bottom: 1px solid var(--line); }
+    .horario-table td { padding: 14px 0; font-size: 0.9rem; }
+    .horario-table td:first-child { color: var(--stone); }
+    .horario-table td:last-child { text-align: right; font-weight: 500; }
+    .horario-table .open td:last-child { color: var(--terra); }
+    .horario-table .closed-row td:last-child { color: var(--dust); font-weight: 300; font-size: 0.82rem; }
+    .horario-note {
+      margin-top: 28px;
+      padding: 20px 24px;
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 2px 2px 0;
+      font-size: 0.85rem;
+      color: var(--stone);
+      line-height: 1.6;
+    }
+    .contact-block h3 { font-size: 1.8rem; margin: 12px 0 24px; }
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.9rem;
+    }
+    .contact-line-icon {
+      width: 36px; height: 36px;
+      background: var(--parch);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .contact-line strong { display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dust); margin-bottom: 2px; }
+    .contact-line a { color: var(--ink); transition: color 0.2s; }
+    .contact-line a:hover { color: var(--terra); }
+    .contact-btns { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+
+    /* ── EVENTS ──────────────────────────────────────── */
+    .events-section { background: var(--cream); }
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .event-card {
+      background: var(--parch);
+      border: 1px solid var(--line);
+      padding: 36px 32px;
+      border-radius: 2px;
+      transition: transform 0.4s var(--ease), box-shadow 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .event-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 0;
+      background: var(--terra);
+      transition: height 0.4s var(--ease);
+    }
+    .event-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(28,26,23,0.08); }
+    .event-card:hover::after { height: 100%; }
+    .event-icon { margin-bottom: 20px; color: var(--terra); }
+    .event-card h3 { font-size: 1.4rem; margin-bottom: 10px; }
+    .event-card p { font-size: 0.875rem; color: var(--stone); line-height: 1.7; }
+
+    /* ── GALERÍA ─────────────────────────────────────── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, 240px);
+      gap: 6px;
+      margin-top: 48px;
+    }
+    .gal-item { overflow: hidden; border-radius: 2px; cursor: zoom-in; }
+    .gal-item:nth-child(1) { grid-column: 1 / 6; grid-row: 1 / 2; }
+    .gal-item:nth-child(2) { grid-column: 6 / 9; grid-row: 1 / 2; }
+    .gal-item:nth-child(3) { grid-column: 9 / 13; grid-row: 1 / 2; }
+    .gal-item:nth-child(4) { grid-column: 1 / 4; grid-row: 2 / 3; }
+    .gal-item:nth-child(5) { grid-column: 4 / 8; grid-row: 2 / 3; }
+    .gal-item:nth-child(6) { grid-column: 8 / 13; grid-row: 2 / 3; }
+    .gal-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s var(--ease);
+      filter: saturate(0.85);
+    }
+    .gal-item:hover img { transform: scale(1.06); filter: saturate(1); }
+
+    /* lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(10,8,5,0.95);
+      z-index: 500;
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s;
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox img {
+      max-width: min(90vw, 1100px);
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 2px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px; right: 28px;
+      background: none; border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 2rem;
+      cursor: pointer;
+      transition: color 0.2s;
+      line-height: 1;
+    }
+    .lightbox-close:hover { color: #fff; }
+
+    /* ── MAPA ────────────────────────────────────────── */
+    .mapa-wrap { margin-top: 48px; }
+    .mapa-wrap iframe {
+      width: 100%;
+      height: 420px;
+      border: 0;
+      border-radius: 2px;
+      filter: saturate(0.7) contrast(1.05);
+    }
+    .mapa-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 2px;
+    }
+    .mapa-info-cell {
+      background: var(--cream);
+      padding: 24px 28px;
+      font-size: 0.85rem;
+    }
+    .mapa-info-cell strong {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dust);
+      margin-bottom: 6px;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.4);
+      padding: 64px 0 40px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .footer-brand h3 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: var(--parch);
+      margin-bottom: 12px;
+    }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.7; }
+    .footer-col h4 {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold-lt); }
+    .footer-social { display: flex; gap: 14px; margin-top: 4px; }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      transition: all 0.3s;
+    }
+    .footer-social a:hover { border-color: var(--gold); color: var(--gold-lt); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 28px;
+      font-size: 0.78rem;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.3); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--gold-lt); }
+
+    /* ── WHATSAPP FLOAT ──────────────────────────────── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 56px; height: 56px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+      z-index: 200;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 12px 32px rgba(37,211,102,0.5); }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+
+    /* ── MOBILE NAV DRAWER ───────────────────────────── */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--cream);
+      z-index: 90;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+    .nav-drawer a:hover { color: var(--terra); }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media(max-width:960px){
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-img-badge { right: 12px; }
+      .horario-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .events-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media(max-width:700px){
+      .wrap { padding: 0 20px; }
+      .wrap--narrow { padding: 0 20px; }
+      .section { padding: 72px 0; }
+      .nav-links, .nav-reserve, .nav-lang { display: none; }
+      .hamburger { display: flex; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .gal-item { grid-column: auto !important; grid-row: auto !important; height: 180px; }
+      .mapa-info { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media(max-width:420px){
+      .hero h1 { font-size: 2.6rem; }
+      .events-grid, .gallery-grid { grid-template-columns: 1fr; }
+      .gal-item { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── LIGHTBOX ──────────────────────────────────────── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lb-close" aria-label="Cerrar">×</button>
+  <img id="lb-img" src="" alt=""/>
+</div>
+
+<!-- ── NAV ───────────────────────────────────────────── -->
+<nav id="nav" role="navigation">
+  <div class="wrap nav-inner">
+    <a href="#" class="nav-brand">
+      <span class="nav-brand__name" data-i18n="title">Restaurant Les Guatlles</span>
+      <span class="label" data-i18n="location">Roda de Berà · Tarragona</span>
+    </a>
+    <ul class="nav-links" role="menu">
+      <li><a href="#nosotros" data-i18n="nav_about">Nosotros</a></li>
+      <li><a href="#carta" data-i18n="nav_menu">La Carta</a></li>
+      <li><a href="#horario" data-i18n="nav_hours">Horario</a></li>
+      <li><a href="#eventos" data-i18n="nav_events">Eventos</a></li>
+      <li><a href="#galeria" data-i18n="nav_gallery">Galería</a></li>
+      <li><a href="#ubicacion" data-i18n="nav_location">Ubicación</a></li>
+    </ul>
+    <div style="display:flex;gap:12px;align-items:center;">
+      <div class="nav-lang">
+        <button data-lang="es" aria-label="Español"><img src="https://flagcdn.com/es.svg" alt="ES"/></button>
+        <button data-lang="ca" aria-label="Català"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Catalonia.svg" alt="CA"/></button>
+        <button data-lang="en" aria-label="English"><img src="https://flagcdn.com/gb.svg" alt="EN"/></button>
+      </div>
+      <a href="tel:+34977809022" class="nav-reserve btn" data-i18n="nav_reserve">Reservar</a>
+      <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── MOBILE DRAWER ──────────────────────────────────── -->
+<div class="nav-drawer" id="nav-drawer">
+  <a href="#nosotros" data-i18n="nav_about">Nosotros</a>
+  <a href="#carta" data-i18n="nav_menu">La Carta</a>
+  <a href="#horario" data-i18n="nav_hours">Horario</a>
+  <a href="#eventos" data-i18n="nav_events">Eventos</a>
+  <a href="#galeria" data-i18n="nav_gallery">Galería</a>
+  <a href="#ubicacion" data-i18n="nav_location">Ubicación</a>
+  <a href="tel:+34977809022" class="btn btn-primary" data-i18n="nav_reserve">Reservar</a>
+</div>
+
+<!-- ── HERO ───────────────────────────────────────────── -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow label" data-i18n="hero_eyebrow">Desde siempre · Roda de Berà</p>
+    <h1>Les <em>Guatlles</em></h1>
+    <p class="hero-sub" data-i18n="hero_sub">Cuina catalana de tota la vida, en un mas de pedra enmig de la natura.</p>
+    <div class="hero-actions">
+      <a href="#carta" class="btn btn-primary" data-i18n="hero_cta1">Nuestra Carta</a>
+      <a href="#horario" class="btn btn-outline" data-i18n="hero_cta2">Reservar</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span data-i18n="scroll">Descubrir</span>
+  </div>
+</section>
+
+<!-- ── NOSOTROS ───────────────────────────────────────── -->
+<section class="section" id="nosotros">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <img
+          class="about-img-main"
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+          alt="Interior del Restaurant Les Guatlles"
+          loading="lazy"/>
+        <div class="about-img-badge">
+          <strong>+20</strong>
+          <span data-i18n="badge_years">años</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="label reveal reveal-delay-1" data-i18n="about_label">Nuestra historia</p>
+        <h2 class="reveal reveal-delay-2" data-i18n="about_title">Una cuina feta amb calma i amb seny</h2>
+        <div class="divider reveal reveal-delay-2"><div class="divider-ornament">✦</div></div>
+        <p class="reveal reveal-delay-3" data-i18n="about_p1">Les Guatlles nació de la pasión por la cocina de siempre. Un restaurante de pueblo, sin prisas, donde los sabores son los de antes: el escudella de la abuela, los caracoles a la llauna, el cordero al fuego.</p>
+        <p class="reveal reveal-delay-3" data-i18n="about_p2">Situados en una masía de piedra rodeada de naturaleza, a 15 minutos de Tarragona. Abrimos solo los fines de semana — para poder hacerlo bien.</p>
+        <div class="about-features reveal reveal-delay-4">
+          <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="feat1">Producto de proximidad y temporada</span></div>
+          <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="feat2">Cocina tradicional catalana sin artificios</span></div>
+          <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="feat3">Espacio rústico para grupos y celebraciones</span></div>
+          <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="feat4">Calçotadas en temporada (enero–marzo)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CARTA ──────────────────────────────────────────── -->
+<section class="section menu-section" id="carta">
+  <div class="wrap">
+    <div class="section-header">
+      <p class="label" data-i18n="menu_label">La carta</p>
+      <h2 data-i18n="menu_title">Sabores de Cataluña</h2>
+    </div>
+    
+    <div class="menu-preview reveal" style="text-align:center;max-width:680px;margin:0 auto;">
+      <p style="font-size:1.1rem;color:var(--stone);line-height:1.8;margin-bottom:32px" data-i18n="menu_preview_text">
+        Descubre nuestra amplia selección de platos tradicionales catalanes, 
+        elaborados con ingredientes frescos de proximidad y todo el sabor de nuestra tierra.
+      </p>
+      <a href="carta.html" class="btn btn-primary" data-i18n="menu_cta">Ver la carta completa</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── HORARIO & CONTACTO ─────────────────────────────── -->
+<section class="section" id="horario">
+  <div class="wrap">
+    <div class="section-header">
+      <p class="label" data-i18n="hours_label">Información práctica</p>
+      <h2 data-i18n="hours_title">Horario y reservas</h2>
+    </div>
+    <div class="horario-wrap">
+      <div class="reveal">
+        <p class="label" style="margin-bottom:16px" data-i18n="hours_sublabel">Horario semanal</p>
+        <table class="horario-table" aria-label="Horario del restaurante">
+          <tbody>
+            <tr class="closed-row"><td data-i18n="mon">Lunes</td><td data-i18n="closed">Cerrado</td></tr>
+            <tr class="closed-row"><td data-i18n="tue">Martes</td><td data-i18n="closed">Cerrado</td></tr>
+            <tr class="closed-row"><td data-i18n="wed">Miércoles</td><td data-i18n="closed">Cerrado</td></tr>
+            <tr class="closed-row"><td data-i18n="thu">Jueves</td><td data-i18n="closed">Cerrado</td></tr>
+            <tr class="closed-row"><td data-i18n="fri">Viernes</td><td data-i18n="closed">Cerrado</td></tr>
+            <tr class="open"><td data-i18n="sat">Sábado</td><td>13:30 – 17:00</td></tr>
+            <tr class="open"><td data-i18n="sun">Domingo</td><td>13:30 – 17:00</td></tr>
+          </tbody>
+        </table>
+        <div class="horario-note" data-i18n="hours_note">
+          Abrimos solo los fines de semana. Para grupos entre semana, consúltenos — podemos abrir con reserva anticipada.
+        </div>
+      </div>
+      <div class="contact-block reveal reveal-delay-2">
+        <p class="label" data-i18n="contact_label">Contacto</p>
+        <h3 data-i18n="contact_title">Hablamos</h3>
+        <div class="contact-line">
+          <div class="contact-line-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M2 6a2 2 0 012-2h3l2 5-2.5 1.5a11 11 0 005 5L13 13l5 2v3a2 2 0 01-2 2A17 17 0 012 6z"/></svg>
+          </div>
+          <div>
+            <strong data-i18n="contact_tel_label">Teléfono / Reservas</strong>
+            <a href="tel:+34977809022">+34 977 80 90 22</a>
+          </div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-line-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>
+          </div>
+          <div>
+            <strong data-i18n="contact_addr_label">Dirección</strong>
+            <span>Disseminat, 8 · 43883 Roda de Berà</span>
+          </div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-line-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.75" fill="currentColor"/></svg>
+          </div>
+          <div>
+            <strong>Instagram</strong>
+            <a href="https://www.instagram.com/restaurantlesguatlles/" target="_blank" rel="noopener">@restaurantlesguatlles</a>
+          </div>
+        </div>
+        <div class="contact-btns">
+          <a href="tel:+34977809022" class="btn btn-primary" data-i18n="cta_call">Llamar para reservar</a>
+          <a href="https://wa.me/34977809022" class="btn btn-outline-dark" target="_blank" rel="noopener" data-i18n="cta_wa">Escribir por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EVENTOS ────────────────────────────────────────── -->
+<section class="section events-section" id="eventos">
+  <div class="wrap">
+    <div class="section-header">
+      <p class="label" data-i18n="events_label">Celebraciones y eventos</p>
+      <h2 data-i18n="events_title">Lo hacemos a vuestra medida</h2>
+    </div>
+    <div class="events-grid">
+      <div class="event-card reveal">
+        <div class="event-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="28" height="28"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2A7.2 7.2 0 014.8 15c.03-2.38 4.8-3.68 7.2-3.68 2.39 0 7.17 1.3 7.2 3.68a7.2 7.2 0 01-7.2 4.2z"/></svg>
+        </div>
+        <h3 data-i18n="ev1_title">Calçotades</h3>
+        <p data-i18n="ev1_text">De enero a marzo, vivid la tradición más arraigada de Cataluña. Calçots a la brasa, romesco de la casa y sobremesa larga. Para grupos mínimo de 20 personas.</p>
+      </div>
+      <div class="event-card reveal reveal-delay-1">
+        <div class="event-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="28" height="28"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        </div>
+        <h3 data-i18n="ev2_title">Celebraciones familiares</h3>
+        <p data-i18n="ev2_text">Bautizos, comuniones, cumpleaños, aniversarios. Un entorno de masía con espacio para grupos grandes, sin el agobio de los restaurantes de ciudad.</p>
+      </div>
+      <div class="event-card reveal reveal-delay-2">
+        <div class="event-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="28" height="28"><path d="M20 7H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM4 5h16M8 5V3M16 5V3"/></svg>
+        </div>
+        <h3 data-i18n="ev3_title">Comidas de empresa</h3>
+        <p data-i18n="ev3_text">Alejarse de la oficina y comer bien. Menús cerrados, atención exclusiva y ambiente tranquilo para que vuestra gente se encuentre de verdad.</p>
+      </div>
+      <div class="event-card reveal reveal-delay-3">
+        <div class="event-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="28" height="28"><path d="M12 21l-1-1C5.4 14.4 2 11.3 2 7.5 2 4.4 4.4 2 7.5 2c1.7 0 3.4.9 4.5 2.3C13.1 2.9 14.8 2 16.5 2 19.6 2 22 4.4 22 7.5c0 3.8-3.4 6.9-9 12.5l-1 1z"/></svg>
+        </div>
+        <h3 data-i18n="ev4_title">Bodas y enlaces</h3>
+        <p data-i18n="ev4_text">El entorno rural y la cocina de proximidad hacen de Les Guatlles un marco único para celebrar vuestro día. Consultadnos disponibilidad y menú.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px" class="reveal">
+      <a href="tel:+34977809022" class="btn btn-primary" data-i18n="events_cta">Consultar disponibilidad</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALERÍA ────────────────────────────────────────── -->
+<section class="section" id="galeria">
+  <div class="wrap">
+    <div class="section-header">
+      <p class="label" data-i18n="gallery_label">Imágenes</p>
+      <h2 data-i18n="gallery_title">El restaurant</h2>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gal-item" data-full="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=85">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=75" alt="Sala principal del restaurant" loading="lazy"/>
+      </div>
+      <div class="gal-item" data-full="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=85">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=75" alt="Plats de la cuina catalana" loading="lazy"/>
+      </div>
+      <div class="gal-item" data-full="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=85">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=75" alt="Cuina de proximitat" loading="lazy"/>
+      </div>
+      <div class="gal-item" data-full="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=85">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=75" alt="Brasa i foc" loading="lazy"/>
+      </div>
+      <div class="gal-item" data-full="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1200&q=85">
+        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=75" alt="Plats tradicionals" loading="lazy"/>
+      </div>
+      <div class="gal-item" data-full="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1200&q=85">
+        <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&q=75" alt="Terrassa i entorn" loading="lazy"/>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:0.78rem;color:var(--dust)" data-i18n="gallery_note">Haz clic en cualquier imagen para ampliarla</p>
+  </div>
+</section>
+
+<!-- ── UBICACIÓN ──────────────────────────────────────── -->
+<section class="section" id="ubicacion" style="background:var(--cream)">
+  <div class="wrap">
+    <div class="section-header">
+      <p class="label" data-i18n="loc_label">Cómo llegar</p>
+      <h2 data-i18n="loc_title">Ubicación</h2>
+    </div>
+    <div class="mapa-wrap reveal">
+      <iframe
+        title="Mapa Restaurant Les Guatlles, Roda de Berà"
+        src="https://www.google.com/maps?q=Disseminat+8+Roda+de+Bera+Tarragona&output=embed"
+        allowfullscreen
+        loading="lazy"
+        aria-label="Mapa de ubicación de Restaurant Les Guatlles en Roda de Berà">
+      </iframe>
+      <div class="mapa-info">
+        <div class="mapa-info-cell">
+          <strong data-i18n="loc_address_label">Dirección</strong>
+          Disseminat, 8<br>43883 Roda de Berà, Tarragona
+        </div>
+        <div class="mapa-info-cell">
+          <strong data-i18n="loc_distance_label">Distancias</strong>
+          <span data-i18n="loc_distances">15 min de Tarragona · 20 min de Reus · 60 min de Barcelona</span>
+        </div>
+        <div class="mapa-info-cell">
+          <strong data-i18n="loc_parking_label">Aparcamiento</strong>
+          <span data-i18n="loc_parking">Amplio aparcamiento gratuito junto al restaurante</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:24px">
+        <a href="https://maps.google.com/?q=Disseminat+8+Roda+de+Bera+Tarragona"
+           class="btn btn-outline-dark" target="_blank" rel="noopener" data-i18n="loc_cta">
+          Abrir en Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Restaurant Les Guatlles</h3>
+        <p data-i18n="footer_desc">Cuina catalana de tota la vida a Roda de Berà. Oberts dissabtes i diumenges, de 13:30 a 17:00.</p>
+        <div class="footer-social" style="margin-top:20px">
+          <a href="https://www.instagram.com/restaurantlesguatlles/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/Restaurantlesguatlles/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.tripadvisor.es/Restaurant_Review-g911517-d994936-Reviews-Restaurant_Les_Guatlles-Roda_de_Bara_Province_of_Tarragona_Catalonia.html" target="_blank" rel="noopener" aria-label="TripAdvisor">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="6.5" cy="13.5" r="2.5"/><circle cx="17.5" cy="13.5" r="2.5"/><path d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 2c1.48 0 2.87.41 4.07 1.12L14.5 7.5H9.5L7.93 6.12C9.13 5.41 10.52 5 12 5zm-7 7c0-1.1.27-2.14.74-3.07L7 10.5H5.07C5.03 10.99 5 11.49 5 12h2zm9 5.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-4-7h8l-1.5-2h-5L7 10.5h2zm6 5.5c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_nav_label">Navegación</h4>
+        <ul class="footer-links">
+          <li><a href="#nosotros" data-i18n="nav_about">Nosotros</a></li>
+          <li><a href="#carta" data-i18n="nav_menu">La Carta</a></li>
+          <li><a href="#horario" data-i18n="nav_hours">Horario</a></li>
+          <li><a href="#eventos" data-i18n="nav_events">Eventos</a></li>
+          <li><a href="#galeria" data-i18n="nav_gallery">Galería</a></li>
+          <li><a href="#ubicacion" data-i18n="nav_location">Ubicación</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_contact_label">Contacto</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+34977809022">977 80 90 22</a></li>
+          <li><span>Disseminat, 8</span></li>
+          <li><span>43883 Roda de Berà</span></li>
+          <li><span>Tarragona</span></li>
+        </ul>
+        <div style="margin-top:20px;font-size:0.8rem;line-height:1.7">
+          <span data-i18n="footer_hours_label">Sáb–Dom · 13:30–17:00</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="yr"></span> Restaurant Les Guatlles · <span data-i18n="footer_rights">Tots els drets reservats</span></span>
+      <span data-i18n="footer_dev">Web realitzada per <a href="https://prounek.com" target="_blank" rel="noopener">Prounek</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WHATSAPP ────────────────────────────────────────── -->
+<a class="wa-float" href="https://wa.me/34977809022" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+/* ── YEAR ──────────────────────────────────────────────── */
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ── NAV SCROLL ────────────────────────────────────────── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ── HAMBURGER + DRAWER ─────────────────────────────────── */
+const hbg = document.getElementById('hamburger');
+const drawer = document.getElementById('nav-drawer');
+hbg.addEventListener('click', () => {
+  const open = hbg.classList.toggle('open');
+  hbg.setAttribute('aria-expanded', open);
+  drawer.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+drawer.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    hbg.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+/* ── SMOOTH SCROLL ──────────────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const href = link.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
+    if (!target) return;
+    e.preventDefault();
+    const top = target.getBoundingClientRect().top + window.scrollY - 90;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
+
+/* ── REVEAL ON SCROLL ───────────────────────────────────── */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ── LIGHTBOX ───────────────────────────────────────────── */
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
+document.querySelectorAll('.gal-item').forEach(item => {
+  item.addEventListener('click', () => {
+    lbImg.src = item.dataset.full;
+    lbImg.alt = item.querySelector('img').alt;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+function closeLb() {
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => { lbImg.src = ''; }, 400);
+}
+document.getElementById('lb-close').addEventListener('click', closeLb);
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+/* ── TRANSLATIONS ───────────────────────────────────────── */
+const t = {
+  es: {
+    title:"Restaurant Les Guatlles", location:"Roda de Berà · Tarragona",
+    nav_about:"Nosotros", nav_menu:"La Carta", nav_hours:"Horario",
+    nav_events:"Eventos", nav_gallery:"Galería", nav_location:"Ubicación", nav_reserve:"Reservar",
+    hero_eyebrow:"Desde siempre · Roda de Berà",
+    hero_sub:"Cocina catalana de toda la vida, en una masía de piedra en medio de la naturaleza.",
+    hero_cta1:"Nuestra Carta", hero_cta2:"Reservar", scroll:"Descubrir",
+    badge_years:"años", about_label:"Nuestra historia",
+    about_title:"Una cocina hecha con calma y con sentido",
+    about_p1:"Les Guatlles nació de la pasión por la cocina de siempre. Un restaurante de pueblo, sin prisas, donde los sabores son los de antes: la escudella de la abuela, los caracoles a la llauna, el cordero al fuego.",
+    about_p2:"Situados en una masía de piedra rodeada de naturaleza, a 15 minutos de Tarragona. Abrimos solo los fines de semana — para poder hacerlo bien.",
+    feat1:"Producto de proximidad y temporada", feat2:"Cocina tradicional catalana sin artificios",
+    feat3:"Espacio rústico para grupos y celebraciones", feat4:"Calçotadas en temporada (enero–marzo)",
+    menu_label:"La carta", menu_title:"Sabores de Cataluña",
+    menu_preview_text:"Descubre nuestra amplia selección de platos tradicionales catalanes, elaborados con ingredientes frescos de proximidad y todo el sabor de nuestra tierra.",
+    menu_cta:"Ver la carta completa",
+    hours_label:"Información práctica", hours_title:"Horario y reservas", hours_sublabel:"Horario semanal",
+    mon:"Lunes", tue:"Martes", wed:"Miércoles", thu:"Jueves", fri:"Viernes", sat:"Sábado", sun:"Domingo", closed:"Cerrado",
+    hours_note:"Abrimos solo los fines de semana. Para grupos entre semana, consúltenos — podemos abrir con reserva anticipada.",
+    contact_label:"Contacto", contact_title:"Hablamos",
+    contact_tel_label:"Teléfono / Reservas", contact_addr_label:"Dirección",
+    cta_call:"Llamar para reservar", cta_wa:"Escribir por WhatsApp",
+    events_label:"Celebraciones y eventos", events_title:"Lo hacemos a vuestra medida",
+    ev1_title:"Calçotadas", ev1_text:"De enero a marzo, vivid la tradición más arraigada de Cataluña. Calçots a la brasa, romesco de la casa y sobremesa larga. Para grupos mínimo de 20 personas.",
+    ev2_title:"Celebraciones familiares", ev2_text:"Bautizos, comuniones, cumpleaños, aniversarios. Un entorno de masía con espacio para grupos grandes, sin el agobio de los restaurantes de ciudad.",
+    ev3_title:"Comidas de empresa", ev3_text:"Alejarse de la oficina y comer bien. Menús cerrados, atención exclusiva y ambiente tranquilo para que vuestra gente se encuentre de verdad.",
+    ev4_title:"Bodas y enlaces", ev4_text:"El entorno rural y la cocina de proximidad hacen de Les Guatlles un marco único para celebrar vuestro día. Consultadnos disponibilidad y menú.",
+    events_cta:"Consultar disponibilidad",
+    gallery_label:"Imágenes", gallery_title:"El restaurante", gallery_note:"Haz clic en cualquier imagen para ampliarla",
+    loc_label:"Cómo llegar", loc_title:"Ubicación",
+    loc_address_label:"Dirección", loc_distance_label:"Distancias",
+    loc_distances:"15 min de Tarragona · 20 min de Reus · 60 min de Barcelona",
+    loc_parking_label:"Aparcamiento", loc_parking:"Amplio aparcamiento gratuito junto al restaurante",
+    loc_cta:"Abrir en Google Maps",
+    footer_desc:"Cocina catalana de toda la vida en Roda de Berà. Abrimos sábados y domingos, de 13:30 a 17:00.",
+    footer_nav_label:"Navegación", footer_contact_label:"Contacto",
+    footer_hours_label:"Sáb–Dom · 13:30–17:00", footer_rights:"Todos los derechos reservados",
+    footer_dev:"Web realizada por "
+  },
+  ca: {
+    title:"Restaurant Les Guatlles", location:"Roda de Berà · Tarragona",
+    nav_about:"Nosaltres", nav_menu:"La Carta", nav_hours:"Horari",
+    nav_events:"Esdeveniments", nav_gallery:"Galeria", nav_location:"Ubicació", nav_reserve:"Reservar",
+    hero_eyebrow:"De sempre · Roda de Berà",
+    hero_sub:"Cuina catalana de tota la vida, en un mas de pedra enmig de la natura.",
+    hero_cta1:"La nostra carta", hero_cta2:"Reservar", scroll:"Descobrir",
+    badge_years:"anys", about_label:"La nostra història",
+    about_title:"Una cuina feta amb calma i amb seny",
+    about_p1:"Les Guatlles va néixer de la passió per la cuina de sempre. Un restaurant de poble, sense presses, on els sabors són els d'abans: l'escudella de l'àvia, els cargols a la llauna, el xai al foc.",
+    about_p2:"Situats en un mas de pedra envoltat de natura, a 15 minuts de Tarragona. Obrim només els caps de setmana — per poder-ho fer bé.",
+    feat1:"Producte de proximitat i temporada", feat2:"Cuina tradicional catalana sense artificis",
+    feat3:"Espai rústic per a grups i celebracions", feat4:"Calçotades en temporada (gener–març)",
+    menu_label:"La carta", menu_title:"Sabors de Catalunya",
+    menu_preview_text:"Descobreix la nostra àmplia selecció de plats tradicionals catalans, elaborats amb ingredients frescos de proximitat i tot el sabor de la nostra terra.",
+    menu_cta:"Veure la carta completa",
+    hours_label:"Informació pràctica", hours_title:"Horari i reserves", hours_sublabel:"Horari setmanal",
+    mon:"Dilluns", tue:"Dimarts", wed:"Dimecres", thu:"Dijous", fri:"Divendres", sat:"Dissabte", sun:"Diumenge", closed:"Tancat",
+    hours_note:"Obrim només els caps de setmana. Per a grups entre setmana, consulteu-nos — podem obrir amb reserva anticipada.",
+    contact_label:"Contacte", contact_title:"Parlem",
+    contact_tel_label:"Telèfon / Reserves", contact_addr_label:"Adreça",
+    cta_call:"Trucar per reservar", cta_wa:"Escriure per WhatsApp",
+    events_label:"Celebracions i esdeveniments", events_title:"Ho fem a la vostra mida",
+    ev1_title:"Calçotades", ev1_text:"De gener a març, viviu la tradició més arrelada de Catalunya. Calçots a la brasa, romesco de la casa i sobretaula llarga. Per a grups mínim de 20 persones.",
+    ev2_title:"Celebracions familiars", ev2_text:"Batejos, comunions, aniversaris, aniversaris de casament. Un entorn de mas amb espai per a grups grans.",
+    ev3_title:"Dinars d'empresa", ev3_text:"Allunyar-se de l'oficina i menjar bé. Menús tancats, atenció exclusiva i ambient tranquil.",
+    ev4_title:"Casaments i enllaços", ev4_text:"L'entorn rural i la cuina de proximitat fan de Les Guatlles un marc únic per celebrar el vostre dia.",
+    events_cta:"Consultar disponibilitat",
+    gallery_label:"Imatges", gallery_title:"El restaurant", gallery_note:"Fes clic a qualsevol imatge per ampliar-la",
+    loc_label:"Com arribar", loc_title:"Ubicació",
+    loc_address_label:"Adreça", loc_distance_label:"Distàncies",
+    loc_distances:"15 min de Tarragona · 20 min de Reus · 60 min de Barcelona",
+    loc_parking_label:"Aparcament", loc_parking:"Ampli aparcament gratuït vora el restaurant",
+    loc_cta:"Obrir a Google Maps",
+    footer_desc:"Cuina catalana de tota la vida a Roda de Berà. Oberts dissabtes i diumenges, de 13:30 a 17:00.",
+    footer_nav_label:"Navegació", footer_contact_label:"Contacte",
+    footer_hours_label:"Dis–Diu · 13:30–17:00", footer_rights:"Tots els drets reservats",
+    footer_dev:"Web realitzada per "
+  },
+  en: {
+    title:"Restaurant Les Guatlles", location:"Roda de Berà · Tarragona",
+    nav_about:"About", nav_menu:"Menu", nav_hours:"Hours",
+    nav_events:"Events", nav_gallery:"Gallery", nav_location:"Location", nav_reserve:"Book",
+    hero_eyebrow:"A timeless place · Roda de Berà",
+    hero_sub:"Traditional Catalan home cooking in a stone farmhouse surrounded by nature.",
+    hero_cta1:"Our Menu", hero_cta2:"Book a table", scroll:"Discover",
+    badge_years:"years", about_label:"Our story",
+    about_title:"Cooking made with patience and purpose",
+    about_p1:"Les Guatlles was born from a love of old-fashioned cooking. A village restaurant, unhurried, where flavours are as they used to be: grandmother's escudella, snails on the fire, lamb over embers.",
+    about_p2:"Situated in a stone farmhouse surrounded by nature, 15 minutes from Tarragona. We open weekends only — so we can do it right.",
+    feat1:"Local and seasonal produce", feat2:"Traditional Catalan cooking, no frills",
+    feat3:"Rustic space for groups and celebrations", feat4:"Calçotades in season (January–March)",
+    menu_label:"Menu", menu_title:"Flavors of Catalonia",
+    menu_preview_text:"Discover our wide selection of traditional Catalan dishes, made with fresh local ingredients and all the flavor of our land.",
+    menu_cta:"See full menu",
+    hours_label:"Practical info", hours_title:"Opening hours & bookings", hours_sublabel:"Weekly schedule",
+    mon:"Monday", tue:"Tuesday", wed:"Wednesday", thu:"Thursday", fri:"Friday", sat:"Saturday", sun:"Sunday", closed:"Closed",
+    hours_note:"We open weekends only. For weekday group bookings, get in touch — we can open with advance reservation.",
+    contact_label:"Contact", contact_title:"Get in touch",
+    contact_tel_label:"Phone / Bookings", contact_addr_label:"Address",
+    cta_call:"Call to book", cta_wa:"Message on WhatsApp",
+    events_label:"Celebrations & events", events_title:"Tailored to you",
+    ev1_title:"Calçotades", ev1_text:"January to March — experience Catalonia's most beloved tradition. Calçots grilled over fire, house romesco sauce and long, relaxed lunches. Groups of 20+.",
+    ev2_title:"Family celebrations", ev2_text:"Christenings, communions, birthdays, anniversaries. A farmhouse setting with room for large groups, away from city noise.",
+    ev3_title:"Company lunches", ev3_text:"Get away from the office and eat well. Set menus, exclusive attention and a calm atmosphere.",
+    ev4_title:"Weddings", ev4_text:"The rural setting and local cuisine make Les Guatlles a unique venue for your special day. Enquire about availability.",
+    events_cta:"Check availability",
+    gallery_label:"Gallery", gallery_title:"The restaurant", gallery_note:"Click any image to expand",
+    loc_label:"How to get here", loc_title:"Location",
+    loc_address_label:"Address", loc_distance_label:"Distances",
+    loc_distances:"15 min from Tarragona · 20 min from Reus · 60 min from Barcelona",
+    loc_parking_label:"Parking", loc_parking:"Free parking available next to the restaurant",
+    loc_cta:"Open in Google Maps",
+    footer_desc:"Traditional Catalan cooking in Roda de Berà. Open Saturday and Sunday, 13:30–17:00.",
+    footer_nav_label:"Navigation", footer_contact_label:"Contact",
+    footer_hours_label:"Sat–Sun · 13:30–17:00", footer_rights:"All rights reserved",
+    footer_dev:"Website by "
+  }
+};
+
+function applyLang(lang) {
+  const d = t[lang] || t.es;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.textContent = d[k];
+  });
+  try { localStorage.setItem('lang', lang); } catch(e){}
+}
+
+const saved = (() => { try { return localStorage.getItem('lang'); } catch(e){ return null; } })();
+applyLang(saved || 'es');
+
+document.querySelectorAll('.nav-lang button').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+});
+</script>
+</body>
+</html>
