@@ -230,7 +230,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=80');
+      background-image: url('ChatGPT Image 27 may 2026, 13_44_56.png');
       background-size: cover;
       background-position: center;
       opacity: 0.45;
@@ -846,8 +846,8 @@
   <div class="hero-bg"></div>
   <div class="hero-content">
     <p class="hero-eyebrow label" data-i18n="hero_eyebrow">Desde siempre · Roda de Berà</p>
-    <h1>Les <em>Guatlles</em></h1>
-    <p class="hero-sub" data-i18n="hero_sub">Cuina catalana de tota la vida, en un mas de pedra enmig de la natura.</p>
+    <h1>Restaurant <em>Les <em>Guatlles</em></h1>
+    <p class="hero-sub" data-i18n="hero_sub">Cocina catalana y casera en un entorno rústico y familiar.</p>
     <div class="hero-actions">
       <a href="#carta" class="btn btn-primary" data-i18n="hero_cta1">Nuestra Carta</a>
       <a href="#horario" class="btn btn-outline" data-i18n="hero_cta2">Reservar</a>
@@ -866,25 +866,19 @@
       <div class="about-img-wrap reveal">
         <img
           class="about-img-main"
-          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+          src="ChatGPT Image 27 may 2026, 14_03_05.png"
           alt="Interior del Restaurant Les Guatlles"
           loading="lazy"/>
         <div class="about-img-badge">
-          <strong>+20</strong>
+          <strong>+40</strong>
           <span data-i18n="badge_years">años</span>
         </div>
       </div>
       <div class="about-text">
         <p class="label reveal reveal-delay-1" data-i18n="about_label">Nuestra historia</p>
-        <h2 class="reveal reveal-delay-2" data-i18n="about_title">Una cuina feta amb calma i amb seny</h2>
+        <h2 class="reveal reveal-delay-2" data-i18n="about_title">Les Guatlles</h2>
         <div class="divider reveal reveal-delay-2"><div class="divider-ornament">✦</div></div>
-        <p class="reveal reveal-delay-3" data-i18n="about_p1">Les Guatlles nació de la pasión por la cocina de siempre. Un restaurante de pueblo, sin prisas, donde los sabores son los de antes: el escudella de la abuela, los caracoles a la llauna, el cordero al fuego.</p>
-        <p class="reveal reveal-delay-3" data-i18n="about_p2">Situados en una masía de piedra rodeada de naturaleza, a 15 minutos de Tarragona. Abrimos solo los fines de semana — para poder hacerlo bien.</p>
-        <div class="about-features reveal reveal-delay-4">
-          <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="feat1">Producto de proximidad y temporada</span></div>
-          <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="feat2">Cocina tradicional catalana sin artificios</span></div>
-          <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="feat3">Espacio rústico para grupos y celebraciones</span></div>
-          <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="feat4">Calçotadas en temporada (enero–marzo)</span></div>
+        <p class="reveal reveal-delay-3" data-i18n="about_p1">En Les Guatlles ofrecemos cocina catalana auténtica en un ambiente rústico y moderno. Nuestro espacio está rodeado de naturaleza y pensado para disfrutar en familia. Con más de 20 años de experiencia, mantenemos la tradición mientras innovamos para ofrecerte la mejor experiencia gastronómica.</p>
         </div>
       </div>
     </div>
@@ -895,8 +889,7 @@
 <section class="section menu-section" id="carta">
   <div class="wrap">
     <div class="section-header">
-      <p class="label" data-i18n="menu_label">La carta</p>
-      <h2 data-i18n="menu_title">Sabores de Cataluña</h2>
+      <h2 data-i18n="menu_title">La Carta</h2>
     </div>
     
     <div class="menu-preview reveal" style="text-align:center;max-width:680px;margin:0 auto;">
@@ -931,12 +924,11 @@
           </tbody>
         </table>
         <div class="horario-note" data-i18n="hours_note">
-          Abrimos solo los fines de semana. Para grupos entre semana, consúltenos — podemos abrir con reserva anticipada.
         </div>
       </div>
       <div class="contact-block reveal reveal-delay-2">
         <p class="label" data-i18n="contact_label">Contacto</p>
-        <h3 data-i18n="contact_title">Hablamos</h3>
+        <h3 data-i18n="contact_title">Reservas</h3>
         <div class="contact-line">
           <div class="contact-line-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M2 6a2 2 0 012-2h3l2 5-2.5 1.5a11 11 0 005 5L13 13l5 2v3a2 2 0 01-2 2A17 17 0 012 6z"/></svg>
@@ -986,7 +978,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="28" height="28"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2A7.2 7.2 0 014.8 15c.03-2.38 4.8-3.68 7.2-3.68 2.39 0 7.17 1.3 7.2 3.68a7.2 7.2 0 01-7.2 4.2z"/></svg>
         </div>
         <h3 data-i18n="ev1_title">Calçotades</h3>
-        <p data-i18n="ev1_text">De enero a marzo, vivid la tradición más arraigada de Cataluña. Calçots a la brasa, romesco de la casa y sobremesa larga. Para grupos mínimo de 20 personas.</p>
+        <p data-i18n="ev1_text">De enero a marzo, vivid la tradición más arraigada de Cataluña. Calçots a la brasa, romesco de la casa y sobremesa larga.</p>
       </div>
       <div class="event-card reveal reveal-delay-1">
         <div class="event-icon">
